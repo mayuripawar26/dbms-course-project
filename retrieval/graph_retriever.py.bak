@@ -1,0 +1,700 @@
+
+"""
+GraphRAG Banking Compliance & Risk Intelligence System
+Retrieves regulatory evidence using BM25 and customer risk data from Neo4j.
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+from pathlib import Path
+from typing import Any, Dict, Optional
+
+from dotenv import load_dotenv
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except (AttributeError, OSError):
+        pass
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from retrieval.document_retriever import DocumentRetriever
+
+try:
+    from neo4j import GraphDatabase
+except ImportError:
+    GraphDatabase = None
+
+
+def normalize(value: Any) -> str:
+    return re.sub(r"\s+", " ", str(value or "").strip()).casefold()
+
+
+def get_value(properties: Dict[str, Any], *keys: str,
+              default: str = "") -> str:
+    for key in keys:
+        value = properties.get(key)
+        if value is not None and str(value).strip():
+            return str(value).strip()
+    return default
+
+
+class GraphRetriever:
+    def __init__(self, project_root: Optional[Path] = None):
+        self.project_root = Path(project_root or PROJECT_ROOT)
+        chunks_path = (
+            self.project_root / "data" / "processed" / "chunks.json"
+        )
+        self.doc_retriever = DocumentRetriever(chunks_path)
+        self.database = "neo4j"
+        self.driver = self._init_neo4j()
+        self.local_graph = self._load_local_graph()
+
+    def _init_neo4j(self):
+        if GraphDatabase is None:
+            print("[!] Neo4j driver missing; local fallback enabled.")
+            return None
+
+        env_file = self.project_root / ".env"
+        load_dotenv(
+            env_file if env_file.exists() else None,
+            override=False
+        )
+
+        uri = os.getenv("NEO4J_URI", "").strip()
+        username = os.getenv("NEO4J_USER", "neo4j").strip()
+        password = os.getenv("NEO4J_PASSWORD", "")
+        self.database = (
+            os.getenv("NEO4J_DATABASE", "neo4j").strip() or "neo4j"
+        )
+
+        if not uri or not password:
+            print("[!] Neo4j configuration missing; local fallback enabled.")
+            return None
+
+        try:
+            driver = GraphDatabase.driver(
+                uri, auth=(username, password)
+            )
+            driver.verify_connectivity()
+            print("[+] Connected to Neo4j.")
+            return driver
+        except Exception as exc:
+            print(f"[!] Neo4j connection failed: {exc}")
+            return None
+
+    def close(self):
+        if self.driver is not None:
+            self.driver.close()
+            self.driver = None
+
+    def _load_local_graph(self):
+        folder = self.project_root / "data" / "synthetic"
+        specs = {
+            "customers": ("customers.json", ("customer_id", "id")),
+            "accounts": (
+                "accounts.json",
+                ("account_number", "account_id", "id")
+            ),
+            "transactions": (
+                "transactions.json",
+                ("tx_id", "transaction_id", "id")
+            ),
+            "scenarios": (
+                "scenarios.json",
+                ("scenario_id", "id")
+            ),
+        }
+        graph = {key: {} for key in specs}
+
+        for key, (filename, id_keys) in specs.items():
+            path = folder / filename
+            if not path.exists():
+                print(f"[!] Local file not found: {path}")
+                continue
+
+            try:
+                with path.open("r", encoding="utf-8") as file:
+                    rows = json.load(file)
+
+                if not isinstance(rows, list):
+                    print(f"[!] Expected a list in {filename}.")
+                    continue
+
+                for row in rows:
+                    if not isinstance(row, dict):
+                        continue
+                    record_id = get_value(row, *id_keys)
+                    if record_id:
+                        graph[key][record_id] = row
+
+            except (OSError, json.JSONDecodeError, TypeError) as exc:
+                print(f"[!] Could not load {filename}: {exc}")
+
+        print(
+            f"[+] Loaded {len(graph['customers'])} local synthetic customers."
+        )
+        return graph
+
+    @staticmethod
+    def customer_name(customer):
+        return get_value(
+            customer,
+            "full_name",
+            "customer_name",
+            "name",
+            "business_name"
+        )
+
+    def find_name_in_query(self, query: str) -> Optional[str]:
+        """Find a known customer name explicitly mentioned in a query."""
+        query_lower = normalize(query)
+        names = [
+            self.customer_name(customer)
+            for customer in self.local_graph["customers"].values()
+        ]
+
+        # Also retrieve customer names from Neo4j.
+        if self.driver is not None:
+            cypher = """
+            MATCH (c:Customer)
+            WITH coalesce(
+                c.full_name,
+                c.customer_name,
+                c.name,
+                c.business_name
+            ) AS customer_name
+            WHERE customer_name IS NOT NULL
+            RETURN DISTINCT customer_name AS name
+            """
+            try:
+                with self.driver.session(
+                    database=self.database
+                ) as session:
+                    names.extend(
+                        record["name"]
+                        for record in session.run(cypher)
+                        if record.get("name")
+                    )
+            except Exception as exc:
+                print(f"[!] Customer-name search failed: {exc}")
+
+        matches = list(dict.fromkeys(
+            str(name).strip()
+            for name in names
+            if name and normalize(name) in query_lower
+        ))
+
+        if len(matches) == 1:
+            return matches[0]
+
+        if len(matches) > 1:
+            print(
+                "[!] Multiple customer names found: "
+                + ", ".join(matches)
+            )
+
+        return None
+
+    def find_customer_by_name(self, customer_name: str) -> Optional[str]:
+        """Resolve an exact customer name to a unique customer ID."""
+        target = normalize(customer_name)
+
+        matches = [
+            str(customer_id)
+            for customer_id, customer
+            in self.local_graph["customers"].items()
+            if normalize(self.customer_name(customer)) == target
+        ]
+        matches = list(dict.fromkeys(matches))
+
+        if len(matches) == 1:
+            return matches[0]
+
+        if len(matches) > 1:
+            print("[!] Customer name is not unique in local data.")
+            return None
+
+        if self.driver is not None:
+            cypher = """
+            MATCH (c:Customer)
+            WITH c, coalesce(
+                c.full_name,
+                c.customer_name,
+                c.name,
+                c.business_name
+            ) AS nm
+            WHERE nm IS NOT NULL
+              AND toLower(trim(nm)) = toLower(trim($name))
+            RETURN c.customer_id AS customer_id
+            """
+            try:
+                with self.driver.session(
+                    database=self.database
+                ) as session:
+                    ids = [
+                        str(record["customer_id"])
+                        for record in session.run(
+                            cypher, name=customer_name
+                        )
+                        if record.get("customer_id")
+                    ]
+
+                ids = list(dict.fromkeys(ids))
+                if len(ids) == 1:
+                    return ids[0]
+
+                if len(ids) > 1:
+                    print("[!] Multiple Neo4j customers have this name.")
+
+            except Exception as exc:
+                print(f"[!] Neo4j name lookup failed: {exc}")
+
+        return None
+
+    def trace_customer_risk_graph(
+        self, customer_id: str
+    ) -> Dict[str, Any]:
+        """Retrieve customer, accounts, transactions and risk patterns."""
+        if self.driver is not None:
+            cypher = """
+            MATCH (c:Customer {customer_id: $customer_id})
+            OPTIONAL MATCH (c)-[:OWNS_ACCOUNT]->(a:Account)
+            OPTIONAL MATCH (a)-[:SENT_TRANSACTION]->(sent:Transaction)
+            OPTIONAL MATCH (received:Transaction)-[:TO_ACCOUNT]->(a)
+            OPTIONAL MATCH (sent)-[:TRIGGERS_INDICATOR]->(sr:RiskIndicator)
+            OPTIONAL MATCH (received)-[:TRIGGERS_INDICATOR]->(rr:RiskIndicator)
+            OPTIONAL MATCH (c)-[:EXHIBITS_PATTERN]->(f:FraudPattern)
+            RETURN c,
+                   collect(DISTINCT a) AS accounts,
+                   collect(DISTINCT sent) +
+                       collect(DISTINCT received) AS transactions,
+                   collect(DISTINCT sr) +
+                       collect(DISTINCT rr) AS indicators,
+                   collect(DISTINCT f) AS patterns
+            """
+
+            try:
+                with self.driver.session(
+                    database=self.database
+                ) as session:
+                    record = session.run(
+                        cypher, customer_id=customer_id
+                    ).single()
+
+                if record is not None:
+                    def unique_properties(items, keys):
+                        result = {}
+                        for item in items:
+                            if item is None:
+                                continue
+                            properties = dict(item)
+                            key = get_value(
+                                properties, *keys,
+                                default=str(properties)
+                            )
+                            result[key] = properties
+                        return list(result.values())
+
+                    patterns = unique_properties(
+                        record["patterns"], ("pattern_id", "name")
+                    )
+
+                    return {
+                        "source": "Neo4j_Live_Graph",
+                        "customer": dict(record["c"]),
+                        "accounts": unique_properties(
+                            record["accounts"],
+                            ("account_number", "account_id")
+                        ),
+                        "transactions": unique_properties(
+                            record["transactions"],
+                            ("tx_id", "transaction_id")
+                        ),
+                        "risk_indicators": unique_properties(
+                            record["indicators"],
+                            ("indicator_id", "name")
+                        ),
+                        "fraud_pattern": (
+                            patterns[0] if patterns else None
+                        ),
+                        "fraud_patterns": patterns,
+                    }
+
+                print(
+                    f"[!] Customer {customer_id} not found in Neo4j; "
+                    "trying local data."
+                )
+
+            except Exception as exc:
+                print(f"[!] Neo4j graph query failed: {exc}")
+                print("[!] Trying local synthetic data.")
+
+        customer = self.local_graph["customers"].get(customer_id)
+
+        if customer is None:
+            return {
+                "source": "Local_Graph_Index",
+                "error": (
+                    f"Customer '{customer_id}' was not found in "
+                    "Neo4j or local synthetic data."
+                ),
+            }
+
+        accounts = [
+            account
+            for account in self.local_graph["accounts"].values()
+            if get_value(
+                account, "customer_id", "owner_customer_id"
+            ) == customer_id
+        ]
+
+        account_ids = {
+            get_value(
+                account, "account_number", "account_id", "account_no"
+            )
+            for account in accounts
+        } - {""}
+
+        transactions = []
+        for transaction in self.local_graph["transactions"].values():
+            sender = get_value(
+                transaction, "sender_account", "from_account",
+                "source_account"
+            )
+            receiver = get_value(
+                transaction, "receiver_account", "to_account",
+                "target_account"
+            )
+            if sender in account_ids or receiver in account_ids:
+                transactions.append(transaction)
+
+        indicators = list(dict.fromkeys(
+            transaction["risk_indicator"]
+            for transaction in transactions
+            if transaction.get("risk_indicator")
+        ))
+
+        scenario_id = get_value(
+            customer, "flagged_scenario", "scenario_id"
+        )
+        scenario = self.local_graph["scenarios"].get(scenario_id)
+
+        return {
+            "source": "Local_Graph_Index",
+            "customer": customer,
+            "accounts": accounts,
+            "transactions": transactions,
+            "risk_indicators": indicators,
+            "fraud_pattern": scenario,
+            "fraud_patterns": [scenario] if scenario else [],
+        }
+
+    def retrieve_hybrid_context(
+        self,
+        query: str,
+        customer_id: Optional[str] = None,
+        top_chunks: int = 3,
+    ) -> Dict[str, Any]:
+        documents = self.doc_retriever.search(
+            query, top_k=max(1, top_chunks)
+        )
+        graph = (
+            self.trace_customer_risk_graph(customer_id)
+            if customer_id else {}
+        )
+        return {
+            "query": query,
+            "retrieval_mode": "Hybrid_GraphRAG",
+            "document_evidence": documents,
+            "graph_context": graph,
+        }
+
+    def format_llm_prompt(self, context: Dict[str, Any]) -> str:
+        """Prepare grounded evidence for an LLM; no LLM call is made."""
+        query = context.get("query", "")
+        documents = context.get("document_evidence", [])
+        graph = context.get("graph_context", {})
+
+        lines = [
+            "=" * 80,
+            "SYSTEM PROMPT: GraphRAG Banking Compliance & Risk Intelligence",
+            "=" * 80,
+            "You are a Banking Compliance and Risk Intelligence Assistant.",
+            "Instructions:",
+            "1. Ground regulatory claims only in supplied evidence.",
+            "2. Label customer graph records as synthetic test data.",
+            "3. Cite document name, section and page when available.",
+            "4. Risk indicators are signals for investigation, not proof of fraud.",
+            "5. Separate stored facts, regulations and inferences.",
+            "6. State clearly when information is missing.",
+            "",
+            f"USER INQUIRY: {query}",
+            "",
+            "--- PART A: REGULATORY DOCUMENT EVIDENCE ---",
+        ]
+
+        if not documents:
+            lines.append("No regulatory document chunks were retrieved.")
+
+        for index, document in enumerate(documents, start=1):
+            lines.extend([
+                f"[{index}] Citation: {document.get('citation', 'Unknown')}",
+                "BM25 score (not a confidence probability): "
+                + str(document.get("score", "not provided")),
+                "Evidence: "
+                + str(document.get("text", document.get("snippet", ""))),
+                "",
+            ])
+
+        lines.append(
+            "--- PART B: CUSTOMER GRAPH EVIDENCE (SYNTHETIC TEST DATA) ---"
+        )
+
+        if not graph:
+            lines.append("No customer-specific graph evidence was retrieved.")
+        elif graph.get("error"):
+            lines.append("Graph retrieval issue: " + graph["error"])
+        else:
+            customer = graph.get("customer") or {}
+            pattern = graph.get("fraud_pattern") or {}
+
+            lines.extend([
+                f"Graph source: {graph.get('source', 'unknown')}",
+                "Customer ID: "
+                + get_value(customer, "customer_id", default="unknown"),
+                "Customer name: "
+                + (self.customer_name(customer) or "unknown"),
+                "KYC / CDD status: "
+                + get_value(
+                    customer, "kyc_status", "kyc_status_label",
+                    default="unknown"
+                ),
+                "Recorded risk rating: "
+                + get_value(
+                    customer, "risk_rating", "risk_level",
+                    default="unknown"
+                ),
+                "Recorded typology: "
+                + get_value(
+                    pattern, "name", "typology",
+                    default="none retrieved"
+                ),
+                "Typology description: "
+                + get_value(
+                    pattern, "description", "details",
+                    default="not available"
+                ),
+                "Risk indicators: "
+                + json.dumps(
+                    graph.get("risk_indicators", []),
+                    ensure_ascii=False,
+                    default=str
+                ),
+                f"Linked accounts ({len(graph.get('accounts', []))}):",
+            ])
+
+            for account in graph.get("accounts", [])[:20]:
+                lines.append(
+                    " - Account: "
+                    + get_value(
+                        account, "account_number", "account_id",
+                        "account_no", default="unknown"
+                    )
+                    + " | Type: "
+                    + get_value(
+                        account, "account_type", "type",
+                        default="unknown"
+                    )
+                    + " | Status: "
+                    + get_value(
+                        account, "status", "account_status",
+                        default="unknown"
+                    )
+                )
+
+            lines.append(
+                f"Associated transactions "
+                f"({len(graph.get('transactions', []))}):"
+            )
+
+            for transaction in graph.get("transactions", [])[:20]:
+                lines.append(
+                    " - Transaction: "
+                    + get_value(
+                        transaction, "tx_id", "transaction_id",
+                        default="unknown"
+                    )
+                    + " | Amount: "
+                    + get_value(
+                        transaction, "amount_inr", "amount",
+                        default="unknown"
+                    )
+                    + " "
+                    + get_value(transaction, "currency", default="INR")
+                    + " | Channel: "
+                    + get_value(transaction, "channel", default="unknown")
+                    + " | Type/direction: "
+                    + get_value(
+                        transaction, "type", "direction",
+                        "transaction_type", default="unknown"
+                    )
+                    + " | Timestamp: "
+                    + get_value(
+                        transaction, "timestamp", "transaction_date",
+                        default="unknown"
+                    )
+                    + " | Sender: "
+                    + get_value(
+                        transaction, "sender_account", "from_account",
+                        default="not available"
+                    )
+                    + " | Receiver: "
+                    + get_value(
+                        transaction, "receiver_account", "to_account",
+                        default="not available"
+                    )
+                )
+
+        lines.extend([
+            "",
+            "=" * 80,
+            "SYNTHESIS OBJECTIVE",
+            "Answer using only supplied evidence. Explain risks plainly, cite sources,",
+            "identify missing information, and do not invent facts or infer guilt.",
+            "=" * 80,
+        ])
+        return "\n".join(lines)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Hybrid GraphRAG banking compliance retriever."
+    )
+    parser.add_argument("--query", type=str, default=(
+        "Which transactions require enhanced due diligence under applicable rules?"
+    ))
+    parser.add_argument(
+        "--customer-id", type=str, default=None,
+        help="Explicit customer ID to trace"
+    )
+    parser.add_argument(
+        "--customer-name", type=str, default=None,
+        help="Explicit customer name to resolve"
+    )
+    parser.add_argument(
+        "--prompt-only", action="store_true",
+        help="Print evidence prompt; does not call an LLM"
+    )
+    parser.add_argument(
+        "--top-k", type=int, default=3,
+        help="Number of regulatory chunks to retrieve"
+    )
+    args = parser.parse_args()
+
+    if args.top_k < 1:
+        parser.error("--top-k must be at least 1")
+
+    retriever = GraphRetriever()
+
+    try:
+        customer_id = args.customer_id
+        customer_name = args.customer_name
+
+        if not customer_id and not customer_name:
+            customer_name = retriever.find_name_in_query(args.query)
+            if customer_name:
+                print(
+                    "[+] Customer name detected in query: "
+                    + customer_name
+                )
+
+        if not customer_id and customer_name:
+            customer_id = retriever.find_customer_by_name(customer_name)
+            if not customer_id:
+                print(
+                    f"[!] Could not uniquely find customer: {customer_name}"
+                )
+                print(
+                    "[!] Check customer names and IDs in "
+                    "data/synthetic/customers.json and Neo4j."
+                )
+            else:
+                print(f"[+] Customer matched: {customer_id}")
+
+        context = retriever.retrieve_hybrid_context(
+            query=args.query,
+            customer_id=customer_id,
+            top_chunks=args.top_k,
+        )
+
+        if args.prompt_only:
+            print(retriever.format_llm_prompt(context))
+            return 0
+
+        print(f"\n[*] Query: {args.query}")
+        documents = context.get("document_evidence", [])
+        print(f"[*] Retrieved {len(documents)} regulatory chunks.")
+
+        for document in documents:
+            print(
+                " - "
+                + document.get("citation", "Source metadata unavailable")
+            )
+
+        graph = context.get("graph_context", {})
+
+        if not graph:
+            print("[*] No customer-specific graph context selected.")
+            print(
+                "[*] Include a customer name or use "
+                "--customer-name/--customer-id."
+            )
+        elif graph.get("error"):
+            print("[!] Graph retrieval: " + graph["error"])
+            return 1
+        else:
+            customer = graph.get("customer") or {}
+            pattern = graph.get("fraud_pattern") or {}
+
+            print("[*] Graph source: " + graph.get("source", "unknown"))
+            print(
+                "    Customer: "
+                + (retriever.customer_name(customer) or "unknown")
+            )
+            print(
+                "    Risk rating: "
+                + get_value(
+                    customer, "risk_rating", "risk_level",
+                    default="unknown"
+                )
+            )
+            print("    Accounts: " + str(len(graph.get("accounts", []))))
+            print(
+                "    Transactions: "
+                + str(len(graph.get("transactions", [])))
+            )
+            print("    Risk indicators: " + str(graph.get("risk_indicators", [])))
+            print(
+                "    Recorded typology: "
+                + get_value(
+                    pattern, "name", "typology",
+                    default="none retrieved"
+                )
+            )
+
+        print("[*] Use --prompt-only to inspect the full evidence prompt.")
+        return 0
+
+    finally:
+        retriever.close()
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

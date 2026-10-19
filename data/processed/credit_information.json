@@ -1,0 +1,649 @@
+{
+  "doc_id": "credit_information",
+  "filename": "Credit information.pdf",
+  "filepath": "C:\\Users\\Shreeya B. Kulkarni\\Desktop\\DBms_project\\data\\Credit information.pdf",
+  "sha256": "f2030693f830aa1953fecc5e028e356cee324eab00497403ef3d3cbbaa75dc14",
+  "extracted_at": "2026-10-17T11:56:05.899707",
+  "total_pages": 50,
+  "total_chars": 89738,
+  "zero_text_pages": 0,
+  "ocr_needed_pages": 0,
+  "status": "SUCCESS",
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Acrobat PDFMaker 26 for Word",
+    "creation_date": "D:20260808130933+05'30'"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "char_count": 3193,
+      "word_count": 264,
+      "image_count": 0,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter I - Preliminary ............................................................................................. 4",
+        "A. Short Title and Commencement ................................",
+        "B. Applicability ..............................................."
+      ],
+      "text": "भारतीय įरज़वर् बैंक \nReserve Bank of India \nपयर्वेक्षण ͪ वभाग, भारतीय ǐरज़वर् बैंक, केंद्रȣय कायार्लय, मेकर टावर-ई, 20वीं मंिजल, कफ परेड, कोलाबा, मुंबई-400 005  \nदूरभाष: 022-2216 1816 ई-मेल: csite@rbi.org.in \nDepartment of Supervision, Reserve Bank of India, Central Office, Maker Tower-E, 20th floor, Cuffe Parade, Colaba, Mumbai- 400 005 \nTel: 022- 2216 1816 Email: csite@rbi.org.in \n \nǑहंदȣ आसान है इसका प्रयोग बढ़ाइए \nRBI/DoS/2026-27/470 \nDoS.CO.CSITEG.64/31.01.015/2026-27                                                 July 31, 2026 \nReserve Bank of India (Credit Information Companies – Cybersecurity, \nTechnology: Risk, Resilience and Assurance Framework) Directions, 2026 \nTable of Contents \nChapter I - Preliminary ............................................................................................. 4 \nA. Short Title and Commencement ..................................................................... 4 \nB. Applicability ..................................................................................................... 4 \nC. Definitions ........................................................................................................ 4 \nChapter II - Role of the Board ................................................................................ 10 \nA. Board Approved Policies .............................................................................. 10 \nB. Board Level Committees ............................................................................... 10 \nChapter III - Information Technology Governance and Oversight ..................... 11 \nA. IT Governance Framework ............................................................................ 11 \nB. Information Security Policy and Cybersecurity Policy ............................... 11 \nC. IT Strategy Committee of the Board ............................................................. 12 \nD. Senior Management and IT Steering Committee ........................................ 13 \nE. Information Security Committee .................................................................. 14 \nF. Head of IT Function ....................................................................................... 15 \nG. Chief Information Security Officer ............................................................... 15 \nH. Information Technology Project Management ............................................ 17 \nI. IT Architecture ................................................................................................ 17 \nJ. IT Services Management ............................................................................... 18 \nChapter IV - IT and Information Security Risk Management .............................. 19 \nA. Periodic Review of IT related Risks ............................................................. 19 \nB. IT and Information Security Risk Management Framework ....................... 19 \nC. Risk Identification, Assessment, and Documentation ................................ 19 \nChapter V - Baseline Cybersecurity and Resilience Requirements ................... 21 \nA. Inventory Management of Information Assets ............................................ 21"
+    },
+    {
+      "page_number": 2,
+      "char_count": 3438,
+      "word_count": 226,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "B. Data Leak Prevention Strategy ...............................",
+        "C. Data Migration Controls .....................................",
+        "D. Preventing Execution of Unauthorised Software ...............",
+        "E. Physical and Environmental Controls .........................",
+        "F. Capacity Management .........................................",
+        "G. Secure Configuration ........................................",
+        "H. Network Management and Security .............................",
+        "I. Application Security Life Cycle .............................",
+        "J. Maintenance, Monitoring, and Analysis of Audit Logs .........",
+        "K. Patch, Vulnerability and Change Management ..................",
+        "L. User Access Control / Management ............................",
+        "M. Controls on Teleworking ....................................."
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n2 \n \nB. Data Leak Prevention Strategy ..................................................................... 21 \nC. Data Migration Controls ................................................................................ 22 \nD. Preventing Execution of Unauthorised Software ........................................ 22 \nE. Physical and Environmental Controls ......................................................... 23 \nF. Capacity Management ................................................................................... 23 \nG. Secure Configuration .................................................................................... 24 \nH. Network Management and Security ............................................................. 24 \nI. Application Security Life Cycle .................................................................... 25 \nJ. Maintenance, Monitoring, and Analysis of Audit Logs ............................... 27 \nK. Patch, Vulnerability and Change Management ........................................... 28 \nL. User Access Control / Management ............................................................. 29 \nM. Controls on Teleworking ............................................................................... 30 \nN. Authentication Framework for Customers .................................................. 31 \nO. Secure Mail and Messaging Systems .......................................................... 31 \nP. Removable Media .......................................................................................... 31 \nQ. Third-Party Arrangements............................................................................. 32 \nR. Cryptographic Controls ................................................................................. 33 \nS. Straight Through Processing ....................................................................... 34 \nT. Continuous Surveillance ............................................................................... 34 \nU. Advanced Real-time Threat Defence and Management .............................. 34 \nV. Anti-Phishing ................................................................................................. 35 \nW. Vulnerability Assessment and Penetration Test ......................................... 35 \nX. Red Teaming Exercises ................................................................................. 37 \nY. Business Continuity Planning and Disaster Recovery ............................... 37 \nZ. Cyber Incident Response and Recovery Management ............................... 38 \nAA. \nMetrics ...................................................................................................... 41 \nBB. \nUser / Employee / Management Awareness ........................................... 42 \nCC. \nCustomer Education and Awareness ..................................................... 43 \nDD. \nRisk based Transaction Monitoring ....................................................... 43 \nEE. \nForensics .................................................................................................. 43 \nChapter VI - Cyber Security Operations Centre ................................................... 44 \nA. Governance .................................................................................................... 44"
+    },
+    {
+      "page_number": 3,
+      "char_count": 898,
+      "word_count": 58,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "B. Capabilities ................................................",
+        "C. Staff Capabilities ..........................................",
+        "Chapter VII - Information Systems Audit .............................................................. 48",
+        "Chapter VIII - Repeal and Other Provisions ......................................................... 49",
+        "A. Repeal and Saving ...........................................",
+        "B. Application of Other Laws Not barred ........................",
+        "C. Interpretations ............................................."
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n3 \n \nB. Capabilities ..................................................................................................... 44 \nC. Staff Capabilities ............................................................................................ 46 \nChapter VII - Information Systems Audit .............................................................. 48 \nChapter VIII - Repeal and Other Provisions ......................................................... 49 \nA. Repeal and Saving ......................................................................................... 49 \nB. Application of Other Laws Not barred ......................................................... 49 \nC. Interpretations ................................................................................................ 50"
+    },
+    {
+      "page_number": 4,
+      "char_count": 1723,
+      "word_count": 247,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter I - Preliminary"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n4 \n \nIn exercise of the powers conferred by Section 10 and 11 of the Credit Information \nCompanies (Regulation) Act, 2005, and all other provisions / laws enabling the \nReserve Bank of India (‘RBI’) in this regard, RBI being satisfied that it is necessary \nand expedient in the public interest so to do, hereby issues Directions hereinafter \nspecified. \nChapter I - Preliminary \nA. \nShort Title and Commencement \n1. \nThese Directions shall be called the Reserve Bank of India (Credit Information \nCompanies – Cybersecurity, Technology: Risk, Resilience and Assurance \nFramework) Directions, 2026. \n2. \nThese Directions shall come into force with immediate effect. \nB. \nApplicability \n3. \nThese Directions shall be applicable to Credit Information Companies as defined \nunder clause (e) of Section 2 of the Credit Information Companies (Regulation) \nAct, 2005, hereinafter collectively referred to as ‘CICs’ and individually as ‘CIC’. \nC. \nDefinitions \n4. \nThe following definitions are sourced from FSB Cyber Lexicon unless explicitly \nmentioned otherwise. In these Directions, unless the context states otherwise, \nthe terms herein shall bear the meanings assigned to them below. \n(1) \n‘Audit Trail’ - A chronological record that reconstructs and examines the \nsequence of activities surrounding or leading to a specific operation, \nprocedure, or event in a security-relevant transaction from inception to \nresult. \n(Source: NIST SP 800-53r5 on Security and Privacy Controls for \nInformation Systems and Organizations) \n(2) \n‘Availability’ - Property of being accessible and usable on demand by an \nauthorised entity."
+    },
+    {
+      "page_number": 5,
+      "char_count": 1967,
+      "word_count": 269,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n5 \n \n(3) \n‘Confidentiality’ - Property that information is neither made available nor \ndisclosed to unauthorised individuals, entities, processes, or systems. \n(4) \n‘Cyber’ - Relating to, within, or through the medium of the interconnected \ninformation infrastructure of interactions among persons, processes, data, \nand information systems. \n(5) \n‘Cyber Event’ – Any observable occurrence in an information system. Cyber \nevents sometimes provide indication that a cyber incident is occurring. \n(6) \n‘Cybersecurity’ - Preservation of confidentiality, integrity, and availability of \ninformation and / or information systems through the cyber medium. In \naddition, other properties, such as authenticity, accountability, non-\nrepudiation, and reliability can also be involved. \n(7) \n‘Cyber Incident’ - A cyber event that adversely affects the cybersecurity of \nan information asset whether resulting from malicious activity or not.  \n(Source: Cyber incident definition is adapted from FSB Cyber Lexicon.  By \nthe definition, it includes cybersecurity incidents as well as IT incidents) \n(8) \n‘Cyber Resilience’ - The ability of an organisation to continue to carry out \nits mission by anticipating and adapting to cyber threats and other relevant \nchanges in the environment and by withstanding, containing, and rapidly \nrecovering from cyber incidents. \n(9) \n‘Cyber-attack’ - Malicious attempt(s) to exploit vulnerabilities through the \ncyber medium to damage, disrupt, or gain unauthorised access to assets. \n(10) ‘Cyber Threat’ - A circumstance with the potential to exploit one or more \nvulnerabilities that adversely affects cybersecurity. \n(11) ‘Data Dictionary’ - A description of data in business terms, including \ninformation about the data. It includes elements like data types, structure \ndetails, and security restrictions.  \n(Source: ISACA glossary)"
+    },
+    {
+      "page_number": 6,
+      "char_count": 1654,
+      "word_count": 228,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n6 \n \n(12) ‘De-militarized Zone’ or ‘DMZ’ - A perimeter network segment that is \nlogically between internal and external networks. \n(Source: NIST SP 800-82 Rev. 2) \n(13) ‘Distributed Denial of Service (DDoS)’ - A denial of service that is carried \nout using numerous sources simultaneously. \n(14) ‘Digital Forensics’ - The process used to acquire, preserve, analyse, and \nreport on evidence using scientific methods that are demonstrably reliable, \naccurate, and repeatable. \n(Source: adapted from NIST Cloud Computing Forensic Science \nChallenges) \n(15) ‘Framework’ - A structured set of strategies, policies, processes, methods, \nand best practices that guides organisational activities, enables \ngovernance and control, and supports the achievement of defined \nobjectives. \n(Source: adapted from ISACA glossary and ISO 22340:2024) \n(16) ‘Honeypot’ - A specially configured server, also known as a decoy server, \ndesigned to attract and monitor intruders in a manner so that their actions \ndo not affect production systems. \n(Source: ISACA glossary) \n(17) ‘Indicators of Compromise (IOCs)’ - Identifying signs that a cyber incident \nmay have occurred or may be currently occurring. \n(18) ‘Information Asset’ - Any piece of data, device, or other component of the \nenvironment that supports information-related activities. Information assets \ninclude information system, data, hardware, and software.  \n(Source: Information Asset definition is adapted from “Guidance on cyber \nresilience for financial market infrastructures” publication of Bank for"
+    },
+    {
+      "page_number": 7,
+      "char_count": 1796,
+      "word_count": 243,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n7 \n \nInternational Settlements and International Organization of Securities \nCommissions of June 2016) \n(19) ‘Information Systems (IS)’ - Set of applications, services, information \ntechnology assets, or other information-handling components, which \nincludes the operating environment and networks. \n(20) ‘Integrity’ - Property of accuracy and completeness. \n(21) ‘Information Technology (IT) Governance’ - The responsibility of executives \nand the board of directors; consists of the leadership, organisational \nstructures, and processes that ensure that the enterprise’s IT sustains and \nextends the enterprise's strategies and objectives. \n(Source: ISACA glossary and COBIT) \n(22) ‘IT Risk’ - The business risk associated with the use, ownership, operation, \ninvolvement, influence, and adoption of IT within an enterprise. \n(Source: ISACA glossary) \n(23) ‘Malware’ - Software designed with malicious intent containing features or \ncapabilities that can potentially cause harm directly or indirectly to entities \nor their information systems. \n(24) ‘Penetration Testing’ - A test methodology in which assessors typically \nworking under specific constraints, attempt to circumvent or defeat the \nsecurity features of an information system. \n(25) ‘Phishing’ - A digital form of social engineering that attempts to acquire \nprivate or confidential information by pretending to be a trustworthy entity \nin an electronic communication. \n(26) ‘Privileged User’ - A user who, by virtue of function, and / or role, has been \nallocated powers within an information system, which are significantly \ngreater than those available to the majority of users. \n(Source: adapted from ISO/IEC 24775-2:2021)"
+    },
+    {
+      "page_number": 8,
+      "char_count": 1721,
+      "word_count": 245,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n8 \n \n(27) ‘Recovery Point Objective’ - The point in time to which data must be \nrecovered after an outage. \n(Source: NIST glossary) \n(28) ‘Recovery Time Objective’ - The overall length of time an information \nsystem’s components can be in the recovery phase before negatively \nimpacting the organisation’s mission or mission / business processes. \n(Source: NIST glossary) \n(29) ‘Red Team’ - A group of people authorised and organised to emulate a \npotential adversary’s attack or exploitation capabilities against an \nenterprise’s security posture. The Red Team’s objective is to improve \nenterprise cybersecurity by demonstrating the impacts of successful \nattacks and by demonstrating what works for the defenders (i.e., the Blue \nTeam) in an operational environment. \n(Source: NIST glossary) \n(30) ‘Red Teaming Exercise’ - An exercise, reflecting real-world conditions, that \nis conducted as a simulated adversarial attempt by a red team to \ncompromise organisational missions and / or business processes to \nprovide a comprehensive assessment of the security capability of the \ninformation system and organisation. \n(Source: adapted from NIST glossary) \n(31) ‘Vulnerability’ - A weakness, susceptibility, or flaw of an asset or control that \ncan be exploited by one or more threats. \n(32) ‘Vulnerability Assessment (VA)’ - Systematic examination of an information \nsystem or product to determine the adequacy of security measures, identify \nsecurity deficiencies, provide data from which to predict the effectiveness \nof proposed security measures and confirm the adequacy of such \nmeasures after implementation."
+    },
+    {
+      "page_number": 9,
+      "char_count": 545,
+      "word_count": 85,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n9 \n \n5. \nAll other expressions unless defined herein shall have the same meaning as \nhave been assigned to them under the Reserve Bank of India Act, 1934, the \nBanking Regulation Act, 1949, the Information Technology Act, 2000, the \nCompanies Act, 2013 or any statutory modification or re-enactment thereto or \nother regulations issued by RBI or the Glossary of Terms published by RBI or as \nused in commercial parlance, as the case may be."
+    },
+    {
+      "page_number": 10,
+      "char_count": 885,
+      "word_count": 130,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter II - Role of the Board"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n10 \n \nChapter II - Role of the Board \nA. \nBoard Approved Policies \n6. \nThe Board of Directors shall approve the strategies and policies related to \nInformation Technology, Information Assets, Business Continuity, Information \nSecurity and Cybersecurity (including Incident Response and Recovery \nManagement / Cyber Crisis Management) frameworks. \n7. \nSuch strategies and policies shall be placed before the Board for review at least \nannually. \nB. \nBoard Level Committees \n8. \nThe CIC shall put in place a Board-level IT Strategy Committee (ITSC). The \ncomposition and functions of the Committee shall be in accordance with \nparagraphs 15 to 18 of these Directions. \n9. \nThe Audit Committee of the Board (ACB) shall be responsible for exercising \noversight of IS Audit of the CIC."
+    },
+    {
+      "page_number": 11,
+      "char_count": 1955,
+      "word_count": 277,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter III - Information Technology Governance and Oversight",
+        "10. The key focus areas of IT Governance shall include strategic",
+        "11. The CIC shall put in place a robust IT Governance Framework b"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n11 \n \nChapter III - Information Technology Governance and Oversight \nA. \nIT Governance Framework \n10. The key focus areas of IT Governance shall include strategic alignment, risk \nmanagement, resource management, performance management, and Business \nContinuity / DR Management. \n11. The CIC shall put in place a robust IT Governance Framework based on the \nfocus areas outlined in paragraph 10 above, that inter alia: \n(1) \nspecifies the governance structure and processes necessary to meet the \nCIC’s business / strategic objectives; \n(2) \nspecifies the roles (including authority) and responsibilities of the Board of \nDirectors (Board) / Board level Committee and Senior Management; and \n(3) \nincludes adequate oversight mechanisms to ensure accountability and \nmitigation of IT and cyber / information security risks. \n12. Enterprise-wide risk management policy or operational risk management policy \nshall also incorporate periodic assessment of IT-related risks (both inherent and \npotential risk). \nB. \nInformation Security Policy and Cybersecurity Policy \n13. The CIC shall put in place an Information Security Policy that takes into \nconsideration, inter alia, aspects such as the objectives, scope, ownership, and \nresponsibility for the policy; information security organisational structure; \nexceptions; compliance review and penal measures for non-compliance of \npolicies. \n14. The CIC shall put in place a Cybersecurity Policy elucidating the strategy \ncontaining an appropriate approach to combat cyber threats given the level of \ncomplexity of business and acceptable levels of risk, duly approved by its Board. \nThe cybersecurity policy shall be distinct and separate from the broader IT \npolicy / Information Security policy so that it can highlight the risks from cyber \nthreats and the measures to address / mitigate these risks."
+    },
+    {
+      "page_number": 12,
+      "char_count": 1647,
+      "word_count": 241,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "15. The CIC shall establish a Board-level IT Strategy Committee (",
+        "16. While constituting the ITSC, the CIC shall ensure the followi"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n12 \n \nC. \nIT Strategy Committee of the Board \n15. The CIC shall establish a Board-level IT Strategy Committee (ITSC). \n16. While constituting the ITSC, the CIC shall ensure the following:   \n(1) \nITSC has minimum of three directors (including the Chairperson of the \nITSC) as members. \n(2) \nThe Chairperson of the ITSC is an independent director having substantial \nIT expertise in managing / guiding information technology initiatives; \n‘Substantial IT expertise’ means having a minimum of seven years’ \nexperience in managing Information Systems and / or leading / guiding \ntechnology / cybersecurity initiatives / projects. The Chairperson should \nalso understand the business processes at a broader level and the impact \nof IT on such processes. \n(3) \nMembers are technically competent. ‘Technically competent’ herein shall \nmean the ability to understand and evaluate Information Systems and \nassociated IT / cyber risks. \n17. The ITSC shall meet at least on a quarterly basis. \n18. The ITSC shall: \n(1) \nensure that the CIC has put an effective IT strategic planning process in \nplace; \n(2) \nguide in preparation of IT Strategy and ensure that the IT Strategy aligns \nwith the overall strategy of the CIC towards accomplishment of its business \nobjectives; \n(3) \nsatisfy itself that the IT Governance and Information Security Governance \nstructure fosters accountability, is effective and efficient, has adequate \nskilled \nresources, \nwell \n- \ndefined \nobjectives, \nand \nunambiguous \nresponsibilities for each level in the organisation;"
+    },
+    {
+      "page_number": 13,
+      "char_count": 1669,
+      "word_count": 238,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n13 \n \n(4) \nensure that the CIC has put in place processes for assessing and managing \nIT and cybersecurity risks; \n(5) \nensure that the budgetary allocations for the IT function, including for IT \nsecurity / cybersecurity, are commensurate with the CIC’s IT maturity, digital \ndepth, threat environment, and industry standards and are utilised in a \nmanner intended for meeting the stated objectives;  \n(6) \nreview the organisational arrangements so that the security concerns are \nappreciated, receive adequate attention, and get escalated to appropriate \nlevels in the hierarchy to enable quick action; \n(7) \nreview, at least on an annual basis, the adequacy and effectiveness of the \nBusiness Continuity Planning and Disaster Recovery (DR) Management of \nthe CIC; \n(Note: The reference to Business Continuity / Disaster Recovery \nManagement in these Directions is limited to operational resilience \nfocussing on People, Processes, and Systems associated with the IT, \nInformation Systems (IS), information security / cybersecurity controls and \noperations.) \n(8) \nreview the assessment of IT capacity requirements and the measures taken \nto address the issues; and \n(9) \napprove documented standards and procedures for administering need-\nbased access to an information system.  \nD. \nSenior Management and IT Steering Committee \n19. The Senior Management of the CIC shall, inter alia, ensure: \n(1) \nexecution of the IT Strategy approved by the Board; \n(2) \nIT / Information Security and their support infrastructure are functioning \neffectively and efficiently;"
+    },
+    {
+      "page_number": 14,
+      "char_count": 1800,
+      "word_count": 264,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "20. The CIC shall establish an IT Steering Committee with represe",
+        "21. The responsibilities of IT Steering Committee, inter alia, sh"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n14 \n \n(3) \nnecessary IT risk management processes are in place and create a culture \nof IT risk awareness and cyber hygiene practices in the CIC; \n(4) \ncybersecurity posture of the CIC is robust; and \n(5) \noverall, IT contributes to productivity, effectiveness, and efficiency in \nbusiness operations. \n20. The CIC shall establish an IT Steering Committee with representation at Senior \nManagement level from IT and business functions which shall meet at least on a \nquarterly basis. \n21. The responsibilities of IT Steering Committee, inter alia, shall be to: \n(1) \nassist the ITSC in strategic IT planning, oversight of IT performance, and \naligning IT activities with business needs; \n(2) \noversee the processes put in place for business continuity and DR; \n(3) \nensure implementation of a robust IT architecture meeting statutory and \nregulatory compliance; and \n(4) \nupdate the ITSC and Managing Director (MD) / Chief Executive Officer \n(CEO) periodically on the activities of IT Steering Committee. \nE. \nInformation Security Committee \n22. An Information Security Committee (ISC), under the oversight of the ITSC, shall \nbe formed for managing cyber / information security. The constitution of the ISC, \nwith Chief Information Security Officer (CISO) and other representatives from \nbusiness, IT and other relevant functions, shall be decided by the ITSC. The head \nof the ISC shall be from risk management vertical. Major responsibilities of the \nISC, inter alia, shall include: \n(1) \ndevelopment \nof \ninformation \nsecurity \n/ \ncybersecurity \npolicies, \nimplementation of policies, standards, and procedures to ensure that all \nidentified risks are managed within the CIC’s risk appetite;"
+    },
+    {
+      "page_number": 15,
+      "char_count": 1638,
+      "word_count": 247,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "23. The CIC shall appoint a sufficiently senior level, technicall"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n15 \n \n(2) \napproving and monitoring information security / cybersecurity projects and \nsecurity awareness initiatives; \n(3) \nreviewing cyber incidents, IS audit observations, monitoring, and mitigation \nactivities; and \n(4) \nupdating the ITSC and MD / CEO periodically on the activities of ISC. \nF. \nHead of IT Function \n23. The CIC shall appoint a sufficiently senior level, technically competent, and \nexperienced official in IT related aspects as Head of IT Function (or by whatever \nnomenclature the CIC uses, such as Chief Technology Officer, Chief Information \nOfficer). \n24. The Head of IT Function shall, inter alia, be responsible for the following: \n(1) \nensuring that the execution of IT projects / initiatives is aligned with the \nCIC’s IT Policy and IT Strategy; \n(2) \nensuring that there is an effective organisational structure to support IT \nfunctions in the CIC; and \n(3) \nputting in place an effective DR setup and business continuity strategy / \nplan. \n25. As the first line of defence, the Head of IT Function shall ensure effective \nassessment, evaluation, and management of IT controls and IT risk, including \nthe implementation of robust internal controls, to  \n(1) \nsecure the CIC’s information assets; and  \n(2) \ncomply with extant internal policies, regulatory and legal requirements on \nIT related aspects. \nG. \nChief Information Security Officer \n26. A senior level executive (preferably in the rank of a General Manager or an \nequivalent position) shall be designated as the CISO. The CISO shall not have"
+    },
+    {
+      "page_number": 16,
+      "char_count": 1731,
+      "word_count": 252,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n16 \n \nany direct reporting relationship with the Head of IT Function and shall not be \ngiven any business targets. The CIC shall ensure the following: \n(1) \nThe CISO has the requisite technical background and expertise. \n(2) \nThe CISO is appointed for a reasonable minimum term. \n(3) \nThe CISO’s office is adequately staffed with people having necessary \ntechnical expertise, commensurate with the business volume, extent of \ntechnology adoption and complexity. \n(4) \nThe budget for the information security / cybersecurity is determined \nkeeping in view the current / emerging threat landscape. \n27. The CIC shall ensure that the roles and responsibilities of the CISO are clearly \ndefined and documented covering, at a minimum, the following points: \n(1) \nThe CISO shall be responsible for driving cybersecurity strategy and \nensuring compliance to the extant regulatory / statutory instructions on \ninformation security / cybersecurity. \n(2) \nThe CISO shall be responsible for enforcing the policies that the CIC uses \nto protect its information assets apart from coordinating information security \n/ cybersecurity related issues within the CIC as well as with relevant \nexternal agencies. \n(3) \nThe CISO shall be a permanent invitee to the ITSC and IT Steering \nCommittee. \n(4) \nThe CISO’s office shall manage and monitor Security Operations Centre \n(SOC) and drive cybersecurity related projects. \n(5) \nThe CISO’s office shall ensure effective functioning of the security solutions \ndeployed. \n(6) \nThe CISO shall directly report to the Executive Director or equivalent \nexecutive overseeing the risk management function."
+    },
+    {
+      "page_number": 17,
+      "char_count": 1937,
+      "word_count": 291,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "28. The CIC shall follow a consistent and formally defined projec",
+        "29. The CIC shall adopt a standard enterprise architecture planni"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n17 \n \n(7) \nThe CISO shall place a review of cybersecurity risks / arrangements / \npreparedness of the CIC before the Board / Risk Management Committee \nof the Board (RMCB) / ITSC at least on a quarterly basis. \nH. \nInformation Technology Project Management \n28. The CIC shall follow a consistent and formally defined project management \napproach for IT projects which shall, inter alia, enable appropriate stakeholder \nparticipation for effective monitoring and management of project risks and \nprogress. \n29. The CIC shall adopt a standard enterprise architecture planning methodology \nwhile adopting new or emerging technologies, tools, or while revamping the \nexisting technology stack. \n30. The CIC shall ensure that the adoption of new or emerging technologies is \ncommensurate with its risk appetite and aligned with the overall business / IT \nstrategy. The CIC shall also ensure that such adoption facilitates the optimal \ncreation / use / sharing of information in a secure and resilient way.   \n31. The CIC shall ensure that any new IT application proposed for introduction as a \nbusiness product undergoes the prescribed product approval and quality \nassurance process. \n(Note: IT applications that enable functioning of a business process whether \noffered as a product to the customers (including potential customers) / third \nparties / internal employees could be broadly referred as business product.) \nI. \nIT Architecture \n32. The CIC shall design the IT architecture to facilitate security measures being in \nplace at all times. The IT architecture shall be reviewed by the ITSC at least \nannually and upgraded, as required, based on the CIC’s risk assessment and in \na phased manner. The CIC shall document in writing any risk-cost or potential \ncost trade-off decisions to enable appropriate supervisory assessment."
+    },
+    {
+      "page_number": 18,
+      "char_count": 1132,
+      "word_count": 167,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "33. The CIC shall put in place a robust IT Service Management Fra",
+        "34. The CIC shall put in place a Service Level Management (SLM) p",
+        "35. The CIC shall ensure identification and mapping of the securi",
+        "36. For seamless continuity of business operations, the CIC shall"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n18 \n \nJ. \nIT Services Management \n33. The CIC shall put in place a robust IT Service Management Framework for \nsupporting its information systems and infrastructure to ensure the operational \nresilience of their entire IT environment (including DR sites). \n34. The CIC shall put in place a Service Level Management (SLM) process to \nmanage the IT operations while ensuring effective segregation of duties. \n35. The CIC shall ensure identification and mapping of the security classification (in \nterms of confidentiality, integrity, and availability) of information assets based on \ntheir criticality to the CIC’s operations. \n36. For seamless continuity of business operations, the CIC shall avoid using \noutdated and unsupported hardware or software and shall monitor software End-\nof-Support (EOS) dates and Annual Maintenance Contract (AMC) dates of IT \nhardware on an ongoing basis. \n37. The CIC shall develop a technology refresh plan for the replacement of hardware \nand software in a timely manner before they reach EOS."
+    },
+    {
+      "page_number": 19,
+      "char_count": 1863,
+      "word_count": 256,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter IV - IT and Information Security Risk Management",
+        "38. The risk management policy of the CIC shall include IT relate",
+        "39. The CIC shall establish a robust IT and Information Security"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n19 \n \nChapter IV - IT and Information Security Risk Management \nA. \nPeriodic Review of IT related Risks \n38. The risk management policy of the CIC shall include IT related risks, including \nthe cybersecurity related risks. The RMCB in consultation with the ITSC shall \nperiodically review and update the same at least on an annual basis. \nB. \nIT and Information Security Risk Management Framework \n39. The CIC shall establish a robust IT and Information Security Risk Management \nFramework (the CIC may have flexibility to define information security / \ncybersecurity risk management framework distinct from IT risk management \nframework) covering, inter alia, the following aspects:   \n(1) \nimplementation of comprehensive information security management \nfunction, internal controls, and processes (including applicable insurance \ncovers) to mitigate / manage identified risks. The implemented controls and \nprocesses must be reviewed periodically on their efficacy in a risk \nenvironment characterised by change; \n(2) \nroles and responsibilities of stakeholders (including third-party personnel) \ninvolved in IT risk management. Areas of possible role conflicts and \naccountability gaps must be specifically identified and eliminated or \nmanaged; \n(3) \nidentification of critical information systems of the organisation and \nfortification of the security environment of such systems; and \n(4) \ndefinition and implementation of necessary systems, procedures, and \ncontrols to ensure secure storage / transmission / processing of data / \ninformation. \nC. \nRisk Identification, Assessment, and Documentation \n40. The risk assessment for each information asset within the CIC’s scope shall be \nguided by appropriate security standards / IT control frameworks."
+    },
+    {
+      "page_number": 20,
+      "char_count": 1837,
+      "word_count": 245,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "41. The CIC shall ensure that all staff members and service provi",
+        "42. The CIC shall review the security infrastructure and security",
+        "43. While identifying and assessing the inherent risks, the CIC s",
+        "44. Depending on the level of inherent risks, the CIC shall ident"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n20 \n \n41. The CIC shall ensure that all staff members and service providers comply with \nthe extant information security and acceptable-use policies as applicable to \nthem. \n42. The CIC shall review the security infrastructure and security policies at least \nannually, factoring in its own experiences and emerging threats and risks. The \nCIC shall take steps to adequately tackle cyber-attacks including phishing, \nspoofing attacks and mitigate their adverse effects.   \n43. While identifying and assessing the inherent risks, the CIC shall reckon the \ntechnologies adopted, alignment with business and regulatory requirements, \norganisational culture, and internal and external threats. \n44. Depending on the level of inherent risks, the CIC shall identify its riskiness as \nlow, moderate, high, and very high or adopt any other similar categorisation. \nRiskiness of the business component shall also be factored into while assessing \nthe inherent risks. \n45. While evaluating the controls, the CIC shall suitably factor in Board oversight, \npolicies, processes, cyber risk management architecture, availability of \nexperienced and qualified resources, training programmes and organisational \nculture; arrangements for threat intelligence gathering, monitoring and analysing \nthe threat intelligence received vis-à-vis the situation in financial sector; \ninformation sharing arrangements [among peers, with Institute for Development \nand Research in Banking Technology (IDRBT) / RBI / Indian Computer \nEmergency Response Team (CERT-In)]; preventive, detective and corrective \ncybersecurity controls; vendor management; and incident management and \nresponse. \n(Note: The term ‘incident’ implies cyber incident in these Directions.)"
+    },
+    {
+      "page_number": 21,
+      "char_count": 1976,
+      "word_count": 284,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter V - Baseline Cybersecurity and Resilience Requirements",
+        "46. The CIC shall maintain an up-to-date inventory of information",
+        "47. The CIC shall classify data / information based on its criter",
+        "48. The CIC shall maintain enterprise data dictionary to enable t"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n21 \n \nChapter V - Baseline Cybersecurity and Resilience Requirements \nA. \nInventory Management of Information Assets \n46. The CIC shall maintain an up-to-date inventory of information assets, including \nbusiness and customer data / information, business applications, supporting IT \ninfrastructure, key personnel and facilities (such as hardware, software, network \ndevices, and services) indicating their business criticality. The CIC may have its \nown criteria for identifying critical assets.  \n47. The CIC shall classify data / information based on its criteria for information \nclassification / sensitivity. \n48. The CIC shall maintain enterprise data dictionary to enable the sharing of data \namong applications and information systems and promote a common \nunderstanding of data. \n49. The CIC shall appropriately manage and provide protection within and outside \norganisation borders / network taking into consideration how the data / \ninformation are stored, transmitted, processed, accessed and used within / \noutside the CIC’s network, and level of risk it is exposed to depending on the \nsensitivity of the data / information.  \nB. \nData Leak Prevention Strategy \n50. The CIC shall develop a comprehensive data loss / leakage prevention strategy \nto safeguard sensitive (including confidential) business and customer data / \ninformation. This shall include protecting data processed in end point devices, \ndata in transmission, as well as data stored in servers and other digital stores, \nwhether online or offline. \n51. The CIC shall ensure similar arrangements at the vendor-managed facilities as \nwell. \n52. The CIC, as owner of customers’ personal and sensitive data, shall take \nappropriate steps in preserving the confidentiality, integrity, and availability of the \nsame, irrespective of whether the data is stored / in transit within itself or with the"
+    },
+    {
+      "page_number": 22,
+      "char_count": 2165,
+      "word_count": 314,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "53. The CIC shall implement controls for remote management / wipi",
+        "54. The CIC shall put in place a data migration policy specifying"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n22 \n \nthird-party vendors. The CIC shall ensure that the confidentiality of such custodial \ninformation is not compromised at any situation and to this end, shall put in place \nsuitable systems and processes across the data / information lifecycle. \n53. The CIC shall implement controls for remote management / wiping / locking of \nmobile devices including laptops.  \nC. \nData Migration Controls \n54. The CIC shall put in place a data migration policy specifying a systematic process \nfor data migration, ensuring data integrity, completeness, and consistency. The \npolicy shall, inter alia, contain provisions for maintenance of audit trails of data \nmigration activities and obtaining signoffs from business users and application \nowners at each stage of the migration. \nD. \nPreventing Execution of Unauthorised Software \n55. The CIC shall maintain an up-to-date and centralised inventory of authorised / \nunauthorised software(s). The CIC may implement whitelisting of authorised \napplications / software / libraries, and other relevant software components.  \n56. The CIC shall have a mechanism to control installation of software / applications \ncentrally / otherwise on its information systems including end-user Personal \nComputers (PCs), laptops, workstations, servers, mobile devices, and cloud \nenvironments. The CIC shall also have a mechanism to block / prevent and \nidentify installation and running of unauthorised software / applications on such \ndevices / systems. \n57. The CIC shall continuously monitor the release of patches by various vendors / \nOriginal Equipment Manufacturers (OEMs), advisories issued by CERT-In and \nother similar agencies and expeditiously apply the security patches as per the \npatch management policy of the CIC.  Where a patch / series of patches is / are \nreleased by the OEM / manufacturer / vendor to mitigate critical vulnerabilities \nthat are actively exploited or widely reported, the CIC shall have a mechanism to \ndeploy such patches expeditiously, in accordance with its emergency patch \nmanagement process."
+    },
+    {
+      "page_number": 23,
+      "char_count": 1905,
+      "word_count": 279,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "58. The CIC shall put in place a policy specifying the justificat",
+        "59. The CIC shall put in place appropriate physical and environme",
+        "60. The CIC shall put in place mechanisms for monitoring of breac"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n23 \n \n58. The CIC shall put in place a policy specifying the justification for exceptions, \nduration of exceptions, process for granting exceptions, approving authority, and \nperiodic review of granted exceptions by officers, at senior levels, who are \nequipped to understand the business and technical context of such exceptions.  \nE. \nPhysical and Environmental Controls \n59. The CIC shall put in place appropriate physical and environmental controls for \nsecuring location of critical assets including Data Centre (DC) and Disaster \nRecovery (DR) sites from natural and man-made threats.  \n(Note: DC refers to primary data centre for a given application / system and DR \nrefers to its Disaster Recovery site / alternate site.) \n60. The CIC shall put in place mechanisms for monitoring of breaches of \nenvironmental controls including temperature, water, smoke, access alarms, \nservice availability alerts (power supply, telecommunication, servers), and \naccess logs.   \n61. The DC and DR sites shall be geographically well separated so that both the \nsites are not affected by a similar threat associated to their location. \n62. The CIC shall ensure that DC and DR sites are subjected to necessary e-\nsurveillance mechanism. \nF. \nCapacity Management \n63. The CIC shall ensure that information systems and infrastructure are able to \nsupport business functions and ensure availability of all service delivery \nchannels. \n64. On an annual or more frequent basis, the CIC shall proactively assess capacity \nrequirement of IT resources. The CIC shall ensure that IT capacity planning \nacross components, services, system resources, supporting infrastructure is \nconsistent with past trends (peak usage), the current business requirements, and \nprojected future needs as per the IT strategy of the CIC."
+    },
+    {
+      "page_number": 24,
+      "char_count": 2002,
+      "word_count": 278,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "65. The CIC shall document and apply baseline security requiremen",
+        "66. The CIC shall put in place a mechanism to periodically evalua"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n24 \n \nG. \nSecure Configuration \n65. The CIC shall document and apply baseline security requirements / \nconfigurations to all categories of devices including endpoints / workstations, \nmobile devices, operating systems, databases, applications, network devices, \nsecurity devices, and security systems, throughout the lifecycle (from conception \nto deployment) and carry out reviews periodically. \n66. The CIC shall put in place a mechanism to periodically evaluate and review \ncritical devices such as firewall, network switches, and security devices, including \ntheir configurations and patch levels, across the CIC’s network including data \ncentres, third-party hosted sites, and shared-infrastructure locations. \nH. \nNetwork Management and Security \n67. The CIC shall ensure that only authorised access is permitted to its networks. \nWherever the access is permitted, the CIC shall ensure that it is provided through \nwell-defined process with strict time limits, which are consistently followed and \naudited periodically.  The CIC shall clearly elucidate responsibility over such \nnetworks, which shall invariably rest with CIC officials. \n68. The CIC shall prepare and maintain an up-to-date network architecture diagram \nat the organisation level including wired / wireless networks. \n69. The CIC shall maintain an up to date / centralised inventory of authorised devices \nconnected to the CIC’s network (within / outside CIC’s premises). The CIC may \nconsider implementing solutions to automate network discovery and \nmanagement.  \n70. The CIC shall ensure that all the network devices are configured appropriately. \nThe CIC shall periodically assess whether the configurations are appropriate to \nthe desired level of network security. \n71. The CIC shall put in place appropriate controls to secure wireless local area \nnetworks, wireless access points, and wireless client access systems."
+    },
+    {
+      "page_number": 25,
+      "char_count": 1910,
+      "word_count": 261,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "72. The CIC shall implement mechanism to identify authorised hard",
+        "73. The CIC shall have mechanism to automatically identify unauth",
+        "74. The CIC shall put in place mechanism to detect and remedy any",
+        "75. The CIC shall establish Standard Operating Procedures (SOPs)",
+        "76. The CIC shall ensure that boundary defences are multi-layered"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n25 \n \n72. The CIC shall implement mechanism to identify authorised hardware / mobile \ndevices like laptops, mobile phones, and tablets, in the network and ensure that \nthey are provided connectivity only when they meet the security requirements \nprescribed by the CIC. \n73. The CIC shall have mechanism to automatically identify unauthorised device \nconnections to the CIC’s network and block such connections. \n74. The CIC shall put in place mechanism to detect and remedy any unusual \nactivities in systems, servers, network devices, and endpoints. \n75. The CIC shall establish Standard Operating Procedures (SOPs) for all major IT \nactivities including for connecting devices to the network. \n76. The CIC shall ensure that boundary defences are multi-layered with properly \nconfigured firewalls, proxies, DMZ perimeter networks, and network-based \nIntrusion Prevention System (IPS) and Intrusion Detection System (IDS). \nAdditionally, the CIC shall establish robust mechanism for real-time filtering of \ninbound and outbound network traffic. \n77. The CIC shall enable its public facing IT infrastructure to handle Internet Protocol \nVersion 6 (IPv6) traffic. \nI. \nApplication Security Life Cycle \n78. The CIC shall incorporate / ensure information security across all stages of \napplication life cycle.  \n79. The CIC shall implement secure coding practices for internally / collaboratively \ndeveloped applications.  \n80. Besides business functionalities, the CIC shall clearly specify security \nrequirements relating to system access control, authentication, transaction \nauthorisation, data integrity, system activity logging, audit trail, session \nmanagement, security event tracking, and exception handling during the initial \nand ongoing stages of system development / acquisition / implementation."
+    },
+    {
+      "page_number": 26,
+      "char_count": 2059,
+      "word_count": 290,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "81. The CIC shall properly segregate the development, test, and p",
+        "82. The CIC shall ensure that the software / application developm",
+        "83. The CIC shall ensure that software / application development",
+        "84. The scope of application security assessments shall be compre"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n26 \n \n81. The CIC shall properly segregate the development, test, and production \nenvironments. \n82. The CIC shall ensure that the software / application development process is \nguided by threat modelling, adheres to secure coding practices, includes security \ntesting aligned with global standards, and ensures a secure deployment. \n83. The CIC shall ensure that software / application development practices address \nthe vulnerabilities based on best practices, baselines such as Open Web \nApplication Security Project (OWASP) proactively and adopt principle of defence-\nin-depth to provide layered security mechanism.  \n84. The scope of application security assessments shall be comprehensive and shall \nnot be restricted to testing solely against the OWASP top 10 vulnerabilities. The \nCIC shall also refer to other recognised security standards and guidelines, as \nappropriate.  \n85. The CIC shall periodically conduct application security testing of web / mobile \napplications throughout their lifecycle (pre-implementation, post implementation, \nand after changes) in an environment closely resembling or a replica of the \nproduction environment. \n86. The CIC shall implement measures such as installing ‘containerised’ apps on \nmobile / smartphones for exclusive business use that is encrypted and separated \nfrom other smartphone data / applications, as applicable. The CIC shall \nimplement measures to initiate a remote wipe on the containerised app, \nrendering the data unreadable, in case of requirement. \n87. The CIC shall ensure adequate evaluation of adoption of new technologies for \nexisting / evolving security threats. Such technologies shall be introduced for \ncritical systems after IT and security team of the CIC reach reasonable level of \ncomfort and maturity. \n88. The CIC shall ensure that software vendors provide maintenance and necessary \nsupport of software applications and shall enforce the same through formal \nagreements."
+    },
+    {
+      "page_number": 27,
+      "char_count": 2252,
+      "word_count": 330,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "89. The CIC shall obtain the source codes for all critical applic",
+        "90. In respect of critical business applications, the CIC may con",
+        "91. The CIC shall obtain a certificate or a written confirmation"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n27 \n \n89. The CIC shall obtain the source codes for all critical applications from its vendors. \nWhere obtaining of the source code is not possible, the CIC shall put in place a \nsource code escrow arrangement or other arrangements to adequately mitigate \nthe risk of default by the vendor. The CIC shall ensure that all product updates \nand programme fixes are included in the source code escrow arrangement.  \n90. In respect of critical business applications, the CIC may consider conducting \nsource code audits by professionally competent personnel / service providers. \n91. The CIC shall obtain a certificate or a written confirmation from the application \ndeveloper or vendor stating that the application is free of known vulnerabilities, \nmalware, and any covert channels in the code. The CIC shall also obtain such a \ncertificate or a written confirmation whenever material changes to the code, \nincluding upgrades, occur.  The definition of material changes can be mutually \nagreed upon between the CIC and its vendor. 'Material Changes' refer to \nsignificant modifications to the software code that could impact the application's \nfunctionality, security, or performance. This, however, excludes routine \nmaintenance activities such as minor bug fixes, performance optimisations, and \nupdates that do not alter the application's core functions, security posture, or \ncompliance status. It is essential to conduct a risk assessment when determining \nwhether a change is material. \nJ. \nMaintenance, Monitoring, and Analysis of Audit Logs \n92. The CIC shall ensure that every IT application / system that can access or affect \ncritical or sensitive information has necessary audit logging capabilities and \nprovides audit trails. \n93. The CIC shall implement and periodically validate settings for capturing \nappropriate logs and audit trails for each device, system software, and \napplication software, ensuring that such logs include the minimum information \nrequired to uniquely identify each log, such as date, timestamp, source \naddresses, destination addresses, and other relevant elements of each packet, \nevent, and / or transaction."
+    },
+    {
+      "page_number": 28,
+      "char_count": 1861,
+      "word_count": 278,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "94. The CIC shall ensure that audit trails satisfy its business r",
+        "95. The CIC shall put in place a system for regularly monitoring",
+        "96. The CIC shall consult all the stakeholders before finalising"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n28 \n \n94. The CIC shall ensure that audit trails satisfy its business requirements, in addition \nto regulatory and legal requirements. The CIC shall also ensure that audit trails \nare sufficiently detailed to facilitate the conduct of audits, serve as forensic \nevidence (the term ‘forensics’ refers to ‘digital forensics’ for the purpose of these \nDirections) when required, and assist in dispute resolution, including for non-\nrepudiation purposes. \n95. The CIC shall put in place a system for regularly monitoring the audit trails and \nsystem logs to detect, understand or recover from any unauthorised activity or \nattack. \n96. The CIC shall consult all the stakeholders before finalising the scope, frequency, \nand storage of log collection. \nK. \nPatch, Vulnerability and Change Management \n97. The CIC shall put in place documented policy(ies) and procedures for change \nand patch management to ensure the following: \n(1) \nThe business impact of implementing patches / changes (or not \nimplementing a particular patch / change request) is assessed. \n(2) \nThe patches / changes are applied / implemented and reviewed in a secure \nand timely manner with necessary approvals. \n(3) \nAny changes to an application system or data are justified by genuine \nbusiness needs and approvals supported by documentation and subjected \nto a robust change management process. \n(4) \nA mechanism is established to recover from failed changes / patch \ndeployment or unexpected results. \n98. The CIC shall adopt a documented, risk-based strategy for maintaining an \ninventory of IT components that require patching, identifying all applicable \npatches, and applying them in a timely manner to minimise both the number of \nvulnerable systems and the duration of exposure."
+    },
+    {
+      "page_number": 29,
+      "char_count": 2037,
+      "word_count": 291,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "99. The CIC shall put in place systems and processes to identify,",
+        "100. The CIC shall manage changes to business applications, suppor",
+        "101. As part of its threat mitigation strategy, the CIC shall dete",
+        "102. The CIC shall evaluate the access device configurations and p"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n29 \n \n99. The CIC shall put in place systems and processes to identify, track, manage, and \nmonitor the status of patches to operating system and application software \nrunning at end-user devices directly connected to the internet and in respect of \nserver operating systems, databases, applications, middleware, and other \nrelevant information systems. \n100. The CIC shall manage changes to business applications, supporting technology, \nservice components, and facilities through robust configuration management \nprocesses and configuration baselines to ensure the integrity of such changes. \n101. As part of its threat mitigation strategy, the CIC shall determine the root cause of \nany detected incident and implement necessary patches to address the \nvulnerabilities. \n102. The CIC shall evaluate the access device configurations and patch levels \nperiodically to ensure that all access points, nodes between (i) different Virtual \nLocal Area Networks (VLANs) in the DC, (ii) Local Area Network (LAN) / Wide \nArea Network (WAN) interfaces, (iii) CIC’s network to external network and \ninterconnections with partner, vendor and service provider networks are securely \nconfigured. \nL. \nUser Access Control / Management \n103. Access to information assets shall be allowed only where a valid business need \nexists. \n104. Personnel with elevated system access entitlements shall be closely supervised \nwith all their system activities logged and periodically reviewed. \n105. The CIC shall provide secure access to its assets / services from within / outside \nits network by protecting data / information at rest (e.g., using encryption, if \nsupported by the device) and in-transit (e.g., using technologies such as Virtual \nPrivate Network (VPN) or other secure protocols)  \n106. The CIC shall protect user access credentials such as logon user-id, \nauthentication information and tokens, access profiles, against leakage / attacks."
+    },
+    {
+      "page_number": 30,
+      "char_count": 1861,
+      "word_count": 256,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "107. The CIC shall disallow administrative rights on end-user work",
+        "108. The CIC shall implement centralised authentication and author",
+        "109. The CIC, based on the risk assessment, shall implement two-fa",
+        "110. The CIC shall implement appropriate (e.g., centralised) syste"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n30 \n \n107. The CIC shall disallow administrative rights on end-user workstations / PCs / \nlaptops and provide access rights on a need-to-know basis and for specific \nduration when it is required following an established process. \n108. The CIC shall implement centralised authentication and authorisation system for \naccessing and administering applications, operating systems, databases, \nnetwork and security devices / systems, point of connectivity (local / remote) \nincluding enforcement of strong password policy, and following the principle of \nleast privileges and separation of duties.  \n109. The CIC, based on the risk assessment, shall implement two-factor or multi-\nfactor authentication, including mandatory multi-factor authentication for \nprivileged users of (i) critical information systems and (ii) critical activities.  \n110. The CIC shall implement appropriate (e.g., centralised) systems and controls to \nallow, manage, log, and monitor privileged / superuser / administrative access to \ncritical systems (such as servers, operating systems, databases, applications, \nmiddleware, and network devices).  \n111. The CIC shall implement controls to minimise invalid logon counts and deactivate \ndormant accounts.  \n112. The CIC shall monitor any abnormal change in pattern of logon. \nM. \nControls on Teleworking \n113. In the teleworking environment, the CIC shall, inter alia: \n(1) \nensure that the systems used and the remote access from alternate work \nlocation to the environment hosting CIC’s information assets are secure; \n(2) \nimplement multi-factor authentication for enterprise access (logical) to \ncritical systems; \n(3) \nput in place a mechanism to identify all remote-access devices attached / \nconnected to the CIC’s systems; and"
+    },
+    {
+      "page_number": 31,
+      "char_count": 1721,
+      "word_count": 245,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "114. The CIC shall implement an authentication framework to ensure",
+        "115. The CIC shall act as the identity provider for identification"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n31 \n \n(4) \nensure that data / information shared / presented in teleworking is secured \nappropriately. \nN. \nAuthentication Framework for Customers \n114. The CIC shall implement an authentication framework to ensure positive identity \nverification for customers accessing its services and to enable customers to \nverify the authenticity of the CIC, across all delivery channels. \n115. The CIC shall act as the identity provider for identification and authentication of \ncustomers for access to partner systems using secure authentication \ntechnologies. \nO. \nSecure Mail and Messaging Systems  \n116. The CIC shall implement secure mail and messaging systems with measures to \nprevent email spoofing, look-alike domain abuse, protect against malicious \nattachments and links, and email filtering to protect against spam. The CIC shall \nrequire its partners and vendors to implement similar measures for their mail and \nmessaging systems.  \n117. The CIC shall document and implement email server specific controls. \n118. The CIC shall implement measures to control permissible attachment types in \nemail systems. \n119. The CIC shall implement Domain-based Message Authentication, Reporting, and \nConformance (DMARC) solution for the email domains. The CIC shall impress \nupon its vendors, partners, and other relevant third parties, to implement similar \nsolution securing their mail systems to mitigate email spoofing.  \nP. \nRemovable Media  \n120. As a default rule, the CIC shall not permit use of removable devices and media \nin the CIC environment unless specifically authorised for defined use and \nduration of use."
+    },
+    {
+      "page_number": 32,
+      "char_count": 1670,
+      "word_count": 241,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "121. The CIC shall define and implement policy for restriction and",
+        "122. The CIC shall limit media types and information that could be",
+        "123. The CIC shall get the removable media scanned for malware / a",
+        "124. The CIC shall consider implementing centralised policies thro"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n32 \n \n121. The CIC shall define and implement policy for restriction and secure use of \nremovable media / Bring Your Own Device (BYOD) on various types / categories \nof devices including but not limited to workstations, PCs, laptops, mobile devices, \nservers, and ensure secure erasure of data on such media after use. \n122. The CIC shall limit media types and information that could be transferred / copied \nto / from such devices.  \n123. The CIC shall get the removable media scanned for malware / anti-virus prior to \nproviding read / write access.  \n124. The CIC shall consider implementing centralised policies through Active \nDirectory or end-point management systems to whitelist / blacklist / restrict \nremovable media use.  \nQ. \nThird-Party Arrangements \n(This section is applicable only for such third-party arrangements in the \nInformation Technology / Cybersecurity ecosystem, which are not within the \napplicability of Reserve Bank of India (Credit Information Companies – Managing \nRisks in Outsourcing) Directions, 2025) \n125. The CIC shall, put in place appropriate vendor risk assessment process, and \ncontrols proportionate to the assessed risk and materiality to, inter alia: \n(1) \nmitigate concentration risk; \n(2) \neliminate or address any conflict of interests; \n(3) \nmitigate risks associated with single point of failure; \n(4) \ncomply with applicable legal, regulatory requirements and standards to \nprotect customer data; \n(5) \nprovide high availability (for uninterrupted customer service); and \n(6) \nmanage supply chain risks effectively."
+    },
+    {
+      "page_number": 33,
+      "char_count": 2141,
+      "word_count": 310,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "126. The CIC shall be accountable for ensuring appropriate managem",
+        "127. The CIC shall carefully evaluate the need for outsourcing cri",
+        "128. The CIC shall regularly conduct effective due diligence, over",
+        "129. The CIC shall establish appropriate policies and procedures t",
+        "130. The CIC shall ensure and demonstrate that the service provide",
+        "131. The CIC shall necessarily enter into an agreement with the se"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n33 \n \n126. The CIC shall be accountable for ensuring appropriate management and \nassurance on security risks in outsourced and partner arrangements. \n127. The CIC shall carefully evaluate the need for outsourcing critical processes and \nselection of vendor / partner based on comprehensive risk assessment. \n128. The CIC shall regularly conduct effective due diligence, oversight, and \nmanagement of third-party vendors / service providers and partners.  \n129. The CIC shall establish appropriate policies and procedures to evaluate, assess, \napprove, review, control, and monitor the risks and materiality of all its vendor / \noutsourcing activities.  \n130. The CIC shall ensure and demonstrate that the service provider adheres to all \nregulatory and legal requirements of the country.  \n131. The CIC shall necessarily enter into an agreement with the service provider that \namongst others provides for right to audit by the CIC and right of RBI or persons \nauthorised by it to perform inspection. \n132. The CIC shall ensure that RBI shall have access to all information resources \n(online / in person) that are consumed by it. Such information shall be made \naccessible to RBI officials by the CIC when sought, though the infrastructure / \nenabling resources may not be physically located in the premises of CIC.  \n133. The CIC shall adhere to the relevant legal and regulatory requirements relating \nto geographical location of infrastructure and cross-border movement of data.  \n134. The CIC shall thoroughly satisfy itself about the credentials of vendor / third-party \npersonnel accessing and managing the CIC’s critical assets. Background \nchecks, non-disclosure and security policy compliance agreements shall be \nmandated for all third-party service providers. \nR. \nCryptographic Controls \n135. The key length, algorithms, cipher suites and applicable protocols used in \ntransmission channels, processing of data and authentication purpose shall be \nstrong. The CIC shall adopt internationally accepted and published standards"
+    },
+    {
+      "page_number": 34,
+      "char_count": 2013,
+      "word_count": 278,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "136. In order to prevent unauthorised modification of data, the CI",
+        "137. Data transfer mechanism between processes or applications sha"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n34 \n \nthat are not deprecated / demonstrated to be insecure / vulnerable, and the \nconfigurations involved in implementing such controls shall be compliant with \nextant laws and regulatory instructions. \nS. \nStraight Through Processing \n136. In order to prevent unauthorised modification of data, the CIC shall ensure that \nthere is no manual intervention or manual modification in data while it is being \ntransferred from one process to another or from one application to another, in \nrespect of critical applications. \n137. Data transfer mechanism between processes or applications shall be properly \ntested, securely automated with necessary checks and balances, and properly \nintegrated through ‘Straight Through Processing’ methodology with appropriate \nauthentication mechanism and audit trails. \nT. \nContinuous Surveillance \n138. The CIC shall set up a Cyber Security Operation Centre (CSOC) to ensure \ncontinuous surveillance and keep itself regularly updated on the latest nature of \nemerging cyber threats. An indicative, but not exhaustive, minimum baseline \nguidance on CSOC is given in Chapter VI of these Directions.  \nU. \nAdvanced Real-time Threat Defence and Management  \n139. The CIC shall build a robust defence against the installation, spread, and \nexecution of malicious code at multiple points in its environment.  \n140.  The CIC shall implement anti-malware, antivirus protection including behavioural \ndetection capabilities across all relevant devices and environments, such as \nendpoints (including PCs, laptops, and mobile devices), servers (operating \nsystems, databases, and applications), Web / Internet gateways, email-\ngateways, wireless networks, and Short Message Service (SMS) servers. The \nCIC shall also implement tools and processes for centralised management and \nmonitoring of these measures.  \n141. The CIC shall implement whitelisting of internet websites / systems."
+    },
+    {
+      "page_number": 35,
+      "char_count": 1982,
+      "word_count": 288,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "142. The CIC shall consider implementing secure web gateways with",
+        "143. The CIC shall subscribe to anti-phishing / anti-rogue app ser",
+        "144. The CIC shall conduct VA and PT exercises periodically for al"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n35 \n \n142. The CIC shall consider implementing secure web gateways with capability to \ndeep scan network packets including secure Hypertext Transfer Protocol Secure \n(HTTPS) traffic passing through the web / internet gateway. \nV. \nAnti-Phishing \n143. The CIC shall subscribe to anti-phishing / anti-rogue app services from external \nservice providers for identifying and taking down phishing websites / rogue \napplications. \nW. \nVulnerability Assessment and Penetration Test \n144. The CIC shall conduct VA and PT exercises periodically for all the critical and \ninternet facing systems.  \n145. The CIC shall periodically conduct VA / PT of critical, internet facing web / mobile \napplications, servers, and network components throughout their lifecycle \nincluding pre-implementation, post-implementation, and after changes. \n146. For critical information systems and / or those in the DMZ having customer \ninterface, VA shall be conducted at least once in every six months and PT at least \nonce in 12 months.  For non-critical information systems, a risk-based approach \nshall be adopted to decide the requirement and periodicity of conduct of VA / PT. \n147. In the post implementation (of IT project / system upgrade) scenario, the VA / PT \nshall be performed on the production environment. Under unavoidable \ncircumstances, if the PT is conducted in test environment, the CIC shall ensure \nthat the version and configuration of the test environment resembles the \nproduction environment. Any deviation should be documented and approved by \nthe ISC. \n148. The CIC shall ensure to fix the identified vulnerabilities and associated risks in a \ntime-bound manner by undertaking requisite corrective measures and ensure \nthat the compliance is sustained to avoid recurrence of known vulnerabilities \nsuch as those available in Common Vulnerabilities and Exposures (CVE) \ndatabase."
+    },
+    {
+      "page_number": 36,
+      "char_count": 2205,
+      "word_count": 357,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "149. The CIC shall put in place a documented approach for conduct",
+        "150. VA / PT shall be conducted by appropriately trained and indep",
+        "151. The CIC shall have control / check over audit methodology, pr"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n36 \n \n149. The CIC shall put in place a documented approach for conduct of VA / PT \ncovering the scope, coverage, vulnerability scoring mechanism (e.g., Common \nVulnerability Scoring System) and all other aspects. This shall also apply to the \nCIC’s information systems hosted in a cloud environment. \n150. VA / PT shall be conducted by appropriately trained and independent information \nsecurity experts / auditors.  \n151. The CIC shall have control / check over audit methodology, processes, and \ncompetence of auditors so as to ensure that audit objectives are fully met. At the \ntime of selecting, appointing, or engaging or renewing the contract with the VA / \nPT auditor or consultant, the CIC shall consider aspects such as requisite \nqualification, professional expertise (of the firm or company as well as the audit \npersonnel engaged by the entity), appropriate credentials, and suitable \ncompetency. \n152. The CIC shall review the coverage and scope of the VA / PT and ensure that \nreasonable assurance for each of the areas therein shall be provided explicitly in \nthe VA / PT audit reports. The same shall be mentioned at the time of empanelling \nor selecting and awarding the contract with the VA / PT auditor.  \n153. The CIC shall, on an ongoing basis, review the performance of the VA / PT auditor \nand ensure that appropriate action is taken in case of noting any deficiencies. \nFor instance, systems, applications, or infrastructure that were subjected to VA / \nPT, ceteris paribus, if found to have been compromised at a later date, apparently \ndue to vulnerabilities that were not observed or highlighted on timely basis in the \nVA / PT will qualify as a deficiency in discharge of function by the VA / PT auditor. \nSuch deficiencies shall also be factored in while evaluating the competency when \nselecting or renewing the contract with the VA / PT auditor. \n154. The CIC shall continuously interact with the VA / PT auditors during the audit and \nin case of CERT-In empanelled auditors, the CIC shall be guided by CERT-In’s \nComprehensive Cyber Security Audit Policy Guidelines."
+    },
+    {
+      "page_number": 37,
+      "char_count": 1964,
+      "word_count": 309,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "155. Findings of VA / PT and the follow up actions necessitated sh",
+        "156. The status of the closure of the VA / PT observations shall b",
+        "157. The CIC may conduct red teaming exercises to identify the vul"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n37 \n \n155. Findings of VA / PT and the follow up actions necessitated shall be monitored \nclosely by the Information Security / Information Systems Audit team as well as \nSenior Management. \n156. The status of the closure of the VA / PT observations shall be put to the ITSC \nand ISC at least on a quarterly basis. \nX. \nRed Teaming Exercises \n157. The CIC may conduct red teaming exercises to identify the vulnerabilities and \nthe business risk, assess the efficacy of the defences and check the mitigating \ncontrols already in place by simulating the objectives and actions of an attacker.   \nY. \nBusiness Continuity Planning and Disaster Recovery \n158. The BCP and DR policy shall adopt best practices (e.g., ISO 22301) to guide its \nactions in reducing the likelihood or impact of disruptive incidents and \nmaintaining business continuity. The policy shall be updated based on major \ndevelopments and risk assessments. \n159. The CIC’s BCP and DR capabilities shall be designed to effectively support \nresilience objectives and enable rapid recovery and secure resumption of critical \noperations including key cybersecurity controls post cyber-attacks / other \nincidents aligned with recovery time objectives while ensuring security of \nprocesses and data. \n160. Periodicity of DR drills for critical information systems shall be at least on a half-\nyearly basis and for other information systems, as per the CIC’s risk assessment. \n161. Any major issues observed during the DR drill shall be resolved and tested again \nto ensure successful conduct of drill before the next cycle. \n162. The DR testing shall involve switching over to the DR / alternate site and thus \nusing it as the primary site for sufficiently long period where usual business \noperations of at least a full working day (including Beginning of Day to End of \nDay operations) are covered."
+    },
+    {
+      "page_number": 38,
+      "char_count": 1823,
+      "word_count": 269,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "163. The CIC shall regularly test the BCP / DR under different sce",
+        "164. The CIC shall backup data and periodically restore such backe",
+        "165. The CIC shall ensure that DR architecture and procedures are",
+        "166. The CIC shall prioritise achieving minimal RTO (as approved b",
+        "167. In a scenario of non-zero RPO, the CIC shall have a documente"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n38 \n \n163. The CIC shall regularly test the BCP / DR under different scenarios for possible \ntypes of contingencies, to ensure that it is up-to-date and effective. \n164. The CIC shall backup data and periodically restore such backed-up data to check \nits usability. The integrity of such backup data shall be preserved along with \nsecuring it from unauthorised access. \n165. The CIC shall ensure that DR architecture and procedures are robust, meeting \nthe defined Recovery Time Objective (RTO) and Recovery Point Objective (RPO) \nfor any recovery operations in case of contingency.  \n166. The CIC shall prioritise achieving minimal RTO (as approved by the CIC’s ITSC) \nand a near zero RPO for critical information systems. \n167. In a scenario of non-zero RPO, the CIC shall have a documented methodology \nfor reconciliation of data while resuming operations from the alternate location. \n168. The CIC shall ensure that the configurations of information systems and \ndeployed security patches at the DC and DR are identical. \n169. The CIC shall ensure BCP and DR capabilities on critical interconnected systems \nand networks including those of vendors and partners. The CIC shall ensure \ndemonstrated readiness through collaborative and co-ordinated resilience \ntesting that meets the CIC’s RTO. \nZ. \nCyber Incident Response and Recovery Management \nZ.1    Responding to Cyber-Incidents \n170. The CIC shall put in place cyber incident response and recovery management \npolicy and related procedures which shall address the following:  \n(1) \ndefinition, classification, and assessment of incidents;  \n(2) \nallocation of roles and responsibilities of staff as well as outsourced staff \nmanning / handling such incidents;"
+    },
+    {
+      "page_number": 39,
+      "char_count": 1720,
+      "word_count": 235,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n39 \n \n(3) \nmechanism for reporting of cyber incidents by employees, vendors, and \ncustomers;   \n(4) \nclear communication strategy and plan to manage such incidents; \n(5) \nmeasures to contain exposures and achieve timely recovery; \n(6) \ncollection / sharing of threat information;  \n(7) \npost incident review; and \n(8) \nperiodical testing of incident response plans. \n171. The CIC shall provide specialised training to the personnel handling cyber \nincidents.   \n172. Response plans shall consider readiness to meet various incident scenarios \nbased on situational awareness, potential / post impact, and consistent \ncommunication and co-ordination with stakeholders during response. \n173. The CIC shall have mechanism to dynamically incorporate lessons learnt to \ncontinually improve the response plans. \n174. The CIC shall document and communicate strategies to respond to advanced \nattacks such as ransomware / cyber extortion, data destruction, and DDoS. \n175. The CIC shall contain the level of cyber-attack by implementing shielding controls \n/ quarantining the affected devices / systems.  \n176. The CIC shall analyse cyber incidents (including through forensic analysis, if \nnecessary) for their severity, impact, and root cause. The CIC shall take \nmeasures, corrective and preventive, to mitigate the adverse impact of incidents \non business operations.  \n177. The CIC shall report cyber incidents within six hours of detection on DAKSH \nplatform (Reserve Bank’s Advanced Supervisory Monitoring System - \nhttps://daksh.rbi.org.in). The CIC shall also pro-actively notify CERT-In regarding \ncyber incidents."
+    },
+    {
+      "page_number": 40,
+      "char_count": 2073,
+      "word_count": 291,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "178. The CIC shall have clear communication plans for escalation a",
+        "179. The CIC may actively participate in the activities of CISO’s",
+        "180. The CIC shall establish appropriate arrangements for external",
+        "181. The CIC shall establish and implement systems to collect and"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n40 \n \n178. The CIC shall have clear communication plans for escalation and reporting the \nincidents to the Board and Senior Management as well as to customers, as \nrequired.  \n179. The CIC may actively participate in the activities of CISO’s forum coordinated by \nIDRBT and share the threat intelligence arising from cyber incidents to Indian \nBanks-Centre for Analysis of Risks and Threats (IB-CART) set up by IDRBT.  \n180. The CIC shall establish appropriate arrangements for external coordination and \ninformation sharing, including integration of threat intelligence and security \ninformation feeds from relevant internal and external sources, and coordination \nwith industry participants, cyber response agencies, CERT-In, telecom service \nproviders, and other stakeholders, as may be required. \n181. The CIC shall establish and implement systems to collect and share threat \ninformation from local / national / international sources following legally accepted \n/ defined means / process. \nZ.2    Recovery from Cyber Incidents  \n182. The CIC shall establish processes to improve incident response and recovery \nactivities and capabilities through lessons learnt from past incidents as well as \nfrom the conduct of tests and drills. \n183. The CIC shall periodically and actively participate in cyber drills and related \nsimulation exercises conducted under the aegis of institutions / agencies such \nas Cert-IN and IDRBT. \n184. The CIC shall ensure resilient capabilities in all interconnected systems and \nnetworks including those of vendors and partners and readiness demonstrated \nthrough collaborative and coordinated resilience testing that meets the CIC’s \nrecovery time objectives. Adequate capacity shall be planned and maintained, in \nconsideration thereof. \n185. The CIC, inter alia, shall ensure effectiveness of crisis communication plan / \nprocess by conduct of periodic drills / testing with stakeholders (including \ncustomers and service providers)."
+    },
+    {
+      "page_number": 41,
+      "char_count": 2123,
+      "word_count": 294,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "186. The CIC shall align Security Operation Centre, Incident Respo",
+        "187. The CIC shall document a Cyber Crisis Management Plan (CCMP)",
+        "188. CCMP shall address the following four aspects: (i) Detection,"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n41 \n \n186. The CIC shall align Security Operation Centre, Incident Response and Digital \nforensics to reduce the business downtime and restore normal operations.   \nZ.3    Cyber Crisis Management Plan \n187. The CIC shall document a Cyber Crisis Management Plan (CCMP) which shall \nbe part of the overall Board approved framework in cybersecurity.   \n188. CCMP shall address the following four aspects: (i) Detection, (ii) Containment, \n(iii) Response, and (iv) Recovery. The CIC shall take effective measures to \nprevent cyber-attacks and to promptly detect any cyber-intrusions so as to \ncontain / respond / recover from the fallout. The CIC shall be well prepared to \nface emerging cyber-threats such as ‘zero-day’ attacks, remote access threats, \nand targeted attacks. Among other things, the CIC shall take necessary \npreventive and corrective measures in addressing various types of cyber threats \nincluding, but not limited to, denial of service, DDoS, ransomware, destructive \nmalware, business email frauds including spam, email phishing, spear phishing, \nwhaling, vishing frauds, drive-by downloads, browser gateway fraud, ghost \nadministrator exploits, identity frauds, memory update frauds, and password \nrelated frauds. \nAA. Metrics \n189. The CIC shall develop a comprehensive set of metrics that provide for \nprospective and retrospective measures, like key performance indicators and key \nrisk indicators. Some illustrative metrics include coverage of anti-malware \nsoftware and their updation percentage, patch latency, extent of user awareness \ntraining, and vulnerability related metrics. \n190. Additionally, the CIC shall define suitable metrics for system performance, \nrecovery and business resumption, including RPO and RTO, for all critical \ninformation systems. For non-critical information systems, the CIC shall adopt a \nrisk-based approach to define suitable metrics.  \n191. The CIC shall implement suitable scorecard / metrics / methodology to measure \nIT performance, and IT maturity level."
+    },
+    {
+      "page_number": 42,
+      "char_count": 1944,
+      "word_count": 271,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "192. The adequacy of and adherence to cybersecurity framework shal",
+        "193. The CIC shall proactively promote awareness of its cyber resi",
+        "194. The CIC shall define and communicate its security policies to"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n42 \n \n192. The adequacy of and adherence to cybersecurity framework shall be assessed \nand measured through development of indicators to assess the level of risk / \npreparedness. The awareness among the stakeholders including employees \nmay also form a part of this assessment.  \nBB. User / Employee / Management Awareness  \n193. The CIC shall proactively promote awareness of its cyber resilience objectives \namong service providers, partners, and other stakeholders, and shall require \nappropriate actions to ensure aligned implementation and testing. \n194. The CIC shall define and communicate its security policies to users / employees, \nvendors, and partners, covering secure and acceptable use of CIC’s information \nassets including customer information / data, and educating them about \ncybersecurity risks and protection measures at their level.  \n195. The CIC shall provide targeted awareness and training for key personnel in \nexecutive, operational, and security administration or management roles. \n196. The CIC shall encourage the reporting of suspicious behaviour incidents to the \nincident management team. \n197. The CIC shall evaluate the awareness level of employees periodically.  \n198. The CIC shall establish a mechanism for continuous and adaptive capacity \nbuilding to strengthen cybersecurity management. Cybersecurity awareness \nprogrammes shall be mandatory for all new recruits, and annual training shall be \nconducted for lower and middle management. \n199. The CIC shall ensure that the Board and Senior Management maintain adequate \nawareness of evolving cyber threats by periodically sensitising them to \ntechnological advancements and cybersecurity developments. The CIC shall \nalso provide annual training to all Board members and Senior Management on \nIT and cybersecurity risks and evolving best practices."
+    },
+    {
+      "page_number": 43,
+      "char_count": 1087,
+      "word_count": 148,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "200. The CIC shall improve and maintain customer awareness and edu",
+        "201. The CIC shall encourage customers to report phishing mails /",
+        "202. The CIC shall educate the customers about the risks and conse",
+        "203. The CIC shall proactively promote awareness of its cyber resi",
+        "204. The CIC shall implement risk-based transaction monitoring or"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n43 \n \nCC. Customer Education and Awareness  \n200. The CIC shall improve and maintain customer awareness and education \nregarding cybersecurity risks.  \n201. The CIC shall encourage customers to report phishing mails / phishing sites and \non such reporting, the CIC shall take effective remedial action.  \n202. The CIC shall educate the customers about the risks and consequences of \nsharing their login credentials, passwords, One-Time Passwords (OTPs), \nPersonal Identification Numbers (PINs), and other authentication information. \n203. The CIC shall proactively promote awareness of its cyber resilience objectives \namong customers. \nDD. Risk based Transaction Monitoring \n204. The CIC shall implement risk-based transaction monitoring or surveillance \nprocess as part of fraud risk management system across all delivery channels. \nEE. Forensics \n205. The CIC shall have support / arrangement for network forensics / forensic \ninvestigation / DDoS mitigation services on standby."
+    },
+    {
+      "page_number": 44,
+      "char_count": 1916,
+      "word_count": 266,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VI - Cyber Security Operations Centre",
+        "206. The CIC shall put in place a framework for establishment and",
+        "207. The CIC shall ensure appropriate governance arrangements whil"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n44 \n \nChapter VI - Cyber Security Operations Centre \nA. \nGovernance \n206. The CIC shall put in place a framework for establishment and operation of a \nCyber Security Operations Centre (CSOC), commensurate with its technology \nrisk profile, scale and complexity of operations, business requirements and \napplicable regulatory and legal obligations. \n207. The CIC shall ensure appropriate governance arrangements while setting up the \nCSOC, including briefing of the Board / ITSC and Senior Management on threat \nintelligence; establishment of dashboards for effective oversight; formulation and \nenforcement of policy with defined measurement and mechanisms such as key \nmetrics and reporting structures specifying what is to be reported; and timely \ncommunication with all the stakeholders. \nB. \nCapabilities \n208. The CSOC shall ensure proactive monitoring and management capabilities with \nsophisticated tools for detection, quick response, and sound analytics. \n209. The CIC shall ensure that the systems implemented for monitoring security \noperations shall enable collection of logs from deployed systems / products and \nof various network activities; storage and processing of such logs; correlation of \nlogs through appropriate Security Information and Event Management (SIEM) \ntools; continuous monitoring of SIEM dashboards to identify anomalies, if any; \nand generation of alerts / events / incidents to escalate any abnormal / \nundesirable activities. \n210. The CIC shall ensure that the systems as part of CSOC addresses the following: \n(1) \nidentification of the root cause of attacks; \n(2) \nclassification of such attacks into identified categories and implementation \nof solutions to contain further attacks of similar nature; \n(3) \ncapabilities for incident investigation and problem management;"
+    },
+    {
+      "page_number": 45,
+      "char_count": 1615,
+      "word_count": 219,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "211. The CIC shall ensure that CSOC is responsible for the followi"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n45 \n \n(4) \ndynamic behaviour analysis (including preliminary static and dynamic \nanalysis); \n(5) \ncollection of Indicators of Compromise (IOCs); \n(6) \nanalytics supported by effective dashboards, including visibility of IP geo- \nlocation and counter-response mechanisms; and  \n(7) \nhoneypot services. \n211. The CIC shall ensure that CSOC is responsible for the following: \n(1) \nmonitoring, analysing and escalating security incidents; \n(2) \ndeveloping and executing response measures across the protect, detect, \nrespond and recover phases; \n(3) \nconducting incident management and forensic analysis; and \n(4) \ncoordinating with relevant contact groups within the CIC as well as with \nexternal agencies, as required. \n212. The CSOC shall have security analytics engine which can process the logs within \nreasonable time frame and come out with possible recommendations with \noptions for further deep dive investigations and deliver wire speed performance \nwith on-the-fly deep packet inspection. \n213. The CSOC shall include tools and technologies for malware detection and \nanalysis as well as imaging solutions for data to address the forensics \nrequirements. \n214. The CIC shall ensure that the CSOC’s solution architecture deployed addresses \nthe performance and scalability requirements in addition to high availability and \nis capable of  \n(1) \nprotecting critical business and customer data and information, \ndemonstrating compliance with internal guidelines as well as applicable \nregulations and laws;"
+    },
+    {
+      "page_number": 46,
+      "char_count": 1879,
+      "word_count": 259,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n46 \n \n(2) \nproviding real-time or near real-time information and insights into the \nsecurity posture of the CIC; \n(3) \neffectively and efficiently managing security operations by preparing for and \nresponding to cyber risks and threats and facilitating business continuity \nand recovery; \n(4) \nassessing threat intelligence and proactively identifying and visualising the \nimpact of threats on the CIC; \n(5) \nestablishing clear attribution of actions including who did what, when and \nhow, along with preservation of evidence; and  \n(6) \nintegrating various log types and logging options into SIEM and related \nsystems, including ticketing, workflow and case management, unstructured \nand big data platforms, and development of use cases and rules \ncustomised to the CIC’s risk and compliance requirements and drivers. \nC. \nStaff Capabilities \n215. The CIC shall put in place an appropriate organisational structure to ensure that \nthe CSOC is managed and monitored on a continuous basis by competent and \ncapable personnel. All personnel engaged in CSOC operations shall possess \nadequate knowledge of the CIC’s products, services, and deployed technology \nenvironment. The structure shall provide for role-based responsibilities across \ndifferent levels of operations, including the following: \n(1) \nRound-the-clock Level 1 monitoring by adequately trained personnel with \nrelevant product and vendor certifications;  \n(2) \nLevel 2 capabilities staffed by personnel with specialised expertise in areas \nsuch as network, data, and endpoint security to support root cause analysis \nand to take suitable corrective actions; and  \n(3) \nLevel 3 capabilities comprising SOC analysts with advanced security \nexpertise, including deep packet analysis, collection of IOCs, forensic"
+    },
+    {
+      "page_number": 47,
+      "char_count": 978,
+      "word_count": 127,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "216. The CIC shall adopt a differentiated and structured approach",
+        "217. The CIC shall put in place appropriate mechanisms to determin"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n47 \n \nknowledge for collection of evidence, malware reverse engineering and \ndevelopment of custom scripts, as required.  \n216. The CIC shall adopt a differentiated and structured approach to hiring, managing, \nand retaining personnel for the CSOC, recognising the specialised nature of the \nfunction.  \n217. The CIC shall put in place appropriate mechanisms to determine staffing \nrequirements for continuous monitoring on 24x7 basis. The CIC shall adopt \nsuitable sourcing and operating models including in-house staffing or managed \nservice arrangements, ensure adequate training of personnel whether internal or \nservice provider-deployed, establish appropriate compensation and incentive \nstructures to retain skilled staff, define metrics to assess SOC performance, and \nensure scalability and continuity of personnel through effective capacity planning \ninitiatives."
+    },
+    {
+      "page_number": 48,
+      "char_count": 1361,
+      "word_count": 205,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VII - Information Systems Audit",
+        "218. The ACB shall be responsible for exercising oversight of IS A",
+        "219. The CIC shall put in place an IS Audit Policy. The IS Audit P",
+        "220. The ACB shall review critical issues highlighted related to I",
+        "221. The CIC shall have a separate IS Audit function or resources"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n48 \n \nChapter VII - Information Systems Audit \n218. The ACB shall be responsible for exercising oversight of IS Audit of the CIC. \n219. The CIC shall put in place an IS Audit Policy. The IS Audit Policy shall clearly \ndescribe key aspects, including its mandate, purpose, authority, audit universe, \nperiodicity of audit. The ACB shall approve the policy and review it at least \nannually. \n220. The ACB shall review critical issues highlighted related to IT / information \nsecurity / cybersecurity and provide appropriate direction and guidance to the \nCIC’s Management. \n221. The CIC shall have a separate IS Audit function or resources who possess \nrequired professional skills and competence within the Internal Audit function. \nWhere the CIC uses external resources for conducting IS audit in areas where \nskills are lacking within the CIC, the responsibility and accountability for such \nexternal IS audits would continue to remain with the competent authority within \nInternal Audit function. \n222. The CIC shall carry out IS Audit planning by adopting a risk-based audit \napproach. \n223. The CIC may consider, wherever possible, a continuous auditing approach for \ncritical systems, performing control and risk assessments on a more frequent \nbasis."
+    },
+    {
+      "page_number": 49,
+      "char_count": 1893,
+      "word_count": 265,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VIII - Repeal and Other Provisions",
+        "224. With the issue of these Directions, the existing directions,",
+        "225. Notwithstanding such repeal, any action taken or purported to"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n49 \n \nChapter VIII - Repeal and Other Provisions \nA. \nRepeal and Saving  \n224. With the issue of these Directions, the existing directions, instructions, and \nguidelines relating to Cybersecurity Framework and IT Governance as applicable \nto Credit Information Companies stand repealed, as communicated vide circular \nno. DoS.CO.PPG.66/11.01.005/2026-27 dated July 31, 2026. The directions, \ninstructions, and guidelines repealed prior to the issuance of these Directions \nshall continue to remain repealed. \n225. Notwithstanding such repeal, any action taken or purported to have been taken, \nor initiated under the repealed Directions, instructions, or guidelines shall \ncontinue to be governed by the provisions thereof. All approvals or \nacknowledgments granted under these repealed lists shall be deemed as \ngoverned by these Directions. Further, the repeal of these Directions, \ninstructions, or guidelines shall not in any way prejudicially affect:  \n(1) \nany right, obligation or liability acquired, accrued, or incurred thereunder; \n(2) \nany penalty, forfeiture, or punishment incurred in respect of any \ncontravention committed thereunder; \n(3) \nany investigation, legal proceeding, or remedy in respect of any such right, \nprivilege, obligation, liability, penalty, forfeiture, or punishment as aforesaid; \nand any such investigation, legal proceedings or remedy may be instituted, \ncontinued, or enforced and any such penalty, forfeiture or punishment may \nbe imposed as if those Directions, instructions, or guidelines had not been \nrepealed. \nB. \nApplication of Other Laws Not barred  \n226. The provisions of these Directions shall be in addition to, and not in derogation \nof the provisions of any other laws, rules, regulations or Directions, for the time \nbeing in force."
+    },
+    {
+      "page_number": 50,
+      "char_count": 573,
+      "word_count": 82,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "227. For the purposes of giving effect to the provisions of these"
+      ],
+      "text": "RBI (CICs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n50 \n \nC. \nInterpretations  \n227. For the purposes of giving effect to the provisions of these Directions or for \nremoving any difficulties in their application or interpretation, RBI may, if it deems \nnecessary, issue such clarifications as it considers appropriate in respect of any \nmatter covered herein. The interpretation of any provision of these Directions by \nRBI shall be final and binding on all concerned entities. \n \n \n(N. Suganandh) \nChief General Manager"
+    }
+  ]
+}

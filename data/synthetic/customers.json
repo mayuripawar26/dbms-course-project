@@ -1,0 +1,93 @@
+[
+  {
+    "customer_id": "CUST_SYNTH_101",
+    "full_name": "Arjun Sharma (Fictional)",
+    "customer_type": "INDIVIDUAL",
+    "occupation": "Student / Freelancer",
+    "declared_annual_income_inr": 250000,
+    "kyc_status": "VERIFIED_SIMPLIFIED",
+    "cdd_tier": "SIMPLIFIED_DUE_DILIGENCE",
+    "risk_rating": "HIGH",
+    "pep_status": false,
+    "onboarding_date": "2025-01-15",
+    "flagged_scenario": "SCENARIO_1_RAPID_DISPERSAL_MULE"
+  },
+  {
+    "customer_id": "CUST_SYNTH_102",
+    "full_name": "Priya Verma (Fictional)",
+    "customer_type": "INDIVIDUAL",
+    "occupation": "Retail Executive",
+    "declared_annual_income_inr": 720000,
+    "kyc_status": "VERIFIED_STANDARD",
+    "cdd_tier": "STANDARD_DUE_DILIGENCE",
+    "risk_rating": "MEDIUM",
+    "pep_status": false,
+    "onboarding_date": "2023-04-10",
+    "flagged_scenario": "SCENARIO_2_UNAUTHORIZED_UPI_BURST"
+  },
+  {
+    "customer_id": "CUST_SYNTH_103",
+    "full_name": "Ramesh Chandra (Fictional)",
+    "customer_type": "INDIVIDUAL_SENIOR",
+    "occupation": "Retired Government Officer",
+    "declared_annual_income_inr": 480000,
+    "kyc_status": "VERIFIED_STANDARD",
+    "cdd_tier": "STANDARD_DUE_DILIGENCE",
+    "risk_rating": "LOW",
+    "pep_status": false,
+    "onboarding_date": "2018-09-20",
+    "flagged_scenario": "SCENARIO_3_POTENTIAL_ACCOUNT_TAKEOVER"
+  },
+  {
+    "customer_id": "CUST_SYNTH_104",
+    "full_name": "Apex Global Consultancy (Fictional Entity)",
+    "customer_type": "CORPORATE_SHELL_SUSPECT",
+    "occupation": "Consulting Services",
+    "declared_annual_income_inr": 1200000,
+    "kyc_status": "EXPIRED_NON_COMPLIANT",
+    "cdd_tier": "ENHANCED_DUE_DILIGENCE_REQUIRED",
+    "risk_rating": "CRITICAL",
+    "pep_status": true,
+    "onboarding_date": "2022-11-05",
+    "flagged_scenario": "SCENARIO_4_CDD_KYC_GAP_DISPROPORTIONATE_TURNOVER"
+  },
+  {
+    "customer_id": "CUST_SYNTH_105",
+    "full_name": "Rajesh Gupta (Fictional)",
+    "customer_type": "INDIVIDUAL_BUSINESS",
+    "occupation": "Wholesale Trader",
+    "declared_annual_income_inr": 1500000,
+    "kyc_status": "EXPIRED_NON_COMPLIANT",
+    "cdd_tier": "STANDARD_DUE_DILIGENCE",
+    "risk_rating": "HIGH",
+    "pep_status": false,
+    "onboarding_date": "2020-03-12",
+    "flagged_scenario": "SCENARIO_5_EXPIRED_KYC_ACTIVE_TRADING"
+  },
+  {
+    "customer_id": "CUST_SYNTH_106",
+    "full_name": "Vikas Trading Syndicate (Fictional Entity)",
+    "customer_type": "CORPORATE_ENTREPRENEURIAL",
+    "occupation": "Commodities Intermediary",
+    "declared_annual_income_inr": 5000000,
+    "kyc_status": "VERIFIED_STANDARD",
+    "cdd_tier": "STANDARD_DUE_DILIGENCE",
+    "risk_rating": "CRITICAL",
+    "pep_status": false,
+    "onboarding_date": "2024-02-18",
+    "flagged_scenario": "SCENARIO_6_CIRCULAR_ROUTING"
+  },
+  {
+    "customer_id": "CUST_SYNTH_107",
+    "full_name": "Sunita Enterprises (Fictional Entity)",
+    "customer_type": "MSME_BORROWER",
+    "occupation": "Textile Manufacturing",
+    "declared_annual_income_inr": 3600000,
+    "kyc_status": "VERIFIED_STANDARD",
+    "cdd_tier": "STANDARD_DUE_DILIGENCE",
+    "risk_rating": "HIGH",
+    "pep_status": false,
+    "onboarding_date": "2023-08-22",
+    "flagged_scenario": "SCENARIO_7_LOAN_DOCUMENT_INCONSISTENCY"
+  }
+]

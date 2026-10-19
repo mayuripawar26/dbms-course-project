@@ -1,0 +1,11 @@
+# GraphRAG Banking Compliance & Risk Intelligence System
+# Core Dependencies
+pymupdf>=1.24.0
+neo4j>=5.20.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Optional / Future Retrieval & Analysis Extensions
+tqdm>=4.66.0
+rich>=13.0.0
+streamlit>=1.30.0

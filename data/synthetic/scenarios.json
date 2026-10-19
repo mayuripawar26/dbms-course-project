@@ -1,0 +1,86 @@
+[
+  {
+    "scenario_id": "SCENARIO_1_RAPID_DISPERSAL_MULE",
+    "name": "Pass-Through / Rapid Dispersal Pattern (Money Mule)",
+    "typology": "Mule Account / Layering",
+    "description": "Multiple incoming sub-threshold transactions rapidly followed by a near-total outflow drain to an external party.",
+    "regulatory_hooks": [
+      "FATF Recommendation 10 & 20 (Customer Due Diligence & Suspicious Transaction Reporting)",
+      "RBI KYC Master Direction, Chapter VI (Monitoring of Transactions)"
+    ],
+    "severity": "HIGH",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_2_UNAUTHORIZED_UPI_BURST",
+    "name": "Reported Unauthorized UPI Transactions",
+    "typology": "Automated Micro-Dispersal / Carding / Scripted Velocity",
+    "description": "Rapid succession of micro-transfers during non-business hours deviating from historical retail behavior.",
+    "regulatory_hooks": [
+      "RBI Cyber Security Framework (Real-time Fraud Monitoring)",
+      "RBI Master Direction - Digital Payment Security Controls"
+    ],
+    "severity": "HIGH",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_3_POTENTIAL_ACCOUNT_TAKEOVER",
+    "name": "Dormant Account High-Value Drain",
+    "typology": "Account Takeover (ATO) / Credential Compromise",
+    "description": "Sudden reactivation of a long-dormant senior retail account with immediate maximum limit transfer to newly added beneficiary.",
+    "regulatory_hooks": [
+      "RBI Operational Guidelines (Dormant Accounts Operations)",
+      "RBI Cyber Security Framework (Two-Factor Authentication & Velocity Throttling)"
+    ],
+    "severity": "CRITICAL",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_4_CDD_KYC_GAP_DISPROPORTIONATE_TURNOVER",
+    "name": "Customer Due Diligence Gaps & Excessive Turnover (Apex Scenario)",
+    "typology": "PEP Non-Compliance / Shell Company Cross-Border Transfer",
+    "description": "Expired KYC status customer transacting 7x declared annual turnover via high-risk overseas channel.",
+    "regulatory_hooks": [
+      "RBI KYC Master Direction Section 35 & 38 (Enhanced Due Diligence & Politically Exposed Persons)",
+      "FATF Recommendation 12 (PEPs) & 19 (Higher-risk countries)"
+    ],
+    "severity": "CRITICAL",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_5_EXPIRED_KYC_ACTIVE_TRADING",
+    "name": "Expired KYC with Ongoing Active Commercial Transfers",
+    "typology": "Regulatory Non-Compliance / Dormancy Failure",
+    "description": "Customer operating active high-value commercial credits without periodic KYC update or enhanced due diligence.",
+    "regulatory_hooks": [
+      "RBI KYC Master Direction Section 38 (Periodic Updation of KYC)",
+      "PML (Maintenance of Records) Rules, 2005"
+    ],
+    "severity": "HIGH",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_6_CIRCULAR_ROUTING",
+    "name": "Circular Fund Transfers (Layering & Round-Tripping)",
+    "typology": "Circular Transactions / Artificial Turnover Inflation",
+    "description": "Funds transferred across multiple accounts (A -> B -> C -> A) within hours returning to the originating account minus transaction fees.",
+    "regulatory_hooks": [
+      "FATF Recommendation 20 (Suspicious Transaction Reporting)",
+      "RBI Master Direction on Monitoring of Accounts"
+    ],
+    "severity": "CRITICAL",
+    "status": "INVESTIGATION_SIGNAL"
+  },
+  {
+    "scenario_id": "SCENARIO_7_LOAN_DOCUMENT_INCONSISTENCY",
+    "name": "Loan-Document Inconsistencies & Fund Diversion",
+    "typology": "Credit Facility Misuse / Diversion of Working Capital",
+    "description": "Disbursed business loan funds diverted immediately to personal accounts of promoters, conflicting with stated business utilization and credit reporting.",
+    "regulatory_hooks": [
+      "RBI Master Direction on Credit Information Companies (CICs)",
+      "RBI Supervisory Guidelines on Large Credit and Diversion of Funds"
+    ],
+    "severity": "HIGH",
+    "status": "INVESTIGATION_SIGNAL"
+  }
+]

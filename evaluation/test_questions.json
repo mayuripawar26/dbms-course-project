@@ -1,0 +1,119 @@
+{
+  "test_suite_name": "Banking Compliance & Risk Intelligence Evaluation Questions",
+  "version": "1.0.0",
+  "last_updated": "2026-10-17",
+  "verification_policy": "Answers must be strictly corroborated against verified PDF document citations and page numbers. Unverified inferences are explicitly flagged.",
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "Which transactions require enhanced due diligence (EDD) under applicable regulatory frameworks?",
+      "target_domain": "KYC_AML",
+      "relevant_regulations": ["RBI KYC Master Direction", "FATF Recommendations"],
+      "verified_citations": [
+        {
+          "document": "kyc.pdf",
+          "page": 24,
+          "section": "Chapter V – Customer Identification Procedure (CIP)",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        },
+        {
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 19 (Higher-risk countries)",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": ["Cross-border wire transfer from high-risk jurisdiction", "Politically Exposed Person (PEP) transaction exceeding declared profile"],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    },
+    {
+      "id": "Q002",
+      "question": "What obligations exist for reporting suspicious transactions to FIU-IND?",
+      "target_domain": "AML_REPORTING",
+      "relevant_regulations": ["RBI KYC Master Direction, Chapter VIII", "PML (Maintenance of Records) Rules, 2005"],
+      "verified_citations": [
+        {
+          "document": "kyc.pdf",
+          "page": 54,
+          "section": "Chapter VIII – Reporting Requirements to Financial Intelligence Unit – India",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": ["Sub-threshold structuring", "Pass-through account velocity drain"],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    },
+    {
+      "id": "Q003",
+      "question": "What cybersecurity measures are mandated for monitoring digital banking transactions and fraud mitigation?",
+      "target_domain": "CYBER_SECURITY",
+      "relevant_regulations": ["RBI Cyber Security Framework Directions"],
+      "verified_citations": [
+        {
+          "document": "Cyber security.pdf",
+          "page": 2,
+          "section": "RBI (CBs – Cybersecurity, Technology: Risk Management and Assurance Framework) Directions",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": ["Unusual off-hours transaction burst", "Dormant account reactivation with rapid high-value transfer"],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    },
+    {
+      "id": "Q004",
+      "question": "What transaction patterns indicate potential money mule operations or layering?",
+      "target_domain": "FRAUD_AML_TYPOLOGY",
+      "relevant_regulations": ["FATF Recommendation 10 & 20", "RBI KYC Master Direction Chapter VI"],
+      "verified_citations": [
+        {
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 20 (Reporting of suspicious transactions)",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": [
+        "Multiple incoming transfers from varied remitters followed rapidly by near-total outflow drain",
+        "Disproportionate turnover relative to customer profile (e.g., student/freelancer account)"
+      ],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    },
+    {
+      "id": "Q005",
+      "question": "How do supervisory and credit information disclosure rules govern reporting to Credit Information Companies (CICs)?",
+      "target_domain": "CREDIT_INFORMATION",
+      "relevant_regulations": ["RBI Master Direction - Credit Information Companies"],
+      "verified_citations": [
+        {
+          "document": "Credit information.pdf",
+          "page": 1,
+          "section": "भारतीय रिजर्व बैंक - Reserve Bank of India",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": ["Unreported large credit exposures", "Data quality errors in credit registry reporting"],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    },
+    {
+      "id": "Q006",
+      "question": "What were the macro-monetary impacts of demonetisation on banking deposits and liquidity?",
+      "target_domain": "MONETARY_POLICY_ANALYSIS",
+      "relevant_regulations": ["RBI Working Papers & Demonetisation Assessment"],
+      "verified_citations": [
+        {
+          "document": "Demonitization.pdf",
+          "page": 1,
+          "section": "Macroeconomic Impact of Demonetisation- A Preliminary Assessment",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        },
+        {
+          "document": "WP-450-Pratap-Singh_2-Final.pdf",
+          "page": 1,
+          "section": "Working Paper No. 450",
+          "verification_status": "VERIFIED_AGAINST_SOURCE_TEXT"
+        }
+      ],
+      "investigation_signals": ["Surge in low-cost CASA deposits post-demonetisation"],
+      "answer_verification_status": "VERIFIED_AGAINST_PDF"
+    }
+  ]
+}

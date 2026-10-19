@@ -1,0 +1,385 @@
+
+"""
+retrieval/document_retriever.py
+
+Phase 6B: Improved offline BM25 document retriever.
+
+Features:
+- BM25 ranking over processed evidence chunks.
+- Inverted index built once during initialization.
+- Consistent tokenization and document-length statistics.
+- Optional filename and section filters.
+- Matching-term diagnostics.
+- Source metadata preserved for citation verification.
+- No external APIs or LLM dependency.
+"""
+
+import sys
+import json
+import math
+import re
+import argparse
+from collections import Counter, defaultdict
+from pathlib import Path
+from typing import List, Dict, Any, Optional
+
+
+# Ensure UTF-8 output on Windows.
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except (OSError, ValueError):
+        pass
+
+
+# Small general-purpose stopword list.
+# Keep domain-specific words such as bank, fraud, KYC, RBI, and AML.
+STOPWORDS = {
+    "a", "an", "the", "is", "are", "was", "were",
+    "be", "been", "being", "to", "of", "in", "on",
+    "at", "by", "for", "from", "with", "and", "or",
+    "but", "as", "it", "its", "this", "that", "these",
+    "those", "what", "which", "who", "when", "where",
+    "why", "how", "can", "could", "would", "should",
+    "do", "does", "did", "has", "have", "had",
+    "about", "into", "through", "their", "there",
+    "them", "they", "we", "you", "your", "our"
+}
+
+
+def tokenize(text: str) -> List[str]:
+    """Normalize text into searchable alphanumeric tokens."""
+    if not isinstance(text, str):
+        return []
+
+    # Preserve useful tokens such as KYC, AML, RBI and section numbers.
+    tokens = re.findall(r"[a-zA-Z0-9]+(?:[-'][a-zA-Z0-9]+)*", text.lower())
+
+    return [
+        token for token in tokens
+        if token not in STOPWORDS and len(token) >= 2
+    ]
+
+
+def make_preview(text: str, matched_terms: List[str], window_size: int = 80) -> str:
+    """Show the text window containing the most matched query terms."""
+    if not text:
+        return ""
+
+    words = list(re.finditer(r"\S+", text))
+    if len(words) <= window_size:
+        return text.replace("\n", " ")
+
+    terms = set(matched_terms)
+    best_start = 0
+    best_score = -1
+
+    for start in range(len(words) - window_size + 1):
+        end = start + window_size
+        window_text = text[words[start].start():words[end - 1].end()]
+        window_tokens = set(tokenize(window_text))
+        score = len(terms & window_tokens)
+
+        if score > best_score:
+            best_score = score
+            best_start = start
+
+    end = min(best_start + window_size, len(words))
+    preview = text[words[best_start].start():words[end - 1].end()]
+    return ("... " if best_start > 0 else "") + preview.replace("\n", " ") + (
+        " ..." if end < len(words) else ""
+    )
+
+
+
+class DocumentRetriever:
+    def __init__(self, chunks_path: Optional[Path] = None):
+        if chunks_path is None:
+            project_root = Path(__file__).resolve().parent.parent
+            chunks_path = (
+                project_root / "data" / "processed" / "chunks.json"
+            )
+
+        self.chunks_path = Path(chunks_path)
+
+        self.chunks: List[Dict[str, Any]] = []
+        self.tokens_by_doc: List[List[str]] = []
+        self.doc_freq: Dict[str, int] = {}
+        self.inverted_index = defaultdict(list)
+
+        self.total_docs = 0
+        self.avg_doc_len = 0.0
+
+        self._load_and_index()
+
+    @staticmethod
+    def _get_text(chunk: Dict[str, Any]) -> str:
+        """Read chunk text safely."""
+        return str(chunk.get("text") or "")
+
+    def _load_and_index(self):
+        """Load chunks and build the BM25 index once."""
+        if not self.chunks_path.exists():
+            raise FileNotFoundError(
+                f"Chunks file not found: {self.chunks_path}"
+            )
+
+        with self.chunks_path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        if not isinstance(data, list):
+            raise ValueError(
+                "chunks.json must contain a JSON list of chunks."
+            )
+
+        self.chunks = [
+            chunk for chunk in data
+            if isinstance(chunk, dict)
+        ]
+
+        self.total_docs = len(self.chunks)
+
+        if self.total_docs == 0:
+            print("[!] No valid chunks found.")
+            return
+
+        total_length = 0
+
+        for doc_idx, chunk in enumerate(self.chunks):
+            tokens = tokenize(self._get_text(chunk))
+            self.tokens_by_doc.append(tokens)
+
+            total_length += len(tokens)
+
+            # Count each term once per document for document frequency.
+            for term in set(tokens):
+                self.doc_freq[term] = (
+                    self.doc_freq.get(term, 0) + 1
+                )
+
+            # Store term frequencies in the inverted index.
+            term_counts = Counter(tokens)
+
+            for term, frequency in term_counts.items():
+                self.inverted_index[term].append(
+                    (doc_idx, frequency)
+                )
+
+        self.avg_doc_len = (
+            total_length / self.total_docs
+            if self.total_docs else 0.0
+        )
+
+        print(
+            f"[+] Indexed {self.total_docs} chunks "
+            f"from {self.chunks_path}"
+        )
+
+    @staticmethod
+    def _metadata(chunk: Dict[str, Any]) -> Dict[str, Any]:
+        """Preserve available source metadata without inventing values."""
+        filename = chunk.get("filename")
+        page = chunk.get("page_start")
+        section = chunk.get("section_heading")
+        chunk_id = chunk.get("chunk_id")
+
+        return {
+            "chunk_id": chunk_id,
+            "filename": filename,
+            "page": page,
+            "section": section,
+            "citation": (
+                f"[{filename}, Page {page}, Section: '{section}']"
+                if filename is not None and page is not None
+                and section is not None
+                else None
+            )
+        }
+
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+        document_filter: Optional[str] = None,
+        section_filter: Optional[str] = None,
+        min_score: float = 0.0
+    ) -> List[Dict[str, Any]]:
+        """
+        Return BM25-ranked evidence chunks.
+
+        document_filter and section_filter use case-insensitive
+        substring matching. min_score is an optional BM25 cutoff,
+        not a probability or a guarantee of relevance.
+        """
+        if not isinstance(query, str) or not query.strip():
+            return []
+
+        if top_k <= 0:
+            return []
+
+        if not self.chunks or self.avg_doc_len <= 0:
+            return []
+
+        query_terms = set(tokenize(query))
+
+        if not query_terms:
+            return []
+
+        k1 = 1.5
+        b = 0.75
+
+        # Score only documents containing at least one query term.
+        candidate_ids = set()
+
+        for term in query_terms:
+            for doc_idx, _ in self.inverted_index.get(term, []):
+                candidate_ids.add(doc_idx)
+
+        scored = []
+
+        for doc_idx in candidate_ids:
+            chunk = self.chunks[doc_idx]
+            metadata = self._metadata(chunk)
+
+            filename = str(metadata["filename"] or "")
+            section = str(metadata["section"] or "")
+
+            if (
+                document_filter
+                and document_filter.casefold() not in filename.casefold()
+            ):
+                continue
+
+            if (
+                section_filter
+                and section_filter.casefold() not in section.casefold()
+            ):
+                continue
+
+            tokens = self.tokens_by_doc[doc_idx]
+            doc_len = len(tokens)
+
+            if doc_len == 0:
+                continue
+
+            term_counts = Counter(tokens)
+            score = 0.0
+            matched_terms = []
+
+            for term in query_terms:
+                tf = term_counts.get(term, 0)
+
+                if tf == 0:
+                    continue
+
+                matched_terms.append(term)
+                df = self.doc_freq.get(term, 0)
+
+                # Standard BM25 inverse document frequency.
+                idf = math.log(
+                    1 + (self.total_docs - df + 0.5) / (df + 0.5)
+                )
+
+                denominator = tf + k1 * (
+                    1 - b + b * doc_len / self.avg_doc_len
+                )
+
+                score += idf * (
+                    tf * (k1 + 1)
+                ) / denominator
+
+            if score < min_score or score <= 0:
+                continue
+
+            result = {
+                **metadata,
+                "score": round(score, 4),
+                "matched_terms": sorted(matched_terms),
+                "matched_term_count": len(matched_terms),
+                "text": self._get_text(chunk)
+            }
+
+            scored.append(result)
+
+        # Deterministic tie-breaking helps reproduce test results.
+        scored.sort(
+            key=lambda item: (
+                -item["score"],
+                str(item["filename"] or ""),
+                str(item["chunk_id"] or "")
+            )
+        )
+
+        results = scored[:top_k]
+
+        for rank, result in enumerate(results, start=1):
+            result["rank"] = rank
+
+        return results
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Offline BM25 regulatory document retriever"
+    )
+
+    parser.add_argument(
+        "--query", required=True,
+        help="Compliance, risk, or regulatory question"
+    )
+    parser.add_argument(
+        "--top-k", type=int, default=5,
+        help="Maximum evidence chunks to return"
+    )
+    parser.add_argument(
+        "--doc", default=None,
+        help="Filter by filename substring"
+    )
+    parser.add_argument(
+        "--section", default=None,
+        help="Filter by section-heading substring"
+    )
+    parser.add_argument(
+        "--min-score", type=float, default=0.0,
+        help="Optional BM25 score cutoff; not a confidence probability"
+    )
+
+    args = parser.parse_args()
+
+    try:
+        retriever = DocumentRetriever()
+
+        results = retriever.search(
+            query=args.query,
+            top_k=args.top_k,
+            document_filter=args.doc,
+            section_filter=args.section,
+            min_score=args.min_score
+        )
+
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        print(f"[!] Retrieval failed: {error}")
+        raise SystemExit(1)
+
+    print(f"\nQuery: {args.query}")
+    print(f"Matches: {len(results)}")
+    print("=" * 80)
+
+    if not results:
+        print("No matching evidence found.")
+        print("Try a more specific query or review the document filters.")
+        return
+
+    for result in results:
+        print(
+            f"\nRank {result['rank']} | "
+            f"BM25 score: {result['score']} | "
+            f"Chunk: {result['chunk_id']}"
+        )
+        print(f"Citation: {result['citation'] or 'Metadata incomplete'}")
+        print(f"Matched terms: {result['matched_terms']}")
+        print("Text: "+ make_preview(result["text"], result["matched_terms"]))
+
+
+if __name__ == "__main__":
+    main()

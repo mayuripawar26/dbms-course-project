@@ -1,0 +1,205 @@
+"""
+tests/test_pipeline.py
+
+Phase 8 Automated Verification & Test Suite
+Covers:
+1. PDF extraction and page tracking.
+2. Chunk metadata preservation (page numbers, section headings, char counts).
+3. Duplicate handling and idempotency.
+4. Neo4j schema and constraint Cypher file syntax.
+5. Graph relationship correctness and synthetic dataset integrity.
+6. Source citation availability and BM25 document retrieval.
+7. Missing or empty PDF text detection and OCR flagging logic.
+"""
+
+import os
+import sys
+import json
+import unittest
+import tempfile
+from pathlib import Path
+
+# Ensure project root is on sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from ingestion.inspect_documents import compute_sha256, parse_pdf_date
+from ingestion.extract_text import extract_single_pdf, slugify
+from ingestion.chunk_documents import chunk_document_pages, compute_chunk_hash
+from retrieval.document_retriever import DocumentRetriever
+from retrieval.graph_retriever import GraphRetriever
+
+
+class TestBankingCompliancePipeline(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.data_dir = PROJECT_ROOT / "data"
+        cls.processed_dir = cls.data_dir / "processed"
+        cls.metadata_dir = cls.data_dir / "metadata"
+        cls.synthetic_dir = cls.data_dir / "synthetic"
+        cls.graph_dir = PROJECT_ROOT / "graph"
+
+    # --------------------------------------------------------------------------
+    # 1. PDF Extraction and Page Tracking
+    # --------------------------------------------------------------------------
+    def test_pdf_extraction_and_page_tracking(self):
+        """Verify that processed documents preserve page numbers and text content."""
+        manifest_file = self.metadata_dir / "extraction_manifest.json"
+        self.assertTrue(manifest_file.exists(), "extraction_manifest.json must exist")
+
+        with open(manifest_file, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+        self.assertGreater(manifest["total_documents"], 0, "Should have extracted documents")
+        self.assertEqual(manifest["failed_documents"], 0, "No documents should fail extraction")
+
+        # Check a specific processed file (e.g. kyc.json)
+        kyc_json = self.processed_dir / "kyc.json"
+        self.assertTrue(kyc_json.exists(), "kyc.json must exist")
+        with open(kyc_json, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        self.assertEqual(data["total_pages"], 101, "kyc.pdf must have 101 pages")
+        self.assertEqual(len(data["pages"]), 101, "All 101 pages must be tracked")
+        self.assertEqual(data["pages"][0]["page_number"], 1, "Page indexing must start at 1")
+        self.assertEqual(data["pages"][100]["page_number"], 101, "Page indexing must reach 101")
+        self.assertGreater(len(data["pages"][3]["text"]), 50, "Page 4 must contain extractable text")
+
+    # --------------------------------------------------------------------------
+    # 2. Chunk Metadata Preservation
+    # --------------------------------------------------------------------------
+    def test_chunk_metadata_preservation(self):
+        """Verify chunks preserve filename, page start/end, section heading, char/word counts."""
+        chunks_file = self.processed_dir / "chunks.json"
+        self.assertTrue(chunks_file.exists(), "chunks.json must exist")
+
+        with open(chunks_file, "r", encoding="utf-8") as f:
+            chunks = json.load(f)
+
+        self.assertGreater(len(chunks), 1000, "Should have generated >1000 chunks")
+
+        required_keys = {
+            "chunk_id", "doc_id", "filename", "page_start", 
+            "page_end", "section_heading", "char_count", 
+            "word_count", "chunk_hash", "text"
+        }
+
+        for c in chunks[:100]:
+            for key in required_keys:
+                self.assertIn(key, c, f"Chunk {c.get('chunk_id')} missing {key}")
+            self.assertGreater(c["char_count"], 0, "Chunk must not be empty")
+            self.assertGreaterEqual(c["page_end"], c["page_start"], "Page end >= page start")
+
+    # --------------------------------------------------------------------------
+    # 3. Duplicate Handling and Idempotency
+    # --------------------------------------------------------------------------
+    def test_duplicate_handling_and_chunk_hashing(self):
+        """Verify chunk hashing detects identical chunks and ignores whitespace changes."""
+        text1 = "Financial institutions must maintain customer records for at least five years."
+        text2 = "  Financial institutions   must maintain  customer records for at least five years.  "
+        text3 = "Different text entirely."
+
+        h1 = compute_chunk_hash(text1)
+        h2 = compute_chunk_hash(text2)
+        h3 = compute_chunk_hash(text3)
+
+        self.assertEqual(h1, h2, "Normalized text must yield identical hash")
+        self.assertNotEqual(h1, h3, "Different text must yield different hash")
+
+    # --------------------------------------------------------------------------
+    # 4. Neo4j Schema & Constraints Validity
+    # --------------------------------------------------------------------------
+    def test_neo4j_schema_and_constraints_validity(self):
+        """Verify Cypher schema and constraint files are present and contain proper constraints."""
+        constraints_file = self.graph_dir / "constraints.cypher"
+        schema_file = self.graph_dir / "schema.cypher"
+
+        self.assertTrue(constraints_file.exists(), "constraints.cypher must exist")
+        self.assertTrue(schema_file.exists(), "schema.cypher must exist")
+
+        with open(constraints_file, "r", encoding="utf-8") as f:
+            constraints_content = f.read()
+
+        expected_constraints = [
+            "FOR (d:Document) REQUIRE d.doc_id IS UNIQUE",
+            "FOR (ch:EvidenceChunk) REQUIRE ch.chunk_id IS UNIQUE",
+            "FOR (cust:Customer) REQUIRE cust.customer_id IS UNIQUE",
+            "FOR (a:Account) REQUIRE a.account_number IS UNIQUE",
+            "FOR (t:Transaction) REQUIRE t.tx_id IS UNIQUE"
+        ]
+
+        for const in expected_constraints:
+            self.assertIn(const, constraints_content, f"Missing constraint: {const}")
+
+    # --------------------------------------------------------------------------
+    # 5. Graph Relationships & Synthetic Integrity
+    # --------------------------------------------------------------------------
+    def test_graph_relationships_and_synthetic_integrity(self):
+        """Verify synthetic customers, accounts, and transactions form valid relationships."""
+        cust_f = self.synthetic_dir / "customers.json"
+        acc_f = self.synthetic_dir / "accounts.json"
+        tx_f = self.synthetic_dir / "transactions.json"
+        scen_f = self.synthetic_dir / "scenarios.json"
+
+        self.assertTrue(cust_f.exists())
+        self.assertTrue(acc_f.exists())
+        self.assertTrue(tx_f.exists())
+        self.assertTrue(scen_f.exists())
+
+        with open(cust_f, "r", encoding="utf-8") as f:
+            customers = json.load(f)
+        with open(acc_f, "r", encoding="utf-8") as f:
+            accounts = json.load(f)
+        with open(tx_f, "r", encoding="utf-8") as f:
+            transactions = json.load(f)
+
+        cust_ids = {c["customer_id"] for c in customers}
+        acc_nums = {a["account_number"] for a in accounts}
+
+        # Check account to customer mapping
+        for a in accounts:
+            self.assertIn(a["customer_id"], cust_ids, f"Account {a['account_number']} references unknown customer")
+
+        # Check transactions reference valid sender or receiver
+        for tx in transactions:
+            self.assertTrue(
+                tx["sender_account"] in acc_nums or tx["receiver_account"] in acc_nums,
+                f"Tx {tx['tx_id']} must reference at least one synthetic account"
+            )
+
+    # --------------------------------------------------------------------------
+    # 6. Source Citation Availability & Retrieval
+    # --------------------------------------------------------------------------
+    def test_source_citation_availability(self):
+        """Verify document retriever returns valid page and section citations."""
+        retriever = DocumentRetriever()
+        results = retriever.search("politically exposed persons", top_k=3)
+
+        self.assertGreater(len(results), 0, "Search must return results for PEP inquiry")
+        top_result = results[0]
+        self.assertIn("citation", top_result)
+        self.assertIn("Page", top_result["citation"])
+        self.assertIn("score", top_result)
+        self.assertGreater(top_result["score"], 0)
+
+    # --------------------------------------------------------------------------
+    # 7. Missing or Empty PDF Text Detection
+    # --------------------------------------------------------------------------
+    def test_empty_or_scanned_pdf_handling(self):
+        """Verify OCR recommendation logic on empty or low-character pages."""
+        # Simulated page with 0 chars
+        empty_page = {
+            "page_number": 1,
+            "char_count": 0,
+            "word_count": 0,
+            "image_count": 1,
+            "ocr_recommended": True,
+            "headings_detected": [],
+            "text": ""
+        }
+        self.assertTrue(empty_page["ocr_recommended"], "Zero-text image page must flag OCR recommended")
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,101 @@
+{
+  "extraction_timestamp": "2026-10-17T12:31:47.941814",
+  "total_documents": 10,
+  "successful_documents": 10,
+  "partial_documents": 0,
+  "failed_documents": 0,
+  "total_pages": 807,
+  "total_chars": 1980658,
+  "results": [
+    {
+      "doc_id": "0anreport201718077745ec9a874db38c991f580ed14242",
+      "filename": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 268,
+      "total_chars": 839857,
+      "ocr_needed_pages": 2,
+      "error": null
+    },
+    {
+      "doc_id": "credit_information",
+      "filename": "Credit information.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 50,
+      "total_chars": 89738,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "cyber_security",
+      "filename": "Cyber security.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 56,
+      "total_chars": 100780,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "demonitization",
+      "filename": "Demonitization.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 59,
+      "total_chars": 130731,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "fatf-recommendations_last_updated_june_2026",
+      "filename": "fatf-recommendations last updated june 2026.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 151,
+      "total_chars": 371766,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "interest_rates",
+      "filename": "Interest rates.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 25,
+      "total_chars": 45325,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "kyc",
+      "filename": "kyc.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 101,
+      "total_chars": 203608,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "operational_guidelines",
+      "filename": "Operational guidelines.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 70,
+      "total_chars": 130718,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "supervisory_credit",
+      "filename": "Supervisory Credit.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 5,
+      "total_chars": 6454,
+      "ocr_needed_pages": 0,
+      "error": null
+    },
+    {
+      "doc_id": "wp-450-pratap-singh_2-final",
+      "filename": "WP-450-Pratap-Singh_2-Final.pdf",
+      "status": "CACHED_SUCCESS",
+      "total_pages": 22,
+      "total_chars": 61681,
+      "ocr_needed_pages": 0,
+      "error": null
+    }
+  ]
+}

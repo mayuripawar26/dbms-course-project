@@ -1,0 +1,82 @@
+{
+  "chunking_timestamp": "2026-10-17T12:32:03.555618",
+  "total_chunks": 1220,
+  "total_documents": 10,
+  "total_words": 303400,
+  "total_chars": 2043321,
+  "avg_chunk_chars": 1674.9,
+  "target_chunk_chars": 1200,
+  "chunk_overlap_chars": 200,
+  "document_stats": [
+    {
+      "doc_id": "0anreport201718077745ec9a874db38c991f580ed14242",
+      "filename": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+      "total_chunks": 351,
+      "avg_chars_per_chunk": 2437.8,
+      "pages": 268
+    },
+    {
+      "doc_id": "credit_information",
+      "filename": "Credit information.pdf",
+      "total_chunks": 93,
+      "avg_chars_per_chunk": 1008.4,
+      "pages": 50
+    },
+    {
+      "doc_id": "cyber_security",
+      "filename": "Cyber security.pdf",
+      "total_chunks": 107,
+      "avg_chars_per_chunk": 985.0,
+      "pages": 56
+    },
+    {
+      "doc_id": "demonitization",
+      "filename": "Demonitization.pdf",
+      "total_chunks": 110,
+      "avg_chars_per_chunk": 1262.4,
+      "pages": 59
+    },
+    {
+      "doc_id": "fatf-recommendations_last_updated_june_2026",
+      "filename": "fatf-recommendations last updated june 2026.pdf",
+      "total_chunks": 238,
+      "avg_chars_per_chunk": 1632.0,
+      "pages": 151
+    },
+    {
+      "doc_id": "interest_rates",
+      "filename": "Interest rates.pdf",
+      "total_chunks": 29,
+      "avg_chars_per_chunk": 1581.9,
+      "pages": 25
+    },
+    {
+      "doc_id": "kyc",
+      "filename": "kyc.pdf",
+      "total_chunks": 107,
+      "avg_chars_per_chunk": 1910.6,
+      "pages": 101
+    },
+    {
+      "doc_id": "operational_guidelines",
+      "filename": "Operational guidelines.pdf",
+      "total_chunks": 132,
+      "avg_chars_per_chunk": 1044.2,
+      "pages": 70
+    },
+    {
+      "doc_id": "supervisory_credit",
+      "filename": "Supervisory Credit.pdf",
+      "total_chunks": 6,
+      "avg_chars_per_chunk": 1097.5,
+      "pages": 5
+    },
+    {
+      "doc_id": "wp-450-pratap-singh_2-final",
+      "filename": "WP-450-Pratap-Singh_2-Final.pdf",
+      "total_chunks": 47,
+      "avg_chars_per_chunk": 1414.7,
+      "pages": 22
+    }
+  ]
+}

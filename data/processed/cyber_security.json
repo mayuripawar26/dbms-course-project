@@ -1,0 +1,704 @@
+{
+  "doc_id": "cyber_security",
+  "filename": "Cyber security.pdf",
+  "filepath": "C:\\Users\\Shreeya B. Kulkarni\\Desktop\\DBms_project\\data\\Cyber security.pdf",
+  "sha256": "93b71d78de055e224131f5028f97b070b8f83b2e40df08bbb833d70f833a7c4b",
+  "extracted_at": "2026-10-17T11:56:05.981960",
+  "total_pages": 56,
+  "total_chars": 100780,
+  "zero_text_pages": 0,
+  "ocr_needed_pages": 0,
+  "status": "SUCCESS",
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Acrobat PDFMaker 26 for Word",
+    "creation_date": "D:20260801113211+05'30'"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "char_count": 3164,
+      "word_count": 263,
+      "image_count": 0,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter I - Preliminary ............................................................................................. 4",
+        "A. Short Title and Commencement ................................"
+      ],
+      "text": "भारतीय ᳯरज़वर् बᱹक \nReserve Bank of India \nपयर्वेक्षण ͪ वभाग, भारतीय ǐरज़वर् बैंक, केंद्रȣय कायार्लय, मेकर टावर-ई, 20वीं मंिजल, कफ परेड, कोलाबा, मुंबई-400 005  \nदूरभाष: 022-2216 1816 ई-मेल: csite@rbi.org.in  \nDepartment of Supervision, Reserve Bank of India, Central Office, Maker Tower-E, 20th floor, Cuffe Parade, Colaba, Mumbai- 400 005 \nTel: 022- 2216 1816 Email: csite@rbi.org.in  \n \n \nǑहंदȣ आसान है इसका प्रयोग बढ़ाइए \nRBI/DoS/2026-27/410 \nDoS.CO.CSITEG.4/31.01.015/2026-27   \n \n                        July 31, 2026 \nReserve Bank of India (Commercial Banks – Cybersecurity, Technology: Risk, \nResilience and Assurance Framework) Directions, 2026 \nTable of Contents \nChapter I - Preliminary ............................................................................................. 4 \nA. Short Title and Commencement ..................................................................... 4 \nB. Applicability ..................................................................................................... 4 \nC. Definitions ........................................................................................................ 6 \nChapter II - Role of the Board ................................................................................ 11 \nA. Board Approved Policies .............................................................................. 11 \nB. Board Level Committees ............................................................................... 11 \nChapter III – Information Technology Governance and Oversight ..................... 12 \nA. IT Governance Framework ............................................................................ 12 \nB. Information Security Policy and Cybersecurity Policy ............................... 12 \nC. IT Strategy Committee of the Board ............................................................. 13 \nD. Senior Management and IT Steering Committee ........................................ 14 \nE. Information Security Committee .................................................................. 15 \nF. Head of IT Function ....................................................................................... 16 \nG. Chief Information Security Officer ............................................................... 17 \nH. Information Technology Project Management ............................................ 18 \nI. IT Architecture ................................................................................................ 18 \nJ. IT Services Management ............................................................................... 19 \nChapter IV - IT and Information Security Risk Management .............................. 20 \nA. Periodic Review of IT related Risks ............................................................. 20 \nB. IT and Information Security Risk Management Framework ....................... 20 \nC. Risk Identification, Assessment, and Documentation ................................ 20 \nChapter V - Baseline Cybersecurity and Resilience Requirements ................... 22 \nA. Inventory Management of Information Assets ............................................ 22"
+    },
+    {
+      "page_number": 2,
+      "char_count": 3445,
+      "word_count": 225,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "B. Data Leak Prevention Strategy ...............................",
+        "C. Data Migration Controls .....................................",
+        "D. Preventing Execution of Unauthorised Software ...............",
+        "E. Physical and Environmental Controls .........................",
+        "F. Capacity Management .........................................",
+        "G. Secure Configuration ........................................",
+        "H. Network Management and Security .............................",
+        "I. Application Security Life Cycle .............................",
+        "J. Maintenance, Monitoring, and Analysis of Audit Logs .........",
+        "K. Patch, Vulnerability and Change Management ..................",
+        "L. User Access Control / Management ............................",
+        "M. Controls on Teleworking ....................................."
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n2 \n \nB. Data Leak Prevention Strategy ..................................................................... 22 \nC. Data Migration Controls ................................................................................ 23 \nD. Preventing Execution of Unauthorised Software ........................................ 23 \nE. Physical and Environmental Controls ......................................................... 24 \nF. Capacity Management ................................................................................... 24 \nG. Secure Configuration .................................................................................... 25 \nH. Network Management and Security ............................................................. 25 \nI. Application Security Life Cycle .................................................................... 26 \nJ. Maintenance, Monitoring, and Analysis of Audit Logs ............................... 28 \nK. Patch, Vulnerability and Change Management ........................................... 29 \nL. User Access Control / Management ............................................................. 30 \nM. Controls on Teleworking .............................................................................. 31 \nN. Authentication Framework for Customers .................................................. 32 \nO. Secure Mail and Messaging Systems .......................................................... 32 \nP. Removable Media .......................................................................................... 33 \nQ. Third-Party Arrangements............................................................................. 33 \nR. Cryptographic Controls ................................................................................. 39 \nS. Straight Through Processing ....................................................................... 39 \nT. Continuous Surveillance ............................................................................... 40 \nU. Advanced Real-time Threat Defence and Management .............................. 40 \nV. Anti-Phishing ................................................................................................. 40 \nW. Vulnerability Assessment and Penetration Test ......................................... 40 \nX. Red Teaming Exercises ................................................................................. 42 \nY. Business Continuity and Disaster Recovery ............................................... 43 \nZ. Cyber Incident Response and Recovery Management ............................... 44 \nAA. \nMetrics ...................................................................................................... 47 \nBB. \nUser / Employee / Management Awareness ........................................... 47 \nCC. \nCustomer Education and Awareness ..................................................... 48 \nDD. \nRisk based Transaction Monitoring ....................................................... 49 \nEE. \nForensics .................................................................................................. 49 \nChapter VI - Cyber Security Operations Centre ................................................... 50 \nA. Governance .................................................................................................... 50"
+    },
+    {
+      "page_number": 3,
+      "char_count": 899,
+      "word_count": 58,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "B. Capabilities ................................................",
+        "C. Staff Capabilities ..........................................",
+        "Chapter VII - Information Systems Audit .............................................................. 54",
+        "Chapter VIII - Repeal and Other Provisions ......................................................... 55",
+        "A. Repeal and Saving ...........................................",
+        "B. Application of Other Laws Not barred ........................",
+        "C. Interpretations ............................................."
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n3 \n \nB. Capabilities ..................................................................................................... 50 \nC. Staff Capabilities ............................................................................................ 52 \nChapter VII - Information Systems Audit .............................................................. 54 \nChapter VIII - Repeal and Other Provisions ......................................................... 55 \nA. Repeal and Saving ......................................................................................... 55 \nB. Application of Other Laws Not barred ......................................................... 55 \nC. Interpretations ................................................................................................ 56"
+    },
+    {
+      "page_number": 4,
+      "char_count": 1894,
+      "word_count": 291,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter I - Preliminary"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n4 \n \nIn exercise of the powers conferred by Section 27 and Section 35-A of the Banking \nRegulation Act, 1949, the Reserve Bank of India Act, 1934, and all other provisions / \nlaws enabling the Reserve Bank of India (‘RBI’) in this regard, RBI being satisfied that \nit is necessary and expedient in the public interest so to do, hereby issues Directions \nhereinafter specified.  \nChapter I - Preliminary \nA. \nShort Title and Commencement \n1. \nThese Directions shall be called the Reserve Bank of India (Commercial Banks – \nCybersecurity, Technology: Risk, Resilience and Assurance Framework) \nDirections, 2026. \n2. \nThese Directions shall come into effect immediately upon issuance. \nB. \nApplicability \n3. \nThese Directions shall be applicable to Commercial Banks (hereinafter \ncollectively referred to as 'banks' and individually as a 'bank'). \nFor the purpose of these Directions, ‘Commercial Banks’ means banking \ncompanies (other than Small Finance Banks, Payments Banks, and Local Area \nBanks), corresponding new banks, and the State Bank of India, as defined \nrespectively under clauses (c), (da), and (nc) of Section 5 of the Banking \nRegulation Act, 1949.  \n4. \nIn the case of a foreign bank operating in India through branch mode, reference \nto the Board or Board of Directors in these Directions should be read as reference \nto the controlling office / head office which has the oversight over the branch \noperations in India. Further, such foreign bank shall be subject to a ‘comply or \nexplain’ approach in terms of the applicability of  Chapter II,  Chapter III, Chapter \nIV, and Chapter VII and for the following select  paragraphs in Chapter V of these \nDirections: \n(1) \nInventory Management of Information Assets – Paragraph 49 \n(2) \nData Migration Controls – Paragraph 55"
+    },
+    {
+      "page_number": 5,
+      "char_count": 1323,
+      "word_count": 201,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n5 \n \n(3) \nPhysical and Environmental Controls – Paragraphs 62, 63 \n(4) \nCapacity Management – Paragraphs 64 and 65 \n(5) \nApplication Security Life Cycle – Paragraphs 89, 90, 92 \n(6) \nMaintenance, Monitoring, and Analysis of Audit Logs – Paragraphs 93 and \n95 \n(7) \nPatch, Vulnerability and Change Management – Paragraph 98 \n(8) \nUser Access Control / Management – Paragraphs 104, 105 and 110 \n(9) \nControls on Teleworking – Paragraph 114 \n(10) Third-Party Arrangements – Paragraph 126 \n(11) Cryptographic Controls – Paragraph 140 \n(12) Straight Through Processing - Paragraphs 141 and 142 \n(13) Vulnerability Assessment (VA) and Penetration Test (PT) - Paragraphs 151 \nto 155 \n(14) Business Continuity (BCP) and Disaster Recovery (DR) – Paragraphs 163 \nto 174 \n(15) Cyber Incident Response and Recovery Management – Paragraphs 175, \n181, 183, 187, and 190 \n(16) Metrics – Paragraphs 195 and 196 \nThe ‘comply or explain’ approach shall allow such foreign bank to deviate from \nany specific part of the above referred Chapters and select paragraphs of \nChapter V of these Directions subject to examination and acceptance by RBI of \na reasonably justifiable explanation for the same, as part of the supervisory \nprocess."
+    },
+    {
+      "page_number": 6,
+      "char_count": 1876,
+      "word_count": 256,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n6 \n \nC. \nDefinitions \n5. \nThe following definitions are sourced from FSB Cyber Lexicon unless explicitly \nmentioned otherwise. In these Directions, unless the context states otherwise, \nthe terms herein shall bear the meanings assigned to them below. \n(1) \n‘Audit Trail’ - A chronological record that reconstructs and examines the \nsequence of activities surrounding or leading to a specific operation, \nprocedure, or event in a security-relevant transaction from inception to \nresult. \n(Source: NIST SP 800-53r5 on Security and Privacy Controls for \nInformation Systems and Organizations) \n(2) \n‘Availability’ - Property of being accessible and usable on demand by an \nauthorised entity. \n(3) \n‘Confidentiality’ - Property that information is neither made available nor \ndisclosed to unauthorised individuals, entities, processes, or systems. \n(4) \n‘Cyber’ - Relating to, within, or through the medium of the interconnected \ninformation infrastructure of interactions among persons, processes, data, \nand information systems. \n(5) \n‘Cyber Event’ – Any observable occurrence in an information system. Cyber \nevents sometimes provide indication that a cyber incident is occurring. \n(6) \n‘Cybersecurity’ - Preservation of confidentiality, integrity, and availability of \ninformation and / or information systems through the cyber medium. In \naddition, other properties, such as authenticity, accountability, non-\nrepudiation, and reliability can also be involved. \n(7) \n‘Cyber Incident’ - A cyber event that adversely affects the cybersecurity of \nan information asset whether resulting from malicious activity or not.  \n(Source: Cyber incident definition is adapted from FSB Cyber Lexicon.  By \nthe definition, it includes cybersecurity incidents as well as IT incidents)"
+    },
+    {
+      "page_number": 7,
+      "char_count": 1716,
+      "word_count": 237,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n7 \n \n(8) \n‘Cyber Resilience’ - The ability of an organisation to continue to carry out \nits mission by anticipating and adapting to cyber threats and other relevant \nchanges in the environment and by withstanding, containing, and rapidly \nrecovering from cyber incidents. \n(9) \n‘Cyber-attack’ - Malicious attempt(s) to exploit vulnerabilities through the \ncyber medium to damage, disrupt, or gain unauthorised access to assets. \n(10) ‘Cyber Threat’ - A circumstance with the potential to exploit one or more \nvulnerabilities that adversely affects cybersecurity. \n(11) ‘Data Dictionary’ - A description of data in business terms, including \ninformation about the data. It includes elements like data types, structure \ndetails, and security restrictions.  \n(Source: ISACA glossary) \n(12) ‘De-militarized Zone’ or ‘DMZ’ - A perimeter network segment that is \nlogically between internal and external networks. \n(Source: NIST SP 800-82 Rev. 2) \n(13) ‘Distributed Denial of Service (DDoS)’ - A denial of service that is carried \nout using numerous sources simultaneously. \n(14) ‘Digital Forensics’ - The process used to acquire, preserve, analyse, and \nreport on evidence using scientific methods that are demonstrably reliable, \naccurate, and repeatable. \n(Source: adapted from NIST Cloud Computing Forensic Science \nChallenges) \n(15) ‘Framework’ - A structured set of strategies, policies, processes, methods, \nand best practices that guides organisational activities, enables \ngovernance and control, and supports the achievement of defined \nobjectives.  \n(Source: adapted from ISACA glossary and ISO 22340:2024)"
+    },
+    {
+      "page_number": 8,
+      "char_count": 1644,
+      "word_count": 220,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n8 \n \n(16) ‘Honeypot’ - A specially configured server, also known as a decoy server, \ndesigned to attract and monitor intruders in a manner so that their actions \ndo not affect production systems. \n(Source: ISACA glossary) \n(17) ‘Indicators of Compromise (IOCs)’ - Identifying signs that a cyber incident \nmay have occurred or may be currently occurring. \n(18) ‘Information Asset’ - Any piece of data, device, or other component of the \nenvironment that supports information-related activities. Information Assets \ninclude information system, data, hardware, and software.  \n(Source: Information Asset definition is adapted from “Guidance on cyber \nresilience for financial market infrastructures” publication of Bank for \nInternational Settlements and International Organization of Securities \nCommissions of June 2016) \n(19) ‘Information System’ - Set of applications, services, information technology \nassets, or other information-handling components, which includes the \noperating environment and networks. \n(20) ‘Integrity’ - Property of accuracy and completeness. \n(21) ‘IT Governance’ - The responsibility of executives and the board of \ndirectors; consists of the leadership, organisational structures, and \nprocesses that ensure that the enterprise’s IT sustains and extends the \nenterprise's strategies and objectives. \n(Source: ISACA glossary and COBIT) \n(22) ‘IT Risk’ - The business risk associated with the use, ownership, operation, \ninvolvement, influence, and adoption of IT within an enterprise. \n(Source: ISACA glossary)"
+    },
+    {
+      "page_number": 9,
+      "char_count": 1739,
+      "word_count": 249,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n9 \n \n(23) ‘Malware’ - Software designed with malicious intent containing features or \ncapabilities that can potentially cause harm directly or indirectly to entities \nor their information systems. \n(24) ‘Penetration Testing’ - A test methodology in which assessors typically \nworking under specific constraints, attempt to circumvent or defeat the \nsecurity features of an information system. \n(25) ‘Phishing’ - A digital form of social engineering that attempts to acquire \nprivate or confidential information by pretending to be a trustworthy entity \nin an electronic communication. \n(26) ‘Privileged User’ - A user who, by virtue of function, and / or role, has been \nallocated powers within an information system, which are significantly \ngreater than those available to the majority of users. \n(Source: adapted from ISO/IEC 24775-2:2021) \n(27) ‘Recovery Point Objective’ - The point in time to which data must be \nrecovered after an outage. \n(Source: NIST glossary) \n(28) ‘Recovery Time Objective’ - The overall length of time an information \nsystem’s components can be in the recovery phase before negatively \nimpacting the organisation’s mission or mission / business processes. \n(Source: NIST glossary) \n(29) ‘Red Team’ - A group of people authorised and organised to emulate a \npotential adversary’s attack or exploitation capabilities against an \nenterprise’s security posture. The Red Team’s objective is to improve \nenterprise cybersecurity by demonstrating the impacts of successful \nattacks and by demonstrating what works for the defenders (i.e., the Blue \nTeam) in an operational environment. \n(Source: NIST glossary)"
+    },
+    {
+      "page_number": 10,
+      "char_count": 1377,
+      "word_count": 204,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n10 \n \n(30) ‘Red Teaming Exercise’ - An exercise, reflecting real-world conditions, that \nis conducted as a simulated adversarial attempt by a red team to \ncompromise organisational missions and / or business processes to \nprovide a comprehensive assessment of the security capability of the \ninformation system and organisation. \n(Source: adapted from NIST glossary) \n(31) ‘Vulnerability’ - A weakness, susceptibility, or flaw of an asset or control that \ncan be exploited by one or more threats. \n(32) ‘Vulnerability Assessment (VA)’ - Systematic examination of an information \nsystem or product to determine the adequacy of security measures, identify \nsecurity deficiencies, provide data from which to predict the effectiveness \nof proposed security measures and confirm the adequacy of such \nmeasures after implementation. \n6. \nAll other expressions unless defined herein shall have the same meaning as have \nbeen assigned to them under the Reserve Bank of India Act, 1934, the Banking \nRegulation Act, 1949, the Information Technology Act, 2000, the Companies Act, \n2013 or any statutory modification or re-enactment thereto or other regulations \nissued by the RBI or the Glossary of Terms published by the RBI or as used in \ncommercial parlance, as the case may be."
+    },
+    {
+      "page_number": 11,
+      "char_count": 883,
+      "word_count": 130,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter II - Role of the Board"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n11 \n \nChapter II - Role of the Board \nA. \nBoard Approved Policies \n7. \nThe Board of Directors shall approve the strategies and policies related to \nInformation Technology, Information Assets, Business Continuity, Information \nSecurity and Cybersecurity (including Incident Response and Recovery \nManagement / Cyber Crisis Management) frameworks. \n8. \nSuch strategies and policies shall be placed before the Board for review at least \nannually. \nB. \nBoard Level Committees \n9. \nThe bank shall put in place a Board-level IT Strategy Committee (ITSC). The \ncomposition and functions of the Committee shall be in accordance with \nparagraphs 16 to 19 of Chapter III. \n10. The Audit Committee of the Board (ACB) shall be responsible for exercising \noversight of IS Audit of the bank."
+    },
+    {
+      "page_number": 12,
+      "char_count": 1960,
+      "word_count": 277,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter III – Information Technology Governance and Oversight",
+        "11. The key focus areas of IT Governance shall include strategic",
+        "12. The bank shall put in place a robust IT Governance Framework"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n12 \n \nChapter III – Information Technology Governance and Oversight \nA. \nIT Governance Framework \n11. The key focus areas of IT Governance shall include strategic alignment, risk \nmanagement, resource management, performance management, and Business \nContinuity / DR Management. \n12. The bank shall put in place a robust IT Governance Framework based on the \nfocus areas outlined in Paragraph 11 above, that inter alia: \n(1) \nspecifies the governance structure and processes necessary to meet the \nbank’s business / strategic objectives; \n(2) \nspecifies the roles (including authority) and responsibilities of the Board of \nDirectors (Board) / Board level Committee and Senior Management; and \n(3) \nincludes adequate oversight mechanisms to ensure accountability and \nmitigation of IT and cyber / information security risks. \n13. Enterprise-wide risk management policy or operational risk management policy \nshall also incorporate periodic assessment of IT-related risks (both inherent and \npotential risk). \nB. \nInformation Security Policy and Cybersecurity Policy \n14. The bank shall put in place an Information Security Policy that takes into \nconsideration, inter alia, aspects such as the objectives, scope, ownership, and \nresponsibility for the policy; information security organisational structure; \nexceptions; compliance review and penal measures for non-compliance of \npolicies. \n15. The bank shall put in place a Cybersecurity Policy elucidating the strategy \ncontaining an appropriate approach to combat cyber threats given the level of \ncomplexity of business and acceptable levels of risk, duly approved by its Board. \nThe cybersecurity policy shall be distinct and separate from the broader IT \npolicy / Information Security policy so that it can highlight the risks from cyber \nthreats and the measures to address / mitigate these risks."
+    },
+    {
+      "page_number": 13,
+      "char_count": 1660,
+      "word_count": 248,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "16. The bank shall establish a Board-level IT Strategy Committee",
+        "17. While constituting the ITSC, the bank shall ensure the follow"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n13 \n \nC. \nIT Strategy Committee of the Board \n16. The bank shall establish a Board-level IT Strategy Committee (ITSC). \n17. While constituting the ITSC, the bank shall ensure the following -   \n(1) \nITSC has minimum of three directors (including the Chairperson of the \nITSC) as members;  \n(Note: Foreign banks operating in India through branch mode may leverage \nupon controlling office / head office / regional / zonal Committees for \ncompliance with this Master Direction as long as governance obligations / \nresponsibilities outlined for the prescribed committees are met.) \n(2) \nThe Chairperson of the ITSC is an independent director having substantial \nIT expertise in managing / guiding information technology initiatives; \n‘Substantial IT expertise’ means having a minimum of seven years’ \nexperience in managing information systems and / or leading / guiding \ntechnology/ cybersecurity initiatives / projects. The Chairperson should also \nunderstand the business processes at a broader level and the impact of IT \non such processes. \n(3) \nMembers are technically competent. Technically competent herein shall \nmean the ability to understand and evaluate information systems and \nassociated IT / cyber risks. \n18. The ITSC shall meet at least on a quarterly basis. \n19. The ITSC shall: \n(1) \nensure that the bank has put an effective IT strategic planning process in \nplace; \n(2) \nguide in preparation of IT Strategy and ensure that the IT Strategy aligns \nwith the overall strategy of the bank towards accomplishment of its business \nobjectives;"
+    },
+    {
+      "page_number": 14,
+      "char_count": 1838,
+      "word_count": 258,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n14 \n \n(3) \nsatisfy itself that the IT Governance and Information Security Governance \nstructure fosters accountability, is effective and efficient, has adequate \nskilled \nresources, \nwell \n- \ndefined \nobjectives, \nand \nunambiguous \nresponsibilities for each level in the organisation; \n(4) \nensure that the bank has put in place processes for assessing and \nmanaging IT and cybersecurity risks; \n(5) \nensure that the budgetary allocations for the IT function, including IT \nsecurity / cybersecurity, are commensurate with the bank’s IT maturity, \ndigital depth, threat environment, and industry standards and are utilised in \na manner intended for meeting the stated objectives;  \n(6) \nreview the organisational arrangements so that the security concerns are \nappreciated, receive adequate attention, and get escalated to appropriate \nlevels in the hierarchy to enable quick action; \n(7) \nreview, at least on an annual basis, the adequacy and effectiveness of the \nBusiness Continuity Planning and Disaster Recovery (DR) Management of \nthe bank; \n(Note: The reference to Business Continuity / Disaster Recovery \nManagement in these Directions is limited to operational resilience \nfocussing on People, Processes, and Systems associated with the IT, \nInformation Systems (IS), information security / cybersecurity controls and \noperations) \n(8) \nreview the assessment of IT capacity requirements and the measures taken \nto address the issues; and \n(9) \napprove documented standards and procedures for administering need-\nbased access to an information system.  \nD. \nSenior Management and IT Steering Committee \n20. The Senior Management of the bank shall, inter alia, ensure: \n(1) \nexecution of the IT Strategy approved by the Board;"
+    },
+    {
+      "page_number": 15,
+      "char_count": 1706,
+      "word_count": 251,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "21. The bank shall establish an IT Steering Committee with repres"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n15 \n \n(2) \nIT / Information Security and their support infrastructure are functioning \neffectively and efficiently; \n(3) \nnecessary IT risk management processes are in place and create a culture \nof IT risk awareness and cyber hygiene practices in the bank; \n(4) \ncybersecurity posture of the bank is robust; and \n(5) \noverall, IT contributes to productivity, effectiveness, and efficiency in \nbusiness operations. \n21. The bank shall establish an IT Steering Committee with representation at Senior \nManagement level from IT and business functions which shall meet at least on a \nquarterly basis. \n22. The responsibilities of IT Steering Committee, inter alia, shall be to: \n(1) \nassist the ITSC in strategic IT planning, oversight of IT performance, and \naligning IT activities with business needs; \n(2) \noversee the processes put in place for business continuity and DR; \n(3) \nensure implementation of a robust IT architecture meeting statutory and \nregulatory compliance; and \n(4) \nupdate the ITSC and Managing Director (MD) / Chief Executive Officer \n(CEO) periodically on the activities of IT Steering Committee. \nE. \nInformation Security Committee \n23. An Information Security Committee (ISC), under the oversight of the ITSC, shall \nbe formed for managing cyber / information security. The constitution of the ISC, \nwith Chief Information Security Officer (CISO) and other representatives from \nbusiness, IT, and other relevant functions, shall be decided by the ITSC. The \nhead of the ISC shall be from risk management vertical. Major responsibilities of \nthe ISC, inter alia, shall include:"
+    },
+    {
+      "page_number": 16,
+      "char_count": 1655,
+      "word_count": 241,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n16 \n \n(1) \ndevelopment \nof \ninformation \nsecurity \n/ \ncybersecurity \npolicies, \nimplementation of policies, standards, and procedures to ensure that all \nidentified risks are managed within the bank’s risk appetite; \n(2) \napproving and monitoring information security / cybersecurity projects and \nsecurity awareness initiatives; \n(3) \nreviewing cyber incidents, IS audit observations, monitoring, and mitigation \nactivities; and \n(4) \nupdating the ITSC and MD / CEO periodically on the activities of ISC. \nF. \nHead of IT Function \n24. The bank shall appoint a sufficiently senior level, technically competent, and \nexperienced official in IT related aspects as Head of IT Function (or by whatever \nnomenclature the bank uses, such as Chief Technology Officer, Chief Information \nOfficer). \n25. The Head of IT Function shall, inter alia, be responsible for the following: \n(1) \nensuring that the execution of IT projects / initiatives is aligned with the \nbank’s IT Policy and IT Strategy; \n(2) \nensuring that there is an effective organisational structure to support IT \nfunctions in the bank; and \n(3) \nputting in place an effective DR setup and business continuity strategy / \nplan. \n26. As a first line of defence, the Head of IT Function shall ensure effective \nassessment, evaluation, and management of IT controls and IT risk, including \nthe implementation of robust internal controls, to  \n(1) \nsecure the bank’s information assets; and  \n(2) \ncomply with extant internal policies, regulatory and legal requirements on \nIT related   aspects."
+    },
+    {
+      "page_number": 17,
+      "char_count": 1805,
+      "word_count": 267,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "27. A senior level executive (preferably in the rank of a General"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n17 \n \nG. \nChief Information Security Officer \n27. A senior level executive (preferably in the rank of a General Manager or an \nequivalent position) shall be designated as the CISO. The CISO shall not have \nany direct reporting relationship with the Head of IT Function and shall not be \ngiven any business targets. The bank shall ensure the following: \n(1) \nThe CISO has the requisite technical background and expertise. \n(2) \nThe CISO is appointed for a reasonable minimum term. \n(3) \nThe CISO’s office is adequately staffed with people having necessary \ntechnical expertise, commensurate with the business volume, extent of \ntechnology adoption and complexity. \n(4) \nThe budget for the information security / cybersecurity is determined \nkeeping in view the current / emerging threat landscape. \n28. The bank shall ensure that the roles and responsibilities of the CISO are clearly \ndefined and documented covering, at a minimum, the following points: \n(1) \nThe CISO shall be responsible for driving cybersecurity strategy and \nensuring compliance to the extant regulatory / statutory instructions on \ninformation security / cybersecurity. \n(2) \nThe CISO shall be responsible for enforcing the policies that a bank uses \nto protect its information assets apart from coordinating information \nsecurity / cybersecurity related issues within the bank as well as with \nrelevant external agencies. \n(3) \nThe CISO shall be a permanent invitee to the ITSC and IT Steering \nCommittee. \n(4) \nThe CISO’s office shall manage and monitor Security Operations Centre \n(SOC) and drive cybersecurity related projects. \n(5) \nThe CISO’s office shall ensure effective functioning of the security solutions \ndeployed."
+    },
+    {
+      "page_number": 18,
+      "char_count": 1934,
+      "word_count": 289,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "29. The bank shall follow a consistent and formally defined proje"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n18 \n \n(6) \nThe CISO shall directly report to the Executive Director or equivalent \nexecutive overseeing the risk management function. \n(7) \nThe CISO shall place a review of cybersecurity risks / arrangements / \npreparedness of the bank before the Board / Risk Management Committee \nof the Board (RMCB) / ITSC at least on a quarterly basis. \nH. \nInformation Technology Project Management \n29. The bank shall follow a consistent and formally defined project management \napproach for IT projects which shall, inter alia, enable appropriate stakeholder \nparticipation for effective monitoring and management of project risks and \nprogress. \n30. The bank shall adopt a standard enterprise architecture planning methodology \nor framework while adopting new or emerging technologies, tools, or while \nrevamping the existing technology stack. \n31. The bank shall ensure that the adoption of new or emerging technologies is \ncommensurate with its risk appetite and aligned with the overall business / IT \nstrategy. The bank shall also ensure that such adoption facilitates the optimal \ncreation / use / sharing of information in a secure and resilient way.   \n32. The bank shall ensure that any new IT application proposed for introduction as a \nbusiness product undergoes the prescribed product approval and quality \nassurance process. \n(Note: IT applications that enable functioning of a business process whether \noffered as a product to the customers (including potential customers) / third \nparties / internal employees could be broadly referred as business product.) \nI. \nIT Architecture \n33. The bank shall design the IT architecture to facilitate security measures being in \nplace at all times. The IT architecture shall be reviewed by the ITSC at least \nannually and upgraded, as required, based on the bank’s risk assessment and"
+    },
+    {
+      "page_number": 19,
+      "char_count": 1294,
+      "word_count": 189,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "34. The bank shall put in place a robust IT Service Management Fr",
+        "35. The bank shall put in place a Service Level Management (SLM)",
+        "36. The bank shall ensure identification and mapping of the secur"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n19 \n \nin a phased manner. The bank shall document in writing any risk-cost or potential \ncost trade-off decisions to enable appropriate supervisory assessment. \nJ. \nIT Services Management \n34. The bank shall put in place a robust IT Service Management Framework for \nsupporting its information systems and infrastructure to ensure the operational \nresilience of their entire IT environment (including DR sites). \n35. The bank shall put in place a Service Level Management (SLM) process to \nmanage the IT operations while ensuring effective segregation of duties. \n36. The bank shall ensure identification and mapping of the security classification (in \nterms of confidentiality, integrity, and availability) of information assets based on \ntheir criticality to the bank’s operations. \n37. For seamless continuity of business operations, the bank shall avoid using \noutdated and unsupported hardware or software and shall monitor software End-\nof-Support (EOS) dates and Annual Maintenance Contract (AMC) dates of IT \nhardware on an ongoing basis. \n38. The bank shall develop a technology refresh plan for the replacement of \nhardware and software in a timely manner before they reach EOS."
+    },
+    {
+      "page_number": 20,
+      "char_count": 1869,
+      "word_count": 256,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter IV - IT and Information Security Risk Management",
+        "39. The risk management policy of the bank shall include IT relat",
+        "40. The bank shall establish a robust IT and Information Security"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n20 \n \nChapter IV - IT and Information Security Risk Management \nA. \nPeriodic Review of IT related Risks \n39. The risk management policy of the bank shall include IT related risks, including \nthe cybersecurity related risks. The RMCB in consultation with the ITSC shall \nperiodically review and update the same at least on an annual basis. \nB. \n IT and Information Security Risk Management Framework \n40. The bank shall establish a robust IT and Information Security Risk Management \nFramework (the bank may have flexibility to define information security / \ncybersecurity risk management framework distinct from IT risk management \nframework) covering, inter alia, the following aspects:   \n(1) \nimplementation of comprehensive information security management \nfunction, internal controls, and processes (including applicable insurance \ncovers) to mitigate / manage identified risks. The implemented controls and \nprocesses must be reviewed periodically on their efficacy in a risk \nenvironment characterised by change; \n(2) \nroles and responsibilities of stakeholders (including third-party personnel) \ninvolved in IT risk management. Areas of possible role conflicts and \naccountability gaps must be specifically identified and eliminated or \nmanaged; \n(3) \nidentification of critical information systems of the organisation and \nfortification of the security environment of such systems; and \n(4) \ndefinition and implementation of necessary systems, procedures, and \ncontrols to ensure secure storage / transmission / processing of data / \ninformation. \nC. \nRisk Identification, Assessment, and Documentation \n41. The risk assessment for each information asset within the bank’s scope shall be \nguided by appropriate security standards / IT control frameworks."
+    },
+    {
+      "page_number": 21,
+      "char_count": 1869,
+      "word_count": 249,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "42. The bank shall ensure that all staff members and service prov",
+        "43. The bank shall review the security infrastructure and securit",
+        "44. While identifying and assessing the inherent risks, the bank",
+        "45. Depending on the level of inherent risks, the bank shall iden"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n21 \n \n42. The bank shall ensure that all staff members and service providers comply with \nthe extant information security and acceptable-use policies as applicable to \nthem. \n43. The bank shall review the security infrastructure and security policies at least \nannually, factoring in its own experiences and emerging threats and risks. The \nbank shall take steps to adequately tackle cyber-attacks including phishing, \nspoofing attacks and mitigate their adverse effects.   \n44. While identifying and assessing the inherent risks, the bank shall reckon the \ntechnologies adopted, alignment with business and regulatory requirements, \norganisational culture, and internal and external threats. \n45. Depending on the level of inherent risks, the bank shall identify its riskiness as \nlow, moderate, high, and very high or adopt any other similar categorisation. \nRiskiness of the business component shall also be factored into while assessing \nthe inherent risks. \n46. While evaluating the controls, the bank shall suitably factor in Board oversight, \npolicies, processes, cyber risk management architecture, availability of \nexperienced and qualified resources, training programs and organisational \nculture; arrangements for threat intelligence gathering, monitoring, and analysing \nthe threat intelligence received vis-à-vis the situation in banking sector; \ninformation sharing arrangements [among peer banks, with Institute for \nDevelopment and Research in Banking Technology (IDRBT) / RBI / Indian \nComputer Emergency Response Team (CERT-In)]; preventive, detective and \ncorrective \ncybersecurity \ncontrols; \nvendor \nmanagement; \nand \nincident \nmanagement and response. \n(Note: For the purpose of these Directions, the term ‘incident’ implies cyber \nincident)"
+    },
+    {
+      "page_number": 22,
+      "char_count": 1986,
+      "word_count": 284,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter V - Baseline Cybersecurity and Resilience Requirements",
+        "47. The bank shall maintain an up-to-date inventory of informatio",
+        "48. The bank shall classify data / information based on its crite",
+        "49. The bank shall maintain enterprise data dictionary to enable"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n22 \n \nChapter V - Baseline Cybersecurity and Resilience Requirements \nA. \nInventory Management of Information Assets \n47. The bank shall maintain an up-to-date inventory of information assets, including \nbusiness and customer data / information, business applications, supporting IT \ninfrastructure, key personnel and facilities (such as hardware, software, network \ndevices, and services) indicating their business criticality. The bank may have its \nown criteria for identifying critical assets.  \n48. The bank shall classify data / information based on its criteria for information \nclassification / sensitivity. \n49. The bank shall maintain enterprise data dictionary to enable the sharing of data \namong applications and information systems and promote a common \nunderstanding of data. \n50. The bank shall appropriately manage and provide protection within and outside \norganisation borders / network taking into consideration how the data / \ninformation are stored, transmitted, processed, accessed and used within / \noutside the bank’s network, and level of risk it is exposed to depending on the \nsensitivity of the data / information.  \nB. \nData Leak Prevention Strategy \n51. The bank shall develop a comprehensive data loss / leakage prevention strategy \nto safeguard sensitive (including confidential) business and customer data / \ninformation. This shall include protecting data processed in end point devices, \ndata in transmission, as well as data stored in servers and other digital stores, \nwhether online or offline. \n52. The bank shall ensure similar arrangements at the vendor-managed facilities as \nwell. \n53. The bank, as owner of customers’ personal and sensitive data, shall take \nappropriate steps in preserving the confidentiality, integrity, and availability of the \nsame, irrespective of whether the data is stored / in transit within itself or with the"
+    },
+    {
+      "page_number": 23,
+      "char_count": 2077,
+      "word_count": 301,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "54. The bank shall implement controls for remote management / wip",
+        "55. The bank shall put in place a data migration policy specifyin"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n23 \n \nthird-party vendors. The bank shall ensure that the confidentiality of such \ncustodial information is not compromised at any situation and to this end, shall \nput in place suitable systems and processes across the data / information \nlifecycle. \n54. The bank shall implement controls for remote management / wiping / locking of \nmobile devices including laptops.  \nC. \nData Migration Controls \n55. The bank shall put in place a data migration policy specifying a systematic \nprocess for data migration, ensuring data integrity, completeness, and \nconsistency. The policy shall, inter alia, contain provisions for maintenance of \naudit trails of data migration activities and obtaining signoffs from business users \nand application owners at each stage of the migration. \nD. \nPreventing Execution of Unauthorised Software \n56. The bank shall maintain an up-to-date and centralised inventory of authorised / \nunauthorised software(s). The bank may implement whitelisting of authorised \napplications / software / libraries and other relevant software components.  \n57. The bank shall have a mechanism to control installation of software / applications \ncentrally / otherwise on its information systems including end-user Personal \nComputers (PCs), laptops, workstations, servers, mobile devices, and cloud \nenvironments. The bank shall also have a mechanism to block / prevent and \nidentify installation and running of unauthorised software / applications on such \ndevices / systems. \n58. The bank shall continuously monitor the release of patches by various vendors / \nOriginal Equipment Manufacturers (OEMs), advisories issued by CERT-In and \nother similar agencies and expeditiously apply the security patches as per the \npatch management policy of the bank.  Where a patch / series of patches is / are \nreleased by the OEM / manufacturer / vendor to mitigate critical vulnerabilities \nthat are actively exploited or widely reported, the bank shall have a mechanism"
+    },
+    {
+      "page_number": 24,
+      "char_count": 1871,
+      "word_count": 270,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "59. The bank shall put in place a policy specifying the justifica",
+        "60. The bank shall put in place appropriate physical and environm"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n24 \n \nto deploy such patches expeditiously, in accordance with its emergency patch \nmanagement process. \n59. The bank shall put in place a policy specifying the justification for exceptions, \nduration of exceptions, process for granting exceptions, approving authority, and \nperiodic review of granted exceptions by officers, at senior levels, who are \nequipped to understand the business and technical context of such exceptions.  \nE. \nPhysical and Environmental Controls \n60. The bank shall put in place appropriate physical and environmental controls for \nsecuring location of critical assets including Data Centre (DC) and Disaster \nRecovery (DR) sites from natural and man-made threats.  \n(Note: DC refers to primary data centre for a given application / system and DR \nrefers to its Disaster Recovery site / alternate site.) \n61. The bank shall put in place mechanisms for monitoring of breaches of \nenvironmental controls including temperature, water, smoke, access alarms, \nservice availability alerts (power supply, telecommunication, servers), and \naccess logs.   \n62. The DC and DR sites shall be geographically well separated so that both the \nsites are not affected by a similar threat associated to their location. \n63. The bank shall ensure that DC and DR sites are subjected to necessary e-\nsurveillance mechanism. \nF. \nCapacity Management \n64. The bank shall ensure that information systems and infrastructure are able to \nsupport business functions and ensure availability of all service delivery \nchannels. \n65. On an annual or more frequent basis, the bank shall proactively assess capacity \nrequirement of IT resources. The bank shall ensure that IT capacity planning \nacross components, services, system resources, supporting infrastructure is"
+    },
+    {
+      "page_number": 25,
+      "char_count": 2004,
+      "word_count": 277,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "66. The bank shall document and apply baseline security requireme",
+        "67. The bank shall put in place a mechanism to periodically evalu"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n25 \n \nconsistent with past trends (peak usage), the current business requirements, and \nprojected future needs as per the IT strategy of the bank. \nG. \nSecure Configuration \n66. The bank shall document and apply baseline security requirements / \nconfigurations to all categories of devices including endpoints / workstations, \nmobile devices, operating systems, databases, applications, network devices, \nsecurity devices, and security systems, throughout the lifecycle (from conception \nto deployment) and carry out reviews periodically. \n67. The bank shall put in place a mechanism to periodically evaluate and review \ncritical devices such as firewall, network switches and security devices, including \ntheir configurations and patch levels, across the bank’s network including data \ncentres, third-party hosted sites, and shared-infrastructure locations. \nH. \nNetwork Management and Security \n68. The bank shall ensure that only authorised access is permitted to its networks. \nWherever the access is permitted, the bank shall ensure that it is provided \nthrough well-defined process with strict time limits, which are consistently \nfollowed and audited periodically.  The bank shall clearly elucidate responsibility \nover such networks, which shall invariably rest with bank officials. \n69. The bank shall prepare and maintain an up-to-date network architecture diagram \nat the organisation level including wired / wireless networks. \n70. The bank shall maintain an up to date / centralised inventory of authorised \ndevices connected to the bank’s network (within / outside bank’s premises). The \nbank may consider implementing solutions to automate network discovery and \nmanagement.  \n71. The bank shall ensure that all the network devices are configured appropriately. \nThe bank shall periodically assess whether the configurations are appropriate to \nthe desired level of network security."
+    },
+    {
+      "page_number": 26,
+      "char_count": 1952,
+      "word_count": 267,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "72. The bank shall put in place appropriate controls to secure wi",
+        "73. The bank shall implement mechanism to identify authorised har",
+        "74. The bank shall have mechanism to automatically identify unaut",
+        "75. The bank shall put in place mechanism to detect and remedy an",
+        "76. The bank shall establish Standard Operating Procedures (SOPs)"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n26 \n \n72. The bank shall put in place appropriate controls to secure wireless local area \nnetworks, wireless access points, and wireless client access systems. \n73. The bank shall implement mechanism to identify authorised hardware / mobile \ndevices such as laptops, mobile phones, and tablets, in the network and ensure \nthat they are provided connectivity only when they meet the security \nrequirements prescribed by the bank. \n74. The bank shall have mechanism to automatically identify unauthorised device \nconnections to the bank’s network and block such connections. \n75. The bank shall put in place mechanism to detect and remedy any unusual \nactivities in systems, servers, network devices, and endpoints. \n76. The bank shall establish Standard Operating Procedures (SOPs) for all major IT \nactivities including for connecting devices to the network. \n77. The bank shall ensure that boundary defences are multi-layered with properly \nconfigured firewalls, proxies, DMZ perimeter networks, and network-based \nIntrusion Prevention System (IPS) and Intrusion Detection System (IDS). \nAdditionally, the bank shall establish robust mechanism for real-time filtering of \ninbound and outbound network traffic. \n78. The bank shall enable its public facing Information technology (IT) infrastructure \nto handle Internet Protocol Version 6 (IPv6) traffic. \nI. \nApplication Security Life Cycle \n79. The bank shall incorporate / ensure information security across all stages of \napplication life cycle.  \n80. The bank shall implement secure coding practices for internally / collaboratively \ndeveloped applications.  \n81. Besides business functionalities, the bank shall clearly specify security \nrequirements relating to system access control, authentication, transaction \nauthorisation, data integrity, system activity logging, audit trail, session"
+    },
+    {
+      "page_number": 27,
+      "char_count": 2053,
+      "word_count": 286,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "82. The bank shall properly segregate the development, test, and",
+        "83. The bank shall ensure that the software / application develop",
+        "84. The bank shall ensure that software / application development",
+        "85. The scope of application security assessments shall be compre"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n27 \n \nmanagement, security event tracking, and exception handling during the initial \nand ongoing stages of system development / acquisition / implementation.  \n82. The bank shall properly segregate the development, test, and production \nenvironments. \n83. The bank shall ensure that the software / application development process is \nguided by threat modelling, adheres to secure coding practices, includes security \ntesting aligned with global standards, and ensures a secure deployment. \n84. The bank shall ensure that software / application development practices address \nthe vulnerabilities based on best practices, baselines such as Open Web \nApplication Security Project (OWASP) proactively and adopt principle of defence-\nin-depth to provide layered security mechanism.  \n85. The scope of application security assessments shall be comprehensive and shall \nnot be restricted to testing solely against the OWASP top 10 vulnerabilities. The \nbank shall also refer to other recognised security standards and guidelines, as \nappropriate.  \n86. The bank shall periodically conduct application security testing of web / mobile \napplications throughout their lifecycle (pre-implementation, post implementation, \nand after changes) in an environment closely resembling or a replica of the \nproduction environment. \n87. The bank shall implement measures such as installing ‘containerised’ apps on \nmobile / smartphones for exclusive business use that is encrypted and separated \nfrom other smartphone data / applications, as applicable. The bank shall \nimplement measures to initiate a remote wipe on the containerised app, \nrendering the data unreadable, in case of requirement. \n88. The bank shall ensure adequate evaluation of adoption of new technologies for \nexisting / evolving security threats. Such technologies shall be introduced for \ncritical systems after IT and security team of the bank reach reasonable level of \ncomfort and maturity."
+    },
+    {
+      "page_number": 28,
+      "char_count": 2252,
+      "word_count": 328,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "89. The bank shall ensure that software vendors provide maintenan",
+        "90. The bank shall obtain the source codes for all critical appli",
+        "91. In respect of critical business applications, the bank may co",
+        "92. The bank shall obtain a certificate or a written confirmation"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n28 \n \n89. The bank shall ensure that software vendors provide maintenance and \nnecessary support of software applications and shall enforce the same through \nformal agreements. \n90. The bank shall obtain the source codes for all critical applications from its \nvendors. Where obtaining of the source code is not possible, the bank shall put \nin place a source code escrow arrangement or other arrangements to adequately \nmitigate the risk of default by the vendor. The bank shall ensure that all product \nupdates and programme fixes are included in the source code escrow \narrangement.  \n91. In respect of critical business applications, the bank may consider conducting \nsource code audits by professionally competent personnel / service providers. \n92. The bank shall obtain a certificate or a written confirmation from the application \ndeveloper or vendor stating that the application is free of known vulnerabilities, \nmalware, and any covert channels in the code. The bank shall also obtain such \na certificate or a written confirmation whenever material changes to the code, \nincluding upgrades, occur. The definition of material changes can be mutually \nagreed upon between the bank and its vendor. 'Material Changes' refer to \nsignificant modifications to the software code that could impact the application's \nfunctionality, security, or performance. This, however, excludes routine \nmaintenance activities such as minor bug fixes, performance optimisations, and \nupdates that do not alter the application's core functions, security posture, or \ncompliance status. It is essential to conduct a risk assessment when determining \nwhether a change is material. \nJ. \nMaintenance, Monitoring, and Analysis of Audit Logs \n93. The bank shall ensure that every IT application / system that can access or affect \ncritical or sensitive information has necessary audit logging capabilities and \nprovides audit trails. \n94. The bank shall implement and periodically validate settings for capturing \nappropriate logs and audit trails for each device, system software, and \napplication software, ensuring that such logs include the minimum information"
+    },
+    {
+      "page_number": 29,
+      "char_count": 1923,
+      "word_count": 282,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "95. The bank shall ensure that audit trails satisfy its business",
+        "96. The bank shall put in place a system for regularly monitoring"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n29 \n \nrequired to uniquely identify each log, such as date, timestamp, source \naddresses, destination addresses, and other relevant elements of each packet, \nevent, and / or transaction.  \n95. The bank shall ensure that audit trails satisfy its business requirements, in \naddition to regulatory and legal requirements. The bank shall also ensure that \naudit trails are sufficiently detailed to facilitate the conduct of audits, serve as \nforensic evidence (the term ‘forensics’ refers to ‘digital forensics’ for the purpose \nof these Directions) when required, and assist in dispute resolution, including for \nnon-repudiation purposes. \n96. The bank shall put in place a system for regularly monitoring the audit trails and \nsystem logs to detect, understand or recover from any unauthorised activity or \nattack. \n97. The bank shall consult all the stakeholders before finalising the scope, frequency, \nand storage of log collection. \nK. \nPatch, Vulnerability and Change Management \n98. The bank shall put in place documented policy(ies) and procedures for change \nand patch management to ensure the following: \n(1) \nThe business impact of implementing patches / changes (or not \nimplementing a particular patch / change request) is assessed. \n(2) \nThe patches / changes are applied / implemented and reviewed in a secure \nand timely manner with necessary approvals. \n(3) \nAny changes to an application system or data are justified by genuine \nbusiness needs and approvals supported by documentation and subjected \nto a robust change management process. \n(4) \nA mechanism is established to recover from failed changes / patch \ndeployment or unexpected results. \n99. The bank shall adopt a documented, risk-based strategy for maintaining an \ninventory of IT components that require patching, identifying all applicable"
+    },
+    {
+      "page_number": 30,
+      "char_count": 2014,
+      "word_count": 290,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "100. The bank shall put in place systems and processes to identify",
+        "101. The bank shall manage changes to business applications, suppo",
+        "102. As part of its threat mitigation strategy, the bank shall det"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n30 \n \npatches, and applying them in a timely manner to minimise both the number of \nvulnerable systems and the duration of exposure. \n100. The bank shall put in place systems and processes to identify, track, manage, \nand monitor the status of patches to operating system and application software \nrunning at end-user devices directly connected to the internet and in respect of \nserver operating systems, databases, applications, middleware, and other \nrelevant information systems. \n101. The bank shall manage changes to business applications, supporting \ntechnology, service components, and facilities through robust configuration \nmanagement processes and configuration baselines to ensure the integrity of \nsuch changes. \n102. As part of its threat mitigation strategy, the bank shall determine the root cause \nof any detected incident and implement necessary patches to address the \nvulnerabilities. \n103. The bank shall evaluate the access device configurations and patch levels \nperiodically to ensure that all access points, nodes between (i) different Virtual \nLocal Area Networks (VLANs) in the DC, (ii) Local Area Network (LAN) / Wide \nArea Network (WAN) interfaces, (iii) bank’s network to external network and \ninterconnections with partner, vendor and service provider networks are securely \nconfigured. \nL. \nUser Access Control / Management \n104. Access to information assets shall be allowed only where a valid business need \nexists. \n105. Personnel with elevated system access entitlements shall be closely supervised \nwith all their system activities logged and periodically reviewed. \n106. The bank shall provide secure access to its assets / services from within / outside \nits network by protecting data / information at rest (e.g., using encryption, if \nsupported by the device) and in-transit (e.g., using technologies such as Virtual \nPrivate Network (VPN) or other secure protocols)"
+    },
+    {
+      "page_number": 31,
+      "char_count": 1911,
+      "word_count": 259,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "107. The bank shall protect user access credentials such as logon",
+        "108. The bank shall disallow administrative rights on end-user wor",
+        "109. The bank shall implement centralised authentication and autho",
+        "110. The bank, based on the risk assessment, shall implement two-f"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n31 \n \n107. The bank shall protect user access credentials such as logon user-id, \nauthentication information and tokens, access profiles, against leakage / attacks. \n108. The bank shall disallow administrative rights on end-user workstations / PCs / \nlaptops and provide access rights on a need-to-know basis and for specific \nduration when it is required following an established process. \n109. The bank shall implement centralised authentication and authorisation system \nfor accessing and administering applications, operating systems, databases, \nnetwork and security devices / systems, point of connectivity (local / remote) \nincluding enforcement of strong password policy, and following the principle of \nleast privileges and separation of duties.  \n110. The bank, based on the risk assessment, shall implement two-factor or multi-\nfactor authentication, including mandatory multi-factor authentication for \nprivileged users of (i) critical information systems and (ii) critical activities.  \n111. The bank shall implement appropriate (e.g., centralised) systems and controls to \nallow, manage, log, and monitor privileged / superuser / administrative access to \ncritical systems (such as servers, operating systems, databases, applications, \nmiddleware and network devices). \n112. The bank shall implement controls to minimise invalid logon counts and \ndeactivate dormant accounts.  \n113. The bank shall monitor any abnormal change in pattern of logon. \nM. \nControls on Teleworking \n114. In the teleworking environment, the bank shall, inter alia: \n(1) \nensure that the systems used and the remote access from alternate work \nlocation to the environment hosting bank’s information assets are secure; \n(2) \nimplement multi-factor authentication for enterprise access (logical) to \ncritical systems;"
+    },
+    {
+      "page_number": 32,
+      "char_count": 1647,
+      "word_count": 231,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "115. The bank shall implement an authentication framework to ensur",
+        "116. The bank shall act as the identity provider for identificatio"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n32 \n \n(3) \nput in place a mechanism to identify all remote-access devices attached / \nconnected to the bank’s systems; and \n(4) \nensure that data / information shared / presented in teleworking is secured \nappropriately. \nN. \nAuthentication Framework for Customers \n115. The bank shall implement an authentication framework to ensure positive identity \nverification for customers accessing its services and to enable customers to \nverify the authenticity of the bank, across all delivery channels. \n116. The bank shall act as the identity provider for identification and authentication of \ncustomers for access to partner systems using secure authentication \ntechnologies. \nO. \nSecure Mail and Messaging Systems  \n117. The bank shall implement secure mail and messaging systems with measures to \nprevent email spoofing, look-alike domain abuse, protect against malicious \nattachments and links, and email filtering to protect against spam. The bank shall \nrequire its partners and vendors to implement similar measures for their mail and \nmessaging systems.  \n118. The bank shall document and implement email server specific controls. \n119. The bank shall implement measures to control permissible attachment types in \nemail systems. \n120. The bank shall implement Domain-based Message Authentication, Reporting, \nand Conformance (DMARC) solution for the email domains. The bank shall \nimpress upon its vendors, partners, and other relevant third parties to implement \nsimilar solution securing their mail systems to mitigate email spoofing."
+    },
+    {
+      "page_number": 33,
+      "char_count": 1668,
+      "word_count": 248,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "121. As default rule, the bank shall not permit use of removable d",
+        "122. The bank shall define and implement policy for restriction an",
+        "123. The bank shall limit media types and information that could b",
+        "124. The bank shall get the removable media scanned for malware /"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n33 \n \nP. \nRemovable Media  \n121. As default rule, the bank shall not permit use of removable devices and media in \nthe banking environment unless specifically authorised for defined use and \nduration of use. \n122. The bank shall define and implement policy for restriction and secure use of \nremovable media / Bring Your Own Device (BYOD) on various types / categories \nof devices including but not limited to workstations, PCs, laptops, mobile devices, \nservers, and ensure secure erasure of data on such media after use. \n123. The bank shall limit media types and information that could be transferred / \ncopied to / from such devices.  \n124. The bank shall get the removable media scanned for malware / anti-virus prior to \nproviding read / write access.  \n125. The bank shall consider implementing centralised policies through Active \nDirectory or end-point management systems to whitelist / blacklist / restrict \nremovable media use.  \nQ. \nThird-Party Arrangements \n(The paragraphs from  126  to 135  are applicable only for such third-party \narrangements in the Information Technology / Cybersecurity ecosystem, which \nare not within the applicability of Reserve Bank of India (Commercial Banks – \nManaging Risks in Outsourcing) Directions, 2025) \n126. The bank shall put in place appropriate vendor risk assessment process, and \ncontrols proportionate to the assessed risk and materiality to, inter alia: \n(1) \nmitigate concentration risk; \n(2) \neliminate or address any conflict of interests; \n(3) \nmitigate risks associated with single point of failure;"
+    },
+    {
+      "page_number": 34,
+      "char_count": 1984,
+      "word_count": 289,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "127. The bank shall be accountable for ensuring appropriate manage",
+        "128. The bank shall carefully evaluate the need for outsourcing cr",
+        "129. The bank shall regularly conduct effective due diligence, ove"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n34 \n \n(4) \ncomply with applicable legal, regulatory requirements and standards to \nprotect customer data; \n(5) \nprovide high availability (for uninterrupted customer service); and \n(6) \nmanage supply chain risks effectively. \n127. The bank shall be accountable for ensuring appropriate management and \nassurance on security risks in outsourced and partner arrangements. \n128. The bank shall carefully evaluate the need for outsourcing critical processes and \nselection of vendor / partner based on comprehensive risk assessment. \n129. The bank shall regularly conduct effective due diligence, oversight, and \nmanagement of third-party vendors / service providers and partners.  \n130. The bank shall establish appropriate policies and procedures to evaluate, \nassess, approve, review, control and monitor the risks and materiality of all its \nvendor / outsourcing activities.  \n131. The bank shall ensure and demonstrate that the service provider adheres to all \nregulatory and legal requirements of the country.  \n132. The bank shall necessarily enter into an agreement with the service provider that \namongst others provides for right to audit by the bank and right of RBI or persons \nauthorised by it to perform inspection. \n133. The bank shall ensure that RBI shall have access to all information resources \n(online / in person) that are consumed by it. Such information shall be made \naccessible to RBI officials by the bank when sought, though the infrastructure / \nenabling resources may not be physically located in the premises of bank.  \n134. The bank shall adhere to the relevant legal and regulatory requirements relating \nto geographical location of infrastructure and cross-border movement of data.  \n135. The bank shall thoroughly satisfy itself about the credentials of vendor / third-\nparty personnel accessing and managing the bank’s critical assets. Background"
+    },
+    {
+      "page_number": 35,
+      "char_count": 1516,
+      "word_count": 215,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "136. The bank shall ensure that the following cybersecurity contro"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n35 \n \nchecks, non-disclosure and security policy compliance agreements shall be \nmandated for all third-party service providers. \n136. The bank shall ensure that the following cybersecurity controls are implemented \nand maintained by third-party Automated Teller Machine (ATM) Switch \nApplication Service Providers (ASPs) where the bank manages its ATM Switch \necosystem through their shared services:  \n(1) \nPreventing Access of Unauthorised Software: Paragraphs 57 to 59 of these \nDirections;  \n(2) \nEnvironmental Controls: Paragraphs 60 and 61 of these Directions; \n(3) \nNetwork Management and Security: Paragraphs 69 to 71 and Paragraphs \n73 to 77 of these Directions; \n(4) \nSecure Configuration: Paragraphs 66 and 67 of these Directions; \n(5) \nApplication Security Life Cycle (ASLC): Paragraphs 79, 80, 82, 83, 84 and \n88 of these Directions; \n(6) \nPatch / Vulnerability and Change Management: Paragraphs  86, 99, 101 to \n103 of these Directions; \n(7) \nUser Access Control / Management: Paragraphs 106, 107, 112 and 113 of \nthese Directions; \n(8) \nData Leak Prevention Strategy: Paragraph 51 of these Directions; \n(9) \n Audit Logs: Paragraphs 94 and 96 of these Directions; \n(10) Incident Response and Management: Paragraph 164 of these Directions; \n(11) Advanced Real-time Threat Defence and Management: Paragraphs 144 \nand 145 of these Directions; and \n(12) Forensics: Paragraph 211 of these Directions."
+    },
+    {
+      "page_number": 36,
+      "char_count": 2062,
+      "word_count": 283,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "137.  Controls at paragraph 136 shall be suitably factored in the c",
+        "138. The bank shall ensure to mandate the following baseline cyber"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n36 \n \n137.  Controls at paragraph 136 shall be suitably factored in the contract agreement \nsigned with the third-party Switch ASPs. These controls shall be applicable to the \nASPs limited to the IT ecosystem (such as physical infrastructure, hardware, \nsoftware, reconciliation system, network interfaces, security solutions, hardware \nsecurity module, middleware, associated people, processes, systems, data, and \ninformation) providing ATM switch services as well as any other type of payment \nsystem related services to the bank. \n138. The bank shall ensure to mandate the following baseline cybersecurity controls \nin their contractual agreements with these ASPs: \n(1) \nThe default passwords of all the network devices / systems of the ASP shall \nbe changed after installation. \n(2) \nThe ASP shall not use trivial and / or default passwords. \n(3) \nThe ASP shall implement a centralised authentication and authorisation \nsystem through an Identity and Access Management solution for accessing \nand administering applications, operating systems, databases, network and \nsecurity devices / systems, point of connectivity (local / remote) including \nenforcement of strong password policy, two-factor / multi-factor \nauthentication depending on risk assessment, securing privileged accesses \nfollowing the principle of least privileges and separation of duties. \n(4) \nThe ASP shall ensure to provide access to critical servers, network and \nsecurity devices / systems through Privileged User Management Systems / \nIdentity and Access Management (IAM) systems. \n(5) \nThe ASP shall design the infrastructure with adequate network segregation \ncontrols. \n(6) \nThe ASP shall define firewall rules to block unidentified outbound \nconnections, reverse Transmission Control Protocol (TCP) shells, and other \npotential backdoor connections. \n(7) \nThe ASP shall disable remote connections from outside machines to the \nnetwork hosting the ATM Switch infrastructure."
+    },
+    {
+      "page_number": 37,
+      "char_count": 1819,
+      "word_count": 276,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n37 \n \n(8) \nThe ASP shall enable Internet Protocol (IP) table to restrict access to the \nclients and servers in Society for Worldwide Interbank Financial \nTelecommunication (SWIFT) and ATM Switch environment only to \nauthorised systems. \n(9) \nThe ASP shall ensure software integrity of the ATM Switch related \napplications. \n(10) The ASP shall ensure to appropriately mask the data used for development \nand testing. \n(11) The ASP shall certify any new products and updates, upgrades as having \nbeen developed following secure coding practices. The application \narchitecture shall be tested to safeguard the confidentiality and integrity of \ndata being stored, processed, and transmitted. An assurance to this effect \nshall be shared with the bank / RBI as and when requested. \n(12) In respect of critical business applications, the ASP shall conduct source \ncode audits by professionally competent personnel / service providers. \nThey shall provide assurance to the bank that the application is free from \nembedded malicious / fraudulent code. \n(13) The ASP shall have a robust change management process in place to \nrecord / monitor all the changes that are moved / pushed into the production \nenvironment. Such a change management process must clearly mention \nthe test cases, chain of approving authority for the particular change, \ndeployment plan, and rollback plan. \n(14) The ASP shall put in place a mechanism to monitor the database security \nevents, backend access to the databases to ensure access to the database \nis restricted and the activities carried out through the backend are logged \nand reviewed. \n(15) The ASP shall ensure to generate and capture logs from devices / \napplications / databases."
+    },
+    {
+      "page_number": 38,
+      "char_count": 2067,
+      "word_count": 311,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n38 \n \n(16) The ASP shall ensure to capture audit logs pertaining to user actions in a \nsystem. Such arrangements shall facilitate forensic auditing, if need be.  \n(17) The ASP shall implement an alert mechanism to monitor any change in the \nlog settings. \n(18) The ASP is responsible for meeting the requirements prescribed for incident \nmanagement and Business Continuity Plan (BCP) / DR even if their IT \ninfrastructure, systems, and applications, are managed by third-party \nvendors / service providers. The ASP shall have necessary arrangements, \nincluding a documented procedure for such purpose. This shall include, \namong other things, informing the bank about any cyber incident occurring \nin respect of the bank on a timely basis to mitigate the risk at the earliest as \nwell as to meet extant regulatory requirements. \n(19) The ASP shall periodically conduct Vulnerability Assessment / Penetration \nTesting (VA / PT) of applications, servers, and network components. \n(20) The ASP shall ensure to share the VA / PT report(s) and compliance to its \nfindings with the bank / RBI as and when requested. \n(21) The ASP’s risk management / treatment framework shall ensure that the \nvulnerabilities detected are remediated promptly to avoid exploitation of \nsuch vulnerabilities. \n(22) The ASP shall have a mechanism and resources to take appropriate action \nin case of any cyber incident. The ASP shall have a written incident \nresponse procedure including the roles of staff / outsourced staff handling \nsuch incidents. The response strategies shall consider readiness to meet \nvarious incident scenarios based on situational awareness, potential / post \nimpact, and consistent communication and co-ordination with stakeholders, \nspecifically with the bank, during response. \n(23) The ASP shall set up a Cyber Security Operations Centre (CSOC). The \nCSOC, among other things, shall ensure to \n(i) \nseamlessly collect the logs relevant to the IT ecosystem;"
+    },
+    {
+      "page_number": 39,
+      "char_count": 1837,
+      "word_count": 253,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "139. The bank shall share regulatory instructions (including circu"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n39 \n \n(ii) \nstore, process, and correlate the logs through appropriate Security \nInformation and Event Management (SIEM) solution for continuous \nsurveillance; and  \n(iii) regularly update on the latest nature of emerging cyber threats. \n(24) The ASP shall comply with the relevant standards including Payment Card \nIndustry Data Security Standard (PCI-DSS) and Payment Card Industry - \nSoftware Security Framework (PCI-SSF), as applicable to the IT \necosystem. \n139. The bank shall share regulatory instructions (including circulars / advisories / \nalerts) issued from time to time, as applicable to the ATM switch ecosystem with \nthe ASPs for necessary compliance. \nR. \nCryptographic Controls \n140. The key length, algorithms, cipher suites and applicable protocols used in \ntransmission channels, processing of data and authentication purpose shall be \nstrong. The bank shall adopt internationally accepted and published standards \nthat are not deprecated / demonstrated to be insecure / vulnerable, and the \nconfigurations involved in implementing such controls shall be compliant with \nextant laws and regulatory instructions. \nS. \nStraight Through Processing \n141. In order to prevent unauthorised modification of data, the bank shall ensure that \nthere is no manual intervention or manual modification in data while it is being \ntransferred from one process to another or from one application to another, in \nrespect of critical applications. \n142. Data transfer mechanism between processes or applications shall be properly \ntested, securely automated with necessary checks and balances, and properly \nintegrated through ‘Straight Through Processing’ methodology with appropriate \nauthentication mechanism and audit trails."
+    },
+    {
+      "page_number": 40,
+      "char_count": 1773,
+      "word_count": 244,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "143. The bank shall set up a CSOC to ensure continuous surveillanc",
+        "144. The bank shall build a robust defence against the installatio",
+        "145. The bank shall implement anti-malware, antivirus protection i"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n40 \n \nT. \nContinuous Surveillance \n143. The bank shall set up a CSOC to ensure continuous surveillance and keep itself \nregularly updated on the latest nature of emerging cyber threats. An indicative, \nbut not exhaustive, minimum baseline guidance on CSOC is given in Chapter VI \nof these Directions.  \nU. \nAdvanced Real-time Threat Defence and Management  \n144. The bank shall build a robust defence against the installation, spread, and \nexecution of malicious code at multiple points in its environment.  \n145. The bank shall implement anti-malware, antivirus protection including \nbehavioural detection capabilities across all relevant devices and environments, \nsuch as endpoints (including PCs, laptops, and mobile devices), servers \n(operating systems, databases, and applications), Web / Internet gateways, \nemail-gateways, Wireless networks, and Short Message Service (SMS) servers. \nThe bank shall also implement tools and processes for centralised management \nand monitoring of these measures.  \n146. The bank shall implement whitelisting of internet websites / systems. \n147. The bank shall consider implementing secure web gateways with capability to \ndeep scan network packets including secure Hypertext Transfer Protocol Secure \n(HTTPS) traffic passing through the web / internet gateway. \nV. \nAnti-Phishing \n148. The bank shall subscribe to anti-phishing / anti-rogue app services from external \nservice providers for identifying and taking down phishing websites / rogue \napplications. \nW. \nVulnerability Assessment and Penetration Test  \n149. The bank shall conduct VA and PT exercises periodically for all the critical and \ninternet facing systems."
+    },
+    {
+      "page_number": 41,
+      "char_count": 2226,
+      "word_count": 337,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "150. The bank shall periodically conduct VA / PT of critical, inte",
+        "151. For critical information systems and / or those in the DMZ ha",
+        "152. In the post implementation (of IT project / system upgrade) s"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n41 \n \n150. The bank shall periodically conduct VA / PT of critical, internet facing web / mobile \napplications, servers, and network components throughout their lifecycle \nincluding pre-implementation, post implementation, and after changes. \n151. For critical information systems and / or those in the DMZ having customer \ninterface, VA shall be conducted at least once in every six months and PT at least \nonce in 12 months.  For non-critical information systems, a risk-based approach \nshall be adopted to decide the requirement and periodicity of conduct of VA / PT. \n152. In the post implementation (of IT project / system upgrade) scenario, the VA / PT \nshall be performed on the production environment. Under unavoidable \ncircumstances, if the PT is conducted in test environment, the bank shall ensure \nthat the version and configuration of the test environment resembles the \nproduction environment. Any deviation should be documented and approved by \nthe ISC. \n153. The bank shall ensure to fix the identified vulnerabilities and associated risks in \na time-bound manner by undertaking requisite corrective measures and ensure \nthat the compliance is sustained to avoid recurrence of known vulnerabilities \nsuch as those available in Common Vulnerabilities and Exposures (CVE) \ndatabase. \n154. The bank shall put in place a documented approach for conduct of VA / PT \ncovering the scope, coverage, vulnerability scoring mechanism (e.g., Common \nVulnerability Scoring System) and all other aspects. This shall also apply to the \nbank’s information systems hosted in a cloud environment. \n155. VA / PT shall be conducted by appropriately trained and independent information \nsecurity experts / auditors.  \n156. The bank shall have control / check over audit methodology, processes, and \ncompetence of auditors so as to ensure that audit objectives are fully met. At the \ntime of selecting, appointing or engaging or renewing the contract with the VA / \nPT auditor or consultant, the bank shall consider aspects such as requisite \nqualification, professional expertise (of the firm or company as well as the audit"
+    },
+    {
+      "page_number": 42,
+      "char_count": 1977,
+      "word_count": 327,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "157. The bank shall review the coverage and scope of the VA / PT a",
+        "158. The bank shall, on an ongoing basis, review the performance o"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n42 \n \npersonnel engaged by the entity), appropriate credentials, and suitable \ncompetency. \n157. The bank shall review the coverage and scope of the VA / PT and ensure that \nreasonable assurance for each of the areas therein shall be provided explicitly in \nthe VA / PT audit reports. The same shall be mentioned at the time of empanelling \nor selecting and awarding the contract with the VA / PT auditor.  \n158. The bank shall, on an ongoing basis, review the performance of the VA / PT \nauditor and ensure that appropriate action is taken in case of noting any \ndeficiencies. For instance, systems, applications, or infrastructure that were \nsubjected to VA / PT, ceteris paribus, if found to have been compromised at a \nlater date, apparently due to vulnerabilities that were not observed or highlighted \non timely basis in the VA / PT will qualify as a deficiency in discharge of function \nby the VA / PT auditor. Such deficiencies shall also be factored in while evaluating \nthe competency when selecting or renewing the contract with the VA / PT auditor. \n159. The bank shall continuously interact with the VA / PT auditors during the audit \nand in case of CERT-In empanelled auditors, the bank shall be guided by CERT-\nIn’s Comprehensive Cyber Security Audit Policy Guidelines. \n160. Findings of VA / PT and the follow up actions necessitated shall be monitored \nclosely by the Information Security / Information Systems Audit team as well as \nSenior Management. \n161. The status of the closure of the VA / PT observations shall be put to the ITSC \nand ISC at least on a quarterly basis. \nX. \nRed Teaming Exercises \n162. The bank may conduct red teaming exercises to identify the vulnerabilities and \nthe business risk, assess the efficacy of the defences and check the mitigating \ncontrols already in place by simulating the objectives and actions of an attacker."
+    },
+    {
+      "page_number": 43,
+      "char_count": 1952,
+      "word_count": 299,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "163. The BCP and DR policy shall adopt best practices (e.g., ISO 2",
+        "164. The bank’s BCP and DR capabilities shall be designed to effec",
+        "165. Periodicity of DR drills for critical information systems sha"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n43 \n \nY. \nBusiness Continuity and Disaster Recovery \n163. The BCP and DR policy shall adopt best practices (e.g., ISO 22301) to guide its \nactions in reducing the likelihood or impact of disruptive incidents and \nmaintaining business continuity. The policy shall be updated based on major \ndevelopments and risk assessments. \n164. The bank’s BCP and DR capabilities shall be designed to effectively support \nresilience objectives and enable rapid recovery and secure resumption of critical \noperations including key cybersecurity controls post cyber-attacks / other \nincidents aligned with recovery time objectives while ensuring security of \nprocesses and data. \n165. Periodicity of DR drills for critical information systems shall be at least on a half-\nyearly basis and for other information systems, as per the bank’s risk \nassessment. \n166. Any major issues observed during the DR drill shall be resolved and tested again \nto ensure successful conduct of drill before the next cycle. \n167. The DR testing shall involve switching over to the DR / alternate site and thus \nusing it as the primary site for sufficiently long period where usual business \noperations of at least a full working day (including Beginning of Day to End of \nDay operations) are covered. \n168. The bank shall regularly test the BCP / DR under different scenarios for possible \ntypes of contingencies, to ensure that it is up-to-date and effective. \n169. The bank shall backup data and periodically restore such backed-up data to \ncheck its usability. The integrity of such backup data shall be preserved along \nwith securing it from unauthorised access. \n170. The bank shall ensure that DR architecture and procedures are robust, meeting \nthe defined Recovery Time Objective (RTO) and Recovery Point Objective (RPO) \nfor any recovery operations in case of contingency."
+    },
+    {
+      "page_number": 44,
+      "char_count": 1616,
+      "word_count": 229,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "171. The bank shall prioritise achieving minimal RTO (as approved",
+        "172. In a scenario of non-zero RPO, the bank shall have a document",
+        "173. The bank shall ensure that the configurations of information",
+        "174. The bank shall ensure BCP and DR capabilities on critical int"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n44 \n \n171. The bank shall prioritise achieving minimal RTO (as approved by the bank’s \nITSC) and a near zero RPO for critical information systems. \n172. In a scenario of non-zero RPO, the bank shall have a documented methodology \nfor reconciliation of data while resuming operations from the alternate location. \n173. The bank shall ensure that the configurations of information systems and \ndeployed security patches at the DC and DR are identical. \n174. The bank shall ensure BCP and DR capabilities on critical interconnected \nsystems and networks including those of vendors and partners. The bank shall \nensure demonstrated readiness through collaborative and co-ordinated \nresilience testing that meets the bank’s RTO. \nZ. \n Cyber Incident Response and Recovery Management \nZ.1    Responding to Cyber-Incidents  \n175. The bank shall put in place cyber incident response and recovery management \npolicy and related procedures which shall address the following:  \n(1) \ndefinition, classification, and assessment of incidents;  \n(2) \nallocation of roles and responsibilities of staff as well as outsourced staff \nmanning / handling such incidents; \n(3) \nmechanism for reporting of cyber incidents by employees, vendors, and \ncustomers;   \n(4) \nclear communication strategy and plan to manage such incidents; \n(5) \nmeasures to contain exposures and achieve timely recovery; \n(6) \ncollection / sharing of threat information;  \n(7) \npost incident review; and \n(8) \nperiodical testing of incident response plans."
+    },
+    {
+      "page_number": 45,
+      "char_count": 2031,
+      "word_count": 280,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "176. The bank shall provide specialised training to the personnel",
+        "177. Response plans shall consider readiness to meet various incid",
+        "178. The bank shall have mechanism to dynamically incorporate less",
+        "179. The bank shall document and communicate strategies to respond",
+        "180. The bank shall contain the level of cyber-attack by implement",
+        "181. The bank shall analyse cyber incidents (including through for"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n45 \n \n176. The bank shall provide specialised training to the personnel handling cyber \nincidents.   \n177. Response plans shall consider readiness to meet various incident scenarios \nbased on situational awareness, potential / post impact, and consistent \ncommunication and co-ordination with stakeholders during response. \n178. The bank shall have mechanism to dynamically incorporate lessons learnt to \ncontinually improve the response plans. \n179. The bank shall document and communicate strategies to respond to advanced \nattacks such as ransomware / cyber extortion, data destruction, and DDoS. \n180. The bank shall contain the level of cyber-attack by implementing shielding \ncontrols / quarantining the affected devices / systems.  \n181. The bank shall analyse cyber incidents (including through forensic analysis, if \nnecessary) for their severity, impact, and root cause. The bank shall take \nmeasures, corrective and preventive, to mitigate the adverse impact of incidents \non business operations.  \n182. The bank shall report cyber incidents within six hours of detection on DAKSH \nplatform (Reserve Bank’s Advanced Supervisory Monitoring System - \nhttps://daksh.rbi.org.in). The bank shall also pro-actively notify CERT-In \nregarding cyber incidents. \n183. The bank shall have clear communication plans for escalation and reporting the \nincidents to the Board and Senior Management as well as to customers, as \nrequired.  \n184. The bank may actively participate in the activities of CISO’s forum coordinated \nby IDRBT and share the threat intelligence arising from cyber incidents to Indian \nBanks-Centre for Analysis of Risks and Threats (IB-CART) set up by IDRBT.  \n185. The bank shall establish appropriate arrangements for external coordination and \ninformation sharing, including integration of threat intelligence and security \ninformation feeds from relevant internal and external sources, and coordination"
+    },
+    {
+      "page_number": 46,
+      "char_count": 2004,
+      "word_count": 281,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "186. The bank shall establish and implement systems to collect and",
+        "187. The bank shall establish processes to improve incident respon",
+        "188. The bank shall periodically and actively participate in cyber"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n46 \n \nwith industry participants, cyber response agencies, CERT-In, telecom service \nproviders, and other stakeholders, as may be required. \n186. The bank shall establish and implement systems to collect and share threat \ninformation from local / national / international sources following legally \naccepted / defined means / process. \nZ.2   Recovery from Cyber Incidents  \n187. The bank shall establish processes to improve incident response and recovery \nactivities and capabilities through lessons learnt from past incidents as well as \nfrom the conduct of tests and drills. \n188. The bank shall periodically and actively participate in cyber drills and related \nsimulation exercises conducted under the aegis of institutions / agencies such as \nCert-IN and IDRBT. \n189. The bank shall ensure resilient capabilities in all interconnected systems and \nnetworks including those of vendors and partners and readiness demonstrated \nthrough collaborative and coordinated resilience testing that meets the bank’s \nrecovery time objectives. Adequate capacity shall be planned and maintained, in \nconsideration thereof. \n190. The bank, inter alia, shall ensure effectiveness of crisis communication plan / \nprocess by conduct of periodic drills / testing with stakeholders (including \ncustomers and service providers). \n191. The bank shall align Security Operation Centre, Incident Response and Digital \nforensics to reduce the business downtime and restore normal operations.   \nZ.3   Cyber Crisis Management Plan \n192. The bank shall document a Cyber Crisis Management Plan (CCMP) which shall \nbe part of the overall Board approved framework in cybersecurity.   \n193. CCMP shall address the following four aspects: (i) Detection, (ii) Containment, \n(iii) Response, and (iv) Recovery. The bank shall take effective measures to \nprevent cyber-attacks and to promptly detect any cyber-intrusions so as to"
+    },
+    {
+      "page_number": 47,
+      "char_count": 2098,
+      "word_count": 287,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "194. The bank shall develop a comprehensive set of metrics that pr"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n47 \n \ncontain / respond / recover from the fallout. The bank shall be well prepared to \nface emerging cyber-threats such as ‘zero-day’ attacks, remote access threats, \nand targeted attacks. Among other things, the bank shall take necessary \npreventive and corrective measures in addressing various types of cyber threats \nincluding, but not limited to, denial of service, DDoS, ransomware, destructive \nmalware, business email frauds including spam, email phishing, spear phishing, \nwhaling, vishing frauds, drive-by downloads, browser gateway fraud, ghost \nadministrator exploits, identity frauds, memory update frauds, and password \nrelated frauds. \nAA. Metrics \n194. The bank shall develop a comprehensive set of metrics that provide for \nprospective and retrospective measures, like key performance indicators and key \nrisk indicators. Some illustrative metrics include coverage of anti-malware \nsoftware and their updation percentage, patch latency, extent of user awareness \ntraining, and vulnerability related metrics. \n195. Additionally, the bank shall define suitable metrics for system performance, \nrecovery, and business resumption, including RPO and RTO, for all critical \ninformation systems. For non-critical information systems, the bank shall adopt \na risk-based approach to define suitable metrics.  \n196. The bank shall implement suitable scorecard / metrics / methodology to measure \nIT performance, and IT maturity level. \n197. The adequacy of and adherence to cybersecurity framework shall be assessed \nand measured through development of indicators to assess the level of risk / \npreparedness. The awareness among the stakeholders including employees \nmay also form a part of this assessment.  \nBB. User / Employee / Management Awareness  \n198. The bank shall proactively promote awareness of its cyber resilience objectives \namong service providers, partners, and other stakeholders, and shall require \nappropriate actions to ensure aligned implementation and testing."
+    },
+    {
+      "page_number": 48,
+      "char_count": 2040,
+      "word_count": 279,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "199. The bank shall define and communicate its security policies t",
+        "200. The bank shall provide targeted awareness and training for ke",
+        "201. The bank shall encourage the reporting of suspicious behaviou",
+        "202. The bank shall evaluate the awareness level of employees peri",
+        "203. The bank shall establish a mechanism for continuous and adapt"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n48 \n \n199. The bank shall define and communicate its security policies to users / employees, \nvendors, and partners, covering secure and acceptable use of bank’s information \nassets including customer information / data, and educating them about \ncybersecurity risks and protection measures at their level.  \n200. The bank shall provide targeted awareness and training for key personnel in \nexecutive, operational, and security administration or management roles. \n201. The bank shall encourage the reporting of suspicious behaviour incidents to the \nincident management team. \n202. The bank shall evaluate the awareness level of employees periodically.  \n203. The bank shall establish a mechanism for continuous and adaptive capacity \nbuilding to strengthen cybersecurity management. Cybersecurity awareness \nprogrammes shall be mandatory for all new recruits, and annual training shall be \nconducted for lower and middle management. \n204. The bank shall ensure that the Board and Senior Management maintain \nadequate awareness of evolving cyber threats by periodically sensitising them to \ntechnological advancements and cybersecurity developments. The bank shall \nalso provide annual training to all Board members and Senior Management on \nIT and cybersecurity risks and evolving best practices. \nCC. Customer Education and Awareness  \n205. The bank shall improve and maintain customer awareness and education \nregarding cybersecurity risks.  \n206. The bank shall encourage customers to report phishing mails / phishing sites and \non such reporting, the bank shall take effective remedial action.  \n207. The bank shall educate the customers about the risks and consequences of \nsharing their login credentials, passwords, One-Time Passwords (OTPs), \nPersonal Identification Numbers (PINs), and other authentication information. \n208. The bank shall proactively promote awareness of its cyber resilience objectives \namong customers."
+    },
+    {
+      "page_number": 49,
+      "char_count": 642,
+      "word_count": 88,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "209. The bank shall implement risk-based transaction monitoring or",
+        "210. The bank shall notify the customer, through alternate communi",
+        "211. The bank shall have support / arrangement for network forensi"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n49 \n \nDD. Risk based Transaction Monitoring \n209. The bank shall implement risk-based transaction monitoring or surveillance \nprocess as part of fraud risk management system across all delivery channels. \n210. The bank shall notify the customer, through alternate communication channels, \nof all payment or fund transfer transactions above a specified value determined \nby the customer. \nEE. Forensics \n211. The bank shall have support / arrangement for network forensics / forensic \ninvestigation / DDoS mitigation services on standby."
+    },
+    {
+      "page_number": 50,
+      "char_count": 1877,
+      "word_count": 261,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VI - Cyber Security Operations Centre",
+        "212. The bank shall put in place a framework for establishment and",
+        "213. The bank shall ensure appropriate governance arrangements whi"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n50 \n \nChapter VI - Cyber Security Operations Centre \nA. \nGovernance \n212. The bank shall put in place a framework for establishment and operation of a \nCyber Security Operations Centre (CSOC), commensurate with its technology \nrisk profile, scale and complexity of operations, business requirements and \napplicable regulatory and legal obligations. \n213. The bank shall ensure appropriate governance arrangements while setting up \nthe CSOC, including briefing of the Board / ITSC and Senior Management on \nthreat intelligence; establishment of dashboards for effective oversight; \nformulation and enforcement of policy with defined measurement and \nmechanisms such as key metrics and reporting structures specifying what is to \nbe reported; and timely communication with all the stakeholders. \nB. \nCapabilities \n214. The CSOC shall ensure proactive monitoring and management capabilities with \nsophisticated tools for detection, quick response, and sound analytics. \n215. The bank shall ensure that the systems implemented for monitoring security \noperations shall enable collection of logs from deployed systems / products and \nof various network activities; storage and processing of such logs; correlation of \nlogs through appropriate SIEM tools; continuous monitoring of SIEM dashboards \nto identify anomalies, if any; and generation of alerts / events / incidents to \nescalate any abnormal / undesirable activities. \n216. The bank shall ensure that the systems as part of CSOC addresses the following: \n(1) \nidentification of the root cause of attacks; \n(2) \nclassification of such attacks into identified categories, and implementation \nof solutions to contain further attacks of similar nature; \n(3) \ncapabilities for incident investigation and problem management;"
+    },
+    {
+      "page_number": 51,
+      "char_count": 1620,
+      "word_count": 219,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "217. The bank shall ensure that CSOC is responsible for the follow"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n51 \n \n(4) \ndynamic behaviour analysis (including preliminary static and dynamic \nanalysis); \n(5) \ncollection of Indicators of Compromise (IOCs); \n(6) \nanalytics supported by effective dashboards, including visibility of IP geo- \nlocation and counter-response mechanisms; and  \n(7) \nhoneypot services. \n217. The bank shall ensure that CSOC is responsible for the following: \n(1) \nmonitoring, analysing and escalating security incidents; \n(2) \ndeveloping and executing response measures across the protect, detect, \nrespond, and recover phases; \n(3) \nconducting incident management and forensic analysis; and \n(4) \ncoordinating with relevant contact groups within the bank as well as with \nexternal agencies, as required. \n218. The CSOC shall have security analytics engine which can process the logs within \nreasonable time frame and come out with possible recommendations with \noptions for further deep dive investigations and deliver wire speed performance \nwith on-the-fly deep packet inspection. \n219. The CSOC shall include tools and technologies for malware detection and \nanalysis as well as imaging solutions for data to address the forensics \nrequirements. \n220. The bank shall ensure that the CSOC’s solution architecture deployed addresses \nthe performance and scalability requirements in addition to high availability and \nis capable of  \n(1) \nprotecting critical business and customer data and information, \ndemonstrating compliance with internal guidelines as well as applicable \nregulations and laws;"
+    },
+    {
+      "page_number": 52,
+      "char_count": 1885,
+      "word_count": 259,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n52 \n \n(2) \nproviding real-time or near real-time information and insights into the \nsecurity posture of the bank; \n(3) \neffectively and efficiently managing security operations by preparing for and \nresponding to cyber risks and threats and facilitating business continuity \nand recovery; \n(4) \nassessing threat intelligence and proactively identifying and visualising the \nimpact of threats on the bank; \n(5) \nestablishing clear attribution of actions including who did what, when and \nhow, along with preservation of evidence; and  \n(6) \nintegrating various log types and logging options into SIEM and related \nsystems, including ticketing, workflow and case management, unstructured \nand big data platforms, and development of use cases and rules \ncustomised to the bank’s risk and compliance requirements and drivers. \nC. \nStaff Capabilities \n221. The bank shall put in place an appropriate organisational structure to ensure that \nthe CSOC is managed and monitored on a continuous basis by competent and \ncapable personnel. All personnel engaged in CSOC operations shall possess \nadequate knowledge of the bank’s products, services, and deployed technology \nenvironment. The structure shall provide for role-based responsibilities across \ndifferent levels of operations, including the following: \n(1) \nRound-the-clock Level 1 monitoring by adequately trained personnel with \nrelevant product and vendor certifications;  \n(2) \nLevel 2 capabilities staffed by personnel with specialised expertise in areas \nsuch as network, data, and endpoint security to support root cause analysis \nand to take suitable corrective actions; and  \n(3) \nLevel 3 capabilities comprising SOC analysts with advanced security \nexpertise, including deep packet analysis, collection of IOCs, forensic"
+    },
+    {
+      "page_number": 53,
+      "char_count": 982,
+      "word_count": 127,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "222. The bank shall adopt a differentiated and structured approach",
+        "223. The bank shall put in place appropriate mechanisms to determi"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n53 \n \nknowledge for collection of evidence, malware reverse engineering and \ndevelopment of custom scripts, as required.  \n222. The bank shall adopt a differentiated and structured approach to hiring, \nmanaging, and retaining personnel for the CSOC, recognising the specialised \nnature of the function.  \n223. The bank shall put in place appropriate mechanisms to determine staffing \nrequirements for continuous monitoring on 24x7 basis. The bank shall adopt \nsuitable sourcing and operating models including in-house staffing or managed \nservice arrangements, ensure adequate training of personnel whether internal or \nservice provider-deployed, establish appropriate compensation and incentive \nstructures to retain skilled staff, define metrics to assess SOC performance, and \nensure scalability and continuity of personnel through effective capacity planning \ninitiatives."
+    },
+    {
+      "page_number": 54,
+      "char_count": 1406,
+      "word_count": 211,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VII - Information Systems Audit",
+        "224. The Audit Committee of the Board (ACB) shall be responsible f",
+        "225. The bank shall put in place an IS Audit Policy. The IS Audit",
+        "226. The ACB shall review critical issues highlighted related to I",
+        "227. The bank shall have a separate IS Audit function or resources"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n54 \n \nChapter VII - Information Systems Audit \n224. The Audit Committee of the Board (ACB) shall be responsible for exercising \noversight of IS Audit of the bank. \n225. The bank shall put in place an IS Audit Policy. The IS Audit Policy shall clearly \ndescribe key aspects, including its mandate, purpose, authority, audit universe, \nand periodicity of audit. The ACB shall approve the policy and review it at least \nannually. \n226. The ACB shall review critical issues highlighted related to IT / information \nsecurity / cybersecurity and provide appropriate direction and guidance to the \nbank’s Management. \n227. The bank shall have a separate IS Audit function or resources who possess \nrequired professional skills and competence within the Internal Audit function. \nWhere the bank uses external resources for conducting IS audit in areas where \nskills are lacking within the bank, the responsibility and accountability for such \nexternal IS audits would continue to remain with the competent authority within \nInternal Audit function. \n228. The bank shall carry out IS Audit planning by adopting a risk-based audit \napproach. \n229. The bank may consider, wherever possible, a continuous auditing approach for \ncritical systems, performing control and risk assessments on a more frequent \nbasis."
+    },
+    {
+      "page_number": 55,
+      "char_count": 1884,
+      "word_count": 264,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "Chapter VIII - Repeal and Other Provisions",
+        "230. With the issue of these Directions, the existing Directions,",
+        "231. Notwithstanding such repeal, any action taken or purported to"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n55 \n \nChapter VIII - Repeal and Other Provisions \nA. \nRepeal and Saving  \n230. With the issue of these Directions, the existing Directions, instructions, and \nguidelines relating to Cybersecurity Framework and IT Governance as applicable \nto Commercial Banks stand repealed, as communicated vide circular no. \nDoS.CO.PPG.66/11.01.005/2026-27 dated July 31, 2026. The directions, \ninstructions, and guidelines repealed prior to the issuance of these Directions \nshall continue to remain repealed.  \n231. Notwithstanding such repeal, any action taken or purported to have been taken, \nor initiated under the repealed directions, instructions, or guidelines shall \ncontinue to be governed by the provisions thereof. All approvals or \nacknowledgments granted under these repealed lists shall be deemed as \ngoverned by these Directions. Further, the repeal of these directions, \ninstructions, or guidelines shall not in any way prejudicially affect:  \n(1) \nany right, obligation or liability acquired, accrued, or incurred thereunder; \n(2) \nany penalty, forfeiture, or punishment incurred in respect of any \ncontravention committed thereunder; \n(3) \nany investigation, legal proceeding, or remedy in respect of any such right, \nprivilege, obligation, liability, penalty, forfeiture, or punishment as aforesaid; \nand any such investigation, legal proceedings or remedy may be instituted, \ncontinued, or enforced and any such penalty, forfeiture or punishment may \nbe imposed as if those directions, instructions, or guidelines had not been \nrepealed. \nB. \nApplication of Other Laws Not barred  \n232. The provisions of these Directions shall be in addition to, and not in derogation \nof the provisions of any other laws, rules, regulations, or directions, for the time \nbeing in force."
+    },
+    {
+      "page_number": 56,
+      "char_count": 574,
+      "word_count": 82,
+      "image_count": 1,
+      "ocr_recommended": false,
+      "headings_detected": [
+        "233. For the purposes of giving effect to the provisions of these"
+      ],
+      "text": "RBI (CBs – Cybersecurity, Technology: Risk, Resilience  \nand Assurance Framework) Directions, 2026 \n \n \n \n56 \n \nC. \nInterpretations  \n233. For the purposes of giving effect to the provisions of these Directions or for \nremoving any difficulties in their application or interpretation, RBI may, if it deems \nnecessary, issue such clarifications as it considers appropriate in respect of any \nmatter covered herein. The interpretation of any provision of these Directions by \nRBI shall be final and binding on all concerned entities. \n \n \n(N. Suganandh) \nChief General Manager"
+    }
+  ]
+}

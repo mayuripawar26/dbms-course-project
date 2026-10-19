@@ -1,0 +1,92 @@
+[
+  {
+    "account_number": "ACC_SYNTH_300101",
+    "customer_id": "CUST_SYNTH_101",
+    "account_type": "SAVINGS",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2025-01-15",
+    "branch": "Bengaluru Central (Fictional)",
+    "current_balance_inr": 1250.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300201",
+    "customer_id": "CUST_SYNTH_102",
+    "account_type": "SAVINGS",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2023-04-10",
+    "branch": "Mumbai Nariman Point (Fictional)",
+    "current_balance_inr": 34800.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300301",
+    "customer_id": "CUST_SYNTH_103",
+    "account_type": "SAVINGS_PENSION",
+    "status": "DORMANT_REACTIVATED",
+    "currency": "INR",
+    "opened_on": "2018-09-20",
+    "branch": "New Delhi Connaught Place (Fictional)",
+    "current_balance_inr": 15200.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300401",
+    "customer_id": "CUST_SYNTH_104",
+    "account_type": "CURRENT_BUSINESS",
+    "status": "RESTRICTED_KYC_DUE",
+    "currency": "INR",
+    "opened_on": "2022-11-05",
+    "branch": "Chennai Anna Salai (Fictional)",
+    "current_balance_inr": 7820000.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300501",
+    "customer_id": "CUST_SYNTH_105",
+    "account_type": "CURRENT_COMMERCIAL",
+    "status": "ACTIVE_KYC_OVERDUE",
+    "currency": "INR",
+    "opened_on": "2020-03-12",
+    "branch": "Kolkata BBD Bagh (Fictional)",
+    "current_balance_inr": 1850000.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300601",
+    "customer_id": "CUST_SYNTH_106",
+    "account_type": "CURRENT_BUSINESS",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2024-02-18",
+    "branch": "Ahmedabad Ashram Road (Fictional)",
+    "current_balance_inr": 490000.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300602",
+    "customer_id": "CUST_SYNTH_106",
+    "account_type": "CURRENT_SETTLEMENT",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2024-02-19",
+    "branch": "Surat Ring Road (Fictional)",
+    "current_balance_inr": 5000.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300603",
+    "customer_id": "CUST_SYNTH_106",
+    "account_type": "CURRENT_HOLDING",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2024-02-20",
+    "branch": "Vadodara Alkapuri (Fictional)",
+    "current_balance_inr": 5000.0
+  },
+  {
+    "account_number": "ACC_SYNTH_300701",
+    "customer_id": "CUST_SYNTH_107",
+    "account_type": "LOAN_CURRENT_CC",
+    "status": "ACTIVE",
+    "currency": "INR",
+    "opened_on": "2023-08-22",
+    "branch": "Pune Shivaji Nagar (Fictional)",
+    "current_balance_inr": 200000.0
+  }
+]

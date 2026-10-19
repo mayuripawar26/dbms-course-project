@@ -1,0 +1,462 @@
+"""
+ingestion/build_graph.py
+
+Phase 5 Neo4j Knowledge Graph Loader
+- Reads document metadata and chunks from data/processed/ and data/metadata/.
+- Connects to Neo4j using credentials loaded securely from environment variables.
+- Executes constraints and schema from graph/constraints.cypher.
+- Ingests Document, RegulatorySection, and EvidenceChunk nodes idempotently via MERGE.
+- Optionally ingests synthetic Customer, Account, Transaction, RiskIndicator, and FraudPattern nodes.
+- Provides batch UNWIND loading for optimal Neo4j performance.
+- Handles connection failures and unconfigured environments gracefully with informative guidance.
+- Includes a --dry-run / --validate mode to test graph preparation without requiring a running Neo4j instance.
+"""
+
+import os
+import sys
+import json
+import argparse
+from pathlib import Path
+from typing import Dict, Any, List, Optional
+from dotenv import load_dotenv
+
+# Ensure UTF-8 output on Windows
+if sys.stdout.encoding != "utf-8":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+# Attempt neo4j import
+try:
+    from neo4j import GraphDatabase, Driver
+    NEO4J_AVAILABLE = True
+except ImportError:
+    NEO4J_AVAILABLE = False
+
+
+def load_environment(project_root: Path) -> Dict[str, str]:
+    """Load configuration from .env file if available, falling back to system environment."""
+    env_file = project_root / ".env"
+    if env_file.exists():
+        load_dotenv(dotenv_path=env_file)
+    else:
+        # Load from default environment
+        load_dotenv()
+
+    return {
+        "uri": os.getenv("NEO4J_URI", "bolt://localhost:7687"),
+        "user": os.getenv("NEO4J_USER", "neo4j"),
+        "password": os.getenv("NEO4J_PASSWORD", ""),
+        "database": os.getenv("NEO4J_DATABASE", "neo4j")
+    }
+
+
+def is_credentials_configured(config: Dict[str, str]) -> bool:
+    """Check if valid credentials (not empty or placeholder) are configured."""
+    pw = config.get("password", "").strip()
+    placeholder_values = ["", "your_secure_neo4j_password_here", "password", "your_password"]
+    return pw not in placeholder_values
+
+
+def create_neo4j_driver(config: Dict[str, str]) -> Optional[Any]:
+    """Instantiate and verify Neo4j Python driver."""
+    if not NEO4J_AVAILABLE:
+        print("[!] The 'neo4j' Python package is not installed. Run: pip install neo4j")
+        return None
+
+    if not is_credentials_configured(config):
+        print("\n" + "="*70)
+        print("[!] NEO4J CREDENTIALS NOT CONFIGURED")
+        print("    A valid NEO4J_PASSWORD was not detected in .env.")
+        print("    To load data into Neo4j:")
+        print("    1. Copy .env.example to .env:  copy .env.example .env")
+        print("    2. Set NEO4J_PASSWORD to your database password.")
+        print("    3. Ensure Neo4j is running (Desktop, Docker, or AuraDB).")
+        print("="*70 + "\n")
+        return None
+
+    try:
+        driver = GraphDatabase.driver(
+            config["uri"],
+            auth=(config["user"], config["password"]),
+            connection_timeout=5.0
+        )
+        driver.verify_connectivity()
+        print(f"[+] Successfully connected to Neo4j instance at: {config['uri']}")
+        return driver
+    except Exception as e:
+        print("\n" + "="*70)
+        print(f"[!] FAILED TO CONNECT TO NEO4J: {str(e)}")
+        print("    Troubleshooting steps:")
+        print("    - Verify your Neo4j service is active (e.g. Neo4j Desktop or Docker container).")
+        print("    - Confirm NEO4J_URI (default: bolt://localhost:7687).")
+        print("    - Check username and password credentials in your .env file.")
+        print("="*70 + "\n")
+        return None
+
+
+def apply_constraints(driver: Any, constraints_file: Path, database: str = "neo4j") -> bool:
+    """Apply Cypher constraints and indexes from graph/constraints.cypher."""
+    if not constraints_file.exists():
+        print(f"[!] Constraints file not found at: {constraints_file}")
+        return False
+
+    with open(constraints_file, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    statements = [stmt.strip() for stmt in content.split(";") if stmt.strip() and not stmt.strip().startswith("//")]
+
+    print(f"[*] Applying {len(statements)} constraint/index statements...")
+    with driver.session(database=database) as session:
+        for stmt in statements:
+            try:
+                session.run(stmt)
+            except Exception as e:
+                print(f"    [Notice] Statement: {stmt[:40]}... -> {str(e)}")
+    print("[+] Constraints and indexes applied successfully.")
+    return True
+
+
+def load_documents_and_sections(driver: Any, project_root: Path, database: str = "neo4j"):
+    """Ingest Document and RegulatorySection nodes."""
+    inv_file = project_root / "data" / "metadata" / "document_inventory.json"
+    if not inv_file.exists():
+        print("[!] Document inventory not found. Run ingestion/inspect_documents.py first.")
+        return
+
+    with open(inv_file, "r", encoding="utf-8") as f:
+        inv_data = json.load(f)
+
+    docs = inv_data.get("documents", [])
+    print(f"[*] Ingesting {len(docs)} Document nodes...")
+
+    doc_cypher = """
+    UNWIND $docs AS d
+    MERGE (doc:Document {doc_id: d.sha256[0..12] + '_' + d.filename})
+    ON CREATE SET
+        doc.filename = d.filename,
+        doc.title = d.title,
+        doc.source = d.source,
+        doc.category = d.category,
+        doc.publication_date = d.publication_date,
+        doc.total_pages = d.page_count,
+        doc.total_chars = d.total_chars,
+        doc.sha256 = d.sha256,
+        doc.status = d.extraction_status
+    ON MATCH SET
+        doc.title = d.title,
+        doc.source = d.source,
+        doc.category = d.category,
+        doc.total_pages = d.page_count
+    RETURN count(doc) AS loaded_count
+    """
+
+    with driver.session(database=database) as session:
+        session.run(doc_cypher, docs=docs)
+    print(f"[+] Loaded {len(docs)} Document nodes.")
+
+
+def load_chunks(driver: Any, project_root: Path, batch_size: int = 250, database: str = "neo4j"):
+    """Ingest EvidenceChunk nodes in batches and link to Document and Section."""
+    chunks_file = project_root / "data" / "processed" / "chunks.json"
+    if not chunks_file.exists():
+        print("[!] Chunks file not found. Run ingestion/chunk_documents.py first.")
+        return
+
+    with open(chunks_file, "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+
+    total = len(chunks)
+    print(f"[*] Ingesting {total:,} EvidenceChunk nodes in batches of {batch_size}...")
+
+    chunk_cypher = """
+    UNWIND $batch AS c
+    MERGE (chunk:EvidenceChunk {chunk_id: c.chunk_id})
+    ON CREATE SET
+        chunk.doc_id = c.doc_id,
+        chunk.filename = c.filename,
+        chunk.page_start = c.page_start,
+        chunk.page_end = c.page_end,
+        chunk.section_heading = c.section_heading,
+        chunk.char_count = c.char_count,
+        chunk.word_count = c.word_count,
+        chunk.chunk_hash = c.chunk_hash,
+        chunk.text = c.text
+    ON MATCH SET
+        chunk.section_heading = c.section_heading,
+        chunk.char_count = c.char_count
+
+    WITH chunk, c
+    MATCH (d:Document)
+    WHERE d.filename = c.filename
+    MERGE (chunk)-[:CHUNK_FROM_DOCUMENT]->(d)
+
+    WITH chunk, c
+    WHERE c.section_heading <> 'General / Preamble' AND c.section_heading IS NOT NULL
+    MERGE (s:RegulatorySection {section_id: c.doc_id + '_' + c.section_heading})
+    ON CREATE SET 
+        s.title = c.section_heading,
+        s.doc_id = c.doc_id,
+        s.filename = c.filename
+    MERGE (s)-[:SUPPORTED_BY_CHUNK]->(chunk)
+    """
+
+    with driver.session(database=database) as session:
+        for i in range(0, total, batch_size):
+            batch = chunks[i : i + batch_size]
+            session.run(chunk_cypher, batch=batch)
+            print(f"    Loaded chunks {i+1} to {min(i+batch_size, total)} of {total}...")
+
+    print(f"[+] Loaded {total:,} EvidenceChunk nodes and associated relationships.")
+
+
+def load_synthetic_data(driver: Any, project_root: Path, database: str = "neo4j"):
+    """Ingest synthetic Customer, Account, Transaction, and Risk nodes."""
+    synth_dir = project_root / "data" / "synthetic"
+    cust_file = synth_dir / "customers.json"
+    acc_file = synth_dir / "accounts.json"
+    tx_file = synth_dir / "transactions.json"
+    scen_file = synth_dir / "scenarios.json"
+
+    if not (cust_file.exists() and acc_file.exists() and tx_file.exists()):
+        print("[!] Synthetic data not found. Run data/synthetic/generate_synthetic_data.py first.")
+        return
+
+    with open(cust_file, "r", encoding="utf-8") as f:
+        customers = json.load(f)
+    with open(acc_file, "r", encoding="utf-8") as f:
+        accounts = json.load(f)
+    with open(tx_file, "r", encoding="utf-8") as f:
+        transactions = json.load(f)
+    with open(scen_file, "r", encoding="utf-8") as f:
+        scenarios = json.load(f)
+
+    print(f"[*] Ingesting synthetic customer, account, and transaction dataset...")
+
+    cypher_synth = """
+    // 1. Ingest Scenarios and Fraud Typologies
+    UNWIND $scenarios AS sc
+    MERGE (f:FraudPattern {pattern_id: sc.scenario_id})
+    ON CREATE SET
+        f.name = sc.name,
+        f.typology = sc.typology,
+        f.description = sc.description,
+        f.severity = sc.severity
+    ON MATCH SET
+        f.name = sc.name,
+        f.typology = sc.typology,
+        f.description = sc.description,
+        f.severity = sc.severity;
+
+    // 2. Ingest Customers
+    UNWIND $customers AS cust
+    MERGE (c:Customer {customer_id: cust.customer_id})
+    ON CREATE SET
+        c.full_name = cust.full_name,
+        c.customer_type = cust.customer_type,
+        c.kyc_status = cust.kyc_status,
+        c.cdd_tier = cust.cdd_tier,
+        c.risk_rating = cust.risk_rating,
+        c.pep_status = cust.pep_status,
+        c.declared_annual_income = cust.declared_annual_income_inr
+    ON MATCH SET
+        c.full_name = cust.full_name,
+        c.customer_type = cust.customer_type,
+        c.kyc_status = cust.kyc_status,
+        c.cdd_tier = cust.cdd_tier,
+        c.risk_rating = cust.risk_rating,
+        c.pep_status = cust.pep_status,
+        c.declared_annual_income = cust.declared_annual_income_inr
+    WITH c, cust
+    MATCH (f:FraudPattern {pattern_id: cust.flagged_scenario})
+    MERGE (c)-[:EXHIBITS_PATTERN]->(f);
+
+    // 3. Ingest Accounts
+    UNWIND $accounts AS acc
+    MERGE (a:Account {account_number: acc.account_number})
+    ON CREATE SET
+        a.account_type = acc.account_type,
+        a.status = acc.status,
+        a.currency = acc.currency,
+        a.current_balance = acc.current_balance_inr
+    ON MATCH SET
+        a.account_type = acc.account_type,
+        a.status = acc.status,
+        a.currency = acc.currency,
+        a.current_balance = acc.current_balance_inr
+    WITH a, acc
+    MATCH (c:Customer {customer_id: acc.customer_id})
+    MERGE (c)-[:OWNS_ACCOUNT]->(a);
+
+    // 4. Ingest Transactions
+    UNWIND $transactions AS tx
+    MERGE (t:Transaction {tx_id: tx.tx_id})
+    ON CREATE SET
+        t.amount = tx.amount_inr,
+        t.currency = tx.currency,
+        t.timestamp = tx.timestamp,
+        t.channel = tx.channel,
+        t.type = tx.type,
+        t.scenario = tx.scenario
+    ON MATCH SET
+        t.amount = tx.amount_inr,
+        t.currency = tx.currency,
+        t.timestamp = tx.timestamp,
+        t.channel = tx.channel,
+        t.type = tx.type,
+        t.scenario = tx.scenario
+    
+    // Link Sender Account
+    WITH t, tx
+    MERGE (src:Account {account_number: tx.sender_account})
+    MERGE (src)-[:SENT_TRANSACTION]->(t)
+
+    // Link Receiver Account
+    WITH t, tx
+    MERGE (dst:Account {account_number: tx.receiver_account})
+    MERGE (t)-[:TO_ACCOUNT]->(dst)
+
+    // Create and link Risk Indicator
+    WITH t, tx
+    WHERE tx.risk_indicator IS NOT NULL
+    MERGE (ind:RiskIndicator {indicator_id: tx.risk_indicator})
+    ON CREATE SET
+        ind.name = tx.risk_indicator,
+        ind.category = 'AML_AND_FRAUD'
+    MERGE (t)-[:TRIGGERS_INDICATOR]->(ind);
+    """
+
+    with driver.session(database=database) as session:
+        # Split statements by semicolon
+        for stmt in cypher_synth.split(";"):
+            clean = stmt.strip()
+            if clean:
+                session.run(clean, 
+                            scenarios=scenarios, 
+                            customers=customers, 
+                            accounts=accounts, 
+                            transactions=transactions)
+
+    print("[+] Loaded synthetic customers, accounts, transactions, and risk indicators.")
+
+
+def verify_graph(driver: Any, database: str = "neo4j"):
+    """Execute verification queries and report counts."""
+    print("\n--- Knowledge Graph Verification ---")
+    query_counts = """
+    MATCH (n)
+    RETURN head(labels(n)) AS label, count(n) AS count
+    ORDER BY count DESC
+    """
+    with driver.session(database=database) as session:
+        res = session.run(query_counts)
+        for record in res:
+            print(f"  Node [{record['label']}]: {record['count']:,}")
+
+    query_rels = """
+    MATCH ()-[r]->()
+    RETURN type(r) AS rel_type, count(r) AS count
+    ORDER BY count DESC
+    """
+    with driver.session(database=database) as session:
+        res = session.run(query_rels)
+        for record in res:
+            print(f"  Relationship [:{record['rel_type']}]: {record['count']:,}")
+
+
+def validate_graph_readiness(project_root: Path) -> bool:
+    """Dry-run validation of graph files, schema, chunks, and synthetic data."""
+    print("\n[*] Running Dry-Run Graph Preparation Validation...")
+    errors = []
+
+    # 1. Check constraints file
+    constraints_path = project_root / "graph" / "constraints.cypher"
+    if not constraints_path.exists():
+        errors.append("graph/constraints.cypher missing")
+    else:
+        print(f"  [OK] Found constraints file: {constraints_path.name}")
+
+    # 2. Check chunks.json
+    chunks_path = project_root / "data" / "processed" / "chunks.json"
+    if not chunks_path.exists():
+        errors.append("data/processed/chunks.json missing (run chunk_documents.py)")
+    else:
+        try:
+            with open(chunks_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            print(f"  [OK] Validated master chunks: {len(data):,} chunks ready for ingestion")
+        except Exception as e:
+            errors.append(f"Corrupted chunks.json: {str(e)}")
+
+    # 3. Check inventory
+    inv_path = project_root / "data" / "metadata" / "document_inventory.json"
+    if not inv_path.exists():
+        errors.append("data/metadata/document_inventory.json missing (run inspect_documents.py)")
+    else:
+        print("  [OK] Document inventory verified")
+
+    # 4. Check synthetic data
+    synth_dir = project_root / "data" / "synthetic"
+    synth_files = ["customers.json", "accounts.json", "transactions.json", "scenarios.json"]
+    for sf in synth_files:
+        if not (synth_dir / sf).exists():
+            errors.append(f"data/synthetic/{sf} missing")
+        else:
+            print(f"  [OK] Verified synthetic file: {sf}")
+
+    if errors:
+        print("\n[!] Validation Failed with issues:")
+        for err in errors:
+            print(f"    - {err}")
+        return False
+
+    print("\n[SUCCESS] Graph preparation dry-run validation passed! All input files, schema, and chunks are valid.")
+    return True
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Neo4j Knowledge Graph Ingestion Pipeline")
+    parser.add_argument("--dry-run", action="store_true", help="Validate graph payload and schema without connecting to Neo4j")
+    parser.add_argument("--include-synthetic", action="store_true", help="Include synthetic customer/transaction dataset")
+    args = parser.parse_args()
+
+    project_root = Path(__file__).resolve().parent.parent
+
+    if args.dry_run:
+        valid = validate_graph_readiness(project_root)
+        sys.exit(0 if valid else 1)
+
+    config = load_environment(project_root)
+
+    # Check credentials
+    if not is_credentials_configured(config):
+        print("[INFO] No live Neo4j credentials configured. Executing validation mode...")
+        validate_graph_readiness(project_root)
+        print("\n[NOTE] To ingest into a running Neo4j instance, update your .env with valid credentials and re-run.")
+        return
+
+    driver = create_neo4j_driver(config)
+    if not driver:
+        print("[INFO] Could not connect to Neo4j. Running offline validation check instead...")
+        validate_graph_readiness(project_root)
+        return
+
+    try:
+        constraints_file = project_root / "graph" / "constraints.cypher"
+        apply_constraints(driver, constraints_file, database=config["database"])
+        load_documents_and_sections(driver, project_root, database=config["database"])
+        load_chunks(driver, project_root, database=config["database"])
+
+        if args.include_synthetic:
+            load_synthetic_data(driver, project_root, database=config["database"])
+
+        verify_graph(driver, database=config["database"])
+
+    finally:
+        driver.close()
+        print("[+] Neo4j driver connection closed.")
+
+
+if __name__ == "__main__":
+    main()
