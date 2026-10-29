@@ -31,3 +31,11 @@ ENV/
 *.log
 .DS_Store
 Thumbs.db
+
+
+.env
+.env.*
+!.env.example
+__pycache__/
+.venv/
+venv/

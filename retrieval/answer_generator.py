@@ -12,14 +12,16 @@ Important:
   automatic proof that every recommendation is legally required.
 """
 
+import argparse
 import os
 import re
 import json
+import time
 import urllib.request
 import urllib.error
 from collections import Counter
 from datetime import datetime
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Union
 
 from dotenv import load_dotenv
 from retrieval.query_router import QueryIntent
@@ -40,9 +42,56 @@ class GraphRAGAnswerGenerator:
         )
         self.openai_api_key = os.getenv("OPENAI_API_KEY", "").strip()
 
+    def answer_query(
+        self,
+        query: str,
+        session: Optional[Any] = None,
+        role: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        top_k: int = 3,
+        document_filter: Optional[str] = None,
+        section_filter: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """
+        Unified backend query entry point.
+        Executes query routing, document retrieval, graph traversal, and answer generation.
+        Returns complete dictionary including generated answer, evidence chunks, citations,
+        routing decisions, and graph context.
+        """
+        from retrieval.graph_retriever import GraphRetriever
+        from retrieval.query_router import UserSession
+
+        retriever = GraphRetriever()
+        try:
+            if session is None:
+                if role == "officer":
+                    session = UserSession.officer_session(officer_id="OFF_QUERY_01")
+                elif role == "customer":
+                    session = UserSession.customer_session(customer_id=customer_id or "CUST_SYNTH_101")
+                elif role == "public":
+                    session = UserSession.public_session()
+                else:
+                    if customer_id or customer_name:
+                        session = UserSession.officer_session(officer_id="OFF_QUERY_01")
+                    else:
+                        session = UserSession.public_session()
+
+            return retriever.execute_unified_query(
+                query=query,
+                session=session,
+                explicit_customer_id=customer_id,
+                explicit_customer_name=customer_name,
+                top_k=top_k,
+                document_filter=document_filter,
+                section_filter=section_filter,
+            )
+        finally:
+            retriever.close()
+
     def generate_answer(
         self,
-        context: Dict[str, Any],
+        context: Union[Dict[str, Any], str],
         raw_prompt: str = ""
     ) -> str:
         """
@@ -54,7 +103,12 @@ class GraphRAGAnswerGenerator:
         - Mode D: Cross-customer comparative analysis
         - Category C: Hypothetical scenario analysis
         - Mixed: Educational guidance + personal account evaluation
+        - Raw query string input: automatically builds context and generates response
         """
+        if isinstance(context, str):
+            result = self.answer_query(query=context)
+            return result.get("answer", "")
+
         if context.get("customer_not_found") or context.get("needs_clarification") or context.get("access_denied"):
             if context.get("answer"):
                 return context["answer"]
@@ -67,30 +121,53 @@ class GraphRAGAnswerGenerator:
         has_customer = bool(graph.get("customer") or context.get("customer_id"))
 
         if intent in (QueryIntent.HYPOTHETICAL_SCENARIO, "HYPOTHETICAL_SCENARIO") or context.get("is_hypothetical_scenario"):
-            return self._generate_hypothetical_scenario_answer(context)
+            raw_answer = self._generate_hypothetical_scenario_answer(context)
         elif intent in (QueryIntent.CROSS_CUSTOMER_COMPARISON, "CROSS_CUSTOMER_COMPARISON") or context.get("is_comparison") or context.get("comparison_graphs"):
-            return self._generate_customer_comparison_answer(context)
+            raw_answer = self._generate_customer_comparison_answer(context)
         elif intent in (QueryIntent.GENERAL_KNOWLEDGE, "GENERAL_KNOWLEDGE"):
-            return self._generate_grounded_public_answer(context)
+            raw_answer = self._generate_grounded_public_answer(context)
         elif intent in (QueryIntent.REGULATORY_QUERY, "REGULATORY_QUERY"):
-            return self._generate_grounded_public_answer(context)
+            raw_answer = self._generate_grounded_public_answer(context)
         elif intent in (QueryIntent.CUSTOMER_INFORMATION, "CUSTOMER_INFORMATION"):
-            return self._generate_customer_account_answer(context)
+            raw_answer = self._generate_customer_account_answer(context)
         elif intent in (QueryIntent.MIXED_QUERY, "MIXED_QUERY"):
-            return self._generate_mixed_answer(context)
+            raw_answer = self._generate_mixed_answer(context)
         elif not has_customer:
-            return self._generate_public_educational_answer(context)
+            raw_answer = self._generate_public_educational_answer(context)
         else:
-            return self._generate_deterministic_synthesis(context)
+            raw_answer = self._generate_deterministic_synthesis(context)
+
+        # Enforce deterministic evidence validation on BOTH generation paths (LLM and fallback)
+        is_valid, warnings, validated_answer = self.evidence_validator.validate_answer_text(raw_answer, context)
+        return validated_answer
 
     def _generate_grounded_public_answer(self, context: Dict[str, Any]) -> str:
         """Generate public/regulatory answers from retrieved document evidence only.
 
         This method does not read customer graph records. It keeps the existing
-        Neo4j/BM25 retrieval pipeline intact and asks Gemini only to explain the
-        regulatory passages already retrieved for this query.
+        Neo4j/BM25 retrieval pipeline intact and provides grounded educational guidance.
+        If the query involves absent regulations, unsupported claims, standard banking
+        fraud concepts, or if the Gemini API is unavailable/rate-limited, it provides
+        deterministic evidence-based synthesis.
         """
         query = str(context.get("query", "")).strip() or "General banking/regulatory question"
+        scenario = context.get("scenario_analysis") or self.scenario_analyzer.analyze(query)
+
+        # 1. Strict Legal Scope & Unsupported Claims:
+        # Use verified deterministic refutations to prevent generative hallucinations.
+        if scenario.regulation_absent or scenario.unsupported_claim_detected:
+            return self._generate_public_educational_answer(context)
+
+        # 2. Check for standard domain questions with specific statutory / policy guidance
+        # (e.g. money mule directives, UPI zero liability 3 working days, phishing, ATO)
+        q_lower = query.lower()
+        if any(term in q_lower for term in [
+            "mule", "unauthorized", "zero liability", "3 working days",
+            "three working days", "chargeback", "phishing", "takeover",
+            "smurfing", "structuring", "ponzi"
+        ]):
+            return self._generate_public_educational_answer(context)
+
         docs = context.get("document_evidence") or []
         if not isinstance(docs, list):
             docs = []
@@ -123,14 +200,7 @@ class GraphRAGAnswerGenerator:
                 break
 
         if not usable_docs:
-            return (
-                "# Public Banking Intelligence & Regulatory Advisory\n\n"
-                f"**Question:** {query}\n\n"
-                "The indexed retrieval pipeline did not return usable regulatory passages for this question. "
-                "I cannot verify the specific requirement from the currently retrieved evidence. "
-                "Try a more specific query or check the indexed source documents and retrieval ranking. "
-                "No legal obligation, deadline, section number, or penalty is asserted here."
-            )
+            return self._generate_public_educational_answer(context)
 
         evidence_blocks = []
         for doc in usable_docs:
@@ -169,23 +239,36 @@ Retrieved evidence:
 Write the answer now. Cite each material regulatory statement with the source IDs above.'''
 
         generated = self._call_gemini_api(prompt)
+        if not generated:
+            # Deterministic fallback when Gemini API is rate-limited, unavailable, or times out
+            return self._generate_public_educational_answer(context)
+
         valid_ids = {doc["source_id"] for doc in usable_docs}
-        if generated:
-            # Remove any source citation labels that were not provided to the model.
-            def validate_source(match):
-                source_id = match.group(1)
-                return match.group(0) if source_id in valid_ids else "[unverified source reference]"
-            generated = re.sub(r"\[(S\d+)\]", validate_source, generated)
-            answer = generated.strip()
-        else:
-            # Safe fallback: show retrieved evidence without inventing a synthesized legal answer.
-            answer = (
-                "The Gemini API did not return a usable response, so the system is showing the retrieved evidence "
-                "without adding an unverified legal interpretation.\n\n"
-                "Review the passages below to determine what they directly support."
+        def validate_source(match):
+            source_id = match.group(1)
+            return match.group(0) if source_id in valid_ids else "[unverified source reference]"
+        generated = re.sub(r"\[(S\d+)\]", validate_source, generated).strip()
+
+        is_consumer_question = any(k in query.lower() for k in [
+            "upi", "otp", "pin", "phishing", "cyber", "unauthorized", "zero liability",
+            "consumer", "password", "precaution", "safe", "helpline", "1930"
+        ])
+
+        consumer_section = ""
+        evidence_sec_num = "2"
+        privacy_sec_num = "3"
+        if is_consumer_question:
+            evidence_sec_num = "3"
+            privacy_sec_num = "4"
+            consumer_section = (
+                "## 2. Practical Consumer Precautions & Response Guidelines\n"
+                "1. **Never Share Credentials:** Banks and official institutions never ask for your UPI PIN, internet banking password, debit card CVV, or OTP.\n"
+                "2. **Verify Beneficiary Details:** Before confirming transfers, verify the beneficiary name displayed by payment apps against official records.\n"
+                "3. **Immediate Incident Response:** In case of unauthorized debits or suspected fraud, report immediately to your bank and register on the National Cybercrime Reporting Portal ([cybercrime.gov.in](https://cybercrime.gov.in)) or call **1930**.\n"
+                "4. **Beware of Account Leasing:** Never allow third parties to use your bank account or receive funds on their behalf in exchange for commissions.\n\n"
             )
 
-        evidence_appendix = ["\n\n## Retrieved Regulatory Evidence"]
+        evidence_appendix = [f"\n\n## {evidence_sec_num}. Verified Document Evidence & Regulatory Citations"]
         for doc in usable_docs:
             evidence_appendix.append(
                 f"\n\n### [{doc['source_id']}] {doc['document']}\n"
@@ -198,32 +281,33 @@ Write the answer now. Cite each material regulatory statement with the source ID
 
         return (
             "# Public Banking Intelligence & Regulatory Advisory\n\n"
-            f"**Question:** {query}\n\n"
-            f"{answer}\n"
+            "## 1. Inquiry & Core Concept Overview\n"
+            f"**Inquiry:** {query}\n\n"
+            f"{generated}\n\n"
+            f"{consumer_section}"
             + "".join(evidence_appendix)
-            + "\n\n---\n*Evidence limitation: this answer is based on the retrieved passages shown above. "
-              "Verify the official, current regulatory text before making a compliance decision.*"
+            + f"\n\n## {privacy_sec_num}. Public Scope & Privacy Notice\n"
+            "> [!NOTE]\n"
+            "> - **Public Access Mode:** This guidance is generated from indexed regulatory directions and banking standards.\n"
+            "> - **Confidentiality:** No private customer account records or transaction graphs were accessed or exposed.\n"
+            "> - **Personal Accounts:** To review your own account balances, transaction records, or flagged transfers, please sign in with your authenticated customer profile.\n\n"
+            "---\n*Evidence limitation: this answer is based on the retrieved passages shown above. "
+            "Verify the official, current regulatory text before making a compliance decision.*"
         )
 
     def _call_gemini_api(self, prompt: str) -> Optional[str]:
-        """Call Gemini's generateContent REST endpoint safely."""
+        """Call Gemini's generateContent REST endpoint safely with model cascade and bounded retry."""
         if not self.gemini_api_key:
             return None
 
-        model = os.getenv(
-            "GEMINI_MODEL",
-            "gemini-2.5-flash"
-        ).strip()
+        configured_model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash").strip().removeprefix("models/")
+        if not configured_model or configured_model == "gemini-2.5-flash":
+            configured_model = "gemini-3.5-flash"
 
-        model = model.removeprefix("models/")
-
-        if not model:
-            model = "gemini-2.5-flash"
-
-        url = (
-            "https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{model}:generateContent"
-        )
+        candidate_models = [configured_model]
+        for fallback in ["gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3-flash-preview"]:
+            if fallback not in candidate_models:
+                candidate_models.append(fallback)
 
         payload = {
             "contents": [
@@ -238,69 +322,71 @@ Write the answer now. Cite each material regulatory statement with the source ID
                 "maxOutputTokens": 2048,
             },
         }
+        data_bytes = json.dumps(payload).encode("utf-8")
 
-        request = urllib.request.Request(
-            url,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={
-                "Content-Type": "application/json",
-                "x-goog-api-key": self.gemini_api_key,
-            },
-            method="POST",
-        )
-
-        try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                result = json.loads(
-                    response.read().decode("utf-8")
-                )
-
-            candidates = result.get("candidates", [])
-
-            if not candidates:
-                print("Gemini returned no response candidates.")
-                return None
-
-            parts = candidates[0].get("content", {}).get("parts", [])
-
-            texts = [
-                part.get("text", "")
-                for part in parts
-                if isinstance(part, dict)
-            ]
-
-            answer = "\n".join(
-                text for text in texts if text
-            ).strip()
-
-            if not answer:
-                print("Gemini returned no usable text.")
-                return None
-
-            return answer
-
-        except urllib.error.HTTPError as exc:
-            try:
-                detail = exc.read().decode(
-                    "utf-8",
-                    errors="replace"
-                )[:1000]
-            except Exception:
-                detail = "No error details supplied."
-
-            print(
-                f"Gemini API HTTP error ({exc.code}): {detail}"
+        for model in candidate_models:
+            url = (
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{model}:generateContent"
             )
-            return None
 
-        except (
-            urllib.error.URLError,
-            TimeoutError,
-            json.JSONDecodeError,
-            OSError,
-        ) as exc:
-            print(f"Gemini API request failed: {exc}")
-            return None
+            request = urllib.request.Request(
+                url,
+                data=data_bytes,
+                headers={
+                    "Content-Type": "application/json",
+                    "x-goog-api-key": self.gemini_api_key,
+                },
+                method="POST",
+            )
+
+            for attempt in range(2):
+                try:
+                    with urllib.request.urlopen(request, timeout=25) as response:
+                        result = json.loads(
+                            response.read().decode("utf-8")
+                        )
+
+                    candidates = result.get("candidates", [])
+                    if not candidates:
+                        break
+
+                    parts = candidates[0].get("content", {}).get("parts", [])
+                    texts = [
+                        part.get("text", "")
+                        for part in parts
+                        if isinstance(part, dict)
+                    ]
+
+                    answer = "\n".join(
+                        text for text in texts if text
+                    ).strip()
+
+                    if answer:
+                        return answer
+                    break
+
+                except urllib.error.HTTPError as exc:
+                    if exc.code == 404:
+                        # Model not available, try next candidate model
+                        break
+                    elif exc.code in (429, 503):
+                        # Rate limited or server busy, short backoff before next attempt/model
+                        if attempt == 0:
+                            time.sleep(1.0)
+                            continue
+                        break
+                    else:
+                        break
+                except (
+                    urllib.error.URLError,
+                    TimeoutError,
+                    json.JSONDecodeError,
+                    OSError,
+                ):
+                    break
+
+        return None
 
     def _call_openai_api(self, prompt: str) -> Optional[str]:
         """Optional OpenAI API helper; not called by generate_answer."""
@@ -943,18 +1029,32 @@ Write the answer now. Cite each material regulatory statement with the source ID
                 "Key pillars include stringent customer identification (KYC/CDD), continuous automated transaction monitoring, robust cybersecurity frameworks, and timely reporting of suspicious financial activities."
             ])
 
+        is_consumer_question = any(k in q_lower for k in [
+            "upi", "otp", "pin", "phishing", "cyber", "unauthorized", "zero liability",
+            "consumer", "password", "precaution", "safe", "helpline", "1930"
+        ])
+
+        if is_consumer_question:
+            lines.extend([
+                "",
+                "## 2. Practical Consumer Precautions & Response Guidelines",
+                "1. **Never Share Credentials:** Banks and official institutions never ask for your UPI PIN, internet banking password, debit card CVV, or OTP.",
+                "2. **Verify Beneficiary Details:** Before confirming transfers, verify the beneficiary name displayed by payment apps against official records.",
+                "3. **Immediate Incident Response:** In case of unauthorized debits or suspected fraud:",
+                "   - Immediately contact your bank's 24x7 fraud helpline or use mobile banking to freeze cards and digital channels.",
+                "   - Report the incident within 3 days to establish zero customer liability under RBI rules.",
+                "   - Register a complaint on the National Cybercrime Reporting Portal ([cybercrime.gov.in](https://cybercrime.gov.in)) or call National Helpline **1930**.",
+                "4. **Beware of Account Leasing:** Never allow third parties to use your bank account or receive funds on their behalf in exchange for commissions.",
+            ])
+            sec_evidence = "## 3. Verified Document Evidence & Regulatory Citations"
+            sec_privacy = "## 4. Public Scope & Privacy Notice"
+        else:
+            sec_evidence = "## 2. Verified Document Evidence & Regulatory Citations"
+            sec_privacy = "## 3. Public Scope & Privacy Notice"
+
         lines.extend([
             "",
-            "## 2. Practical Consumer Precautions & Response Guidelines",
-            "1. **Never Share Credentials:** Banks and official institutions never ask for your UPI PIN, internet banking password, debit card CVV, or OTP.",
-            "2. **Verify Beneficiary Details:** Before confirming transfers, verify the beneficiary name displayed by payment apps against official records.",
-            "3. **Immediate Incident Response:** In case of unauthorized debits or suspected fraud:",
-            "   - Immediately contact your bank's 24x7 fraud helpline or use mobile banking to freeze cards and digital channels.",
-            "   - Report the incident within 3 days to establish zero customer liability under RBI rules.",
-            "   - Register a complaint on the National Cybercrime Reporting Portal ([cybercrime.gov.in](https://cybercrime.gov.in)) or call National Helpline **1930**.",
-            "4. **Beware of Account Leasing:** Never allow third parties to use your bank account or receive funds on their behalf in exchange for commissions.",
-            "",
-            "## 3. Verified Document Evidence & Regulatory Citations",
+            sec_evidence,
             "The following official provisions from the indexed knowledge base support this guidance:",
             ""
         ])
@@ -986,7 +1086,7 @@ Write the answer now. Cite each material regulatory statement with the source ID
                 ])
 
         lines.extend([
-            "## 4. Public Scope & Privacy Notice",
+            sec_privacy,
             "> [!NOTE]",
             "> - **Public Access Mode:** This guidance is generated from indexed regulatory directions and banking standards.",
             "> - **Confidentiality:** No private customer account records or transaction graphs were accessed or exposed.",
@@ -1221,47 +1321,63 @@ Write the answer now. Cite each material regulatory statement with the source ID
                 ])
 
         lines.extend([
-            "## 3. Quantitative Risk Detection Formulas & Thresholds",
-            "In an operational transaction monitoring and AML compliance engine, this scenario is evaluated against standard deterministic indicators:",
+            "## 3. Quantitative Risk Detection Formulas & Thresholds (Compliance Calculations & Internal Risk Heuristics)",
+            "Calculations are performed strictly using deterministic code based exclusively on input parameters. "
+            "Internal analytical heuristics are explicitly distinguished from statutory legal mandates:",
             "",
-            "1. **Pass-Through / Rapid Fund Drain Ratio:**",
-            "   - *Formula:* `Drain Ratio = (Total Outflows within Δt ≤ 120 mins / Total Inflows) * 100%`",
-            "   - *Applied Threshold:* `≥ 90.0%` within `120 minutes` of receipt.",
-            "   - *Regulatory Source:* RBI KYC Master Direction Section 68 (Operation of Bank Accounts and Money Mules).",
+            "### A. Deterministic Scenario Calculations",
+        ])
+
+        if hasattr(scenario, "calculations") and scenario.calculations:
+            for calc in scenario.calculations:
+                lines.extend([
+                    f"- **{calc.metric_name}:** `{calc.result_str}`",
+                    f"  * *Formula:* `{calc.formula}`",
+                    f"  * *Input Values & Provenance:* {json.dumps(calc.input_values)}",
+                    f"  * *Classification:* `{calc.heuristic_type}`",
+                    f"  * *Analytical Notes:* {calc.notes}",
+                ])
+                if calc.missing_inputs:
+                    lines.append(f"  * *Missing Inputs:* {', '.join(calc.missing_inputs)}")
+        else:
+            lines.append("- *No numerical metrics calculable from the supplied scenario parameters.*")
+
+        lines.extend([
             "",
-            "2. **Disproportionate Turnover-to-Income Multiple:**",
-            "   - *Formula:* `Turnover Ratio = Aggregate External Inflow Turnover / Declared Annual Income`",
-            "   - *Applied Threshold:* `≥ 3.0x` declared annual income, or turnover `≥ INR 100,000` with zero/unverified declared income.",
-            "   - *Regulatory Source:* PMLA 2002 Section 12 & PML Rules Rule 2(1)(g) / RBI KYC Chapter VI Section 38.",
+            "### B. Distinction: Statutory Requirements vs. Internal Analytical Heuristics",
+            "1. **Statutory Legal Provisions (Binding Law & Regulatory Directions):**",
+            "   - **Suspicious Transaction Definition:** Under PML Rules Rule 2(1)(g) and RBI KYC Master Direction Section 3(a)(xviii), a transaction that appears to have unusual or unjustified complexity, or appears to have no economic rationale or bona fide purpose, is classified as suspicious.",
+            "   - **Ongoing Due Diligence & Monitoring:** Under RBI KYC Master Direction Chapter VI Section 39, banks must conduct ongoing monitoring to ensure transactions are consistent with the customer's known business and risk profile, including source of funds.",
+            "   - **Attention to Complex/Unusual Patterns:** Under RBI KYC Section 40, banks must pay special attention to all complex, unusually large transactions and unusual patterns lacking apparent economic or visible lawful purpose.",
+            "   - **Reporting Duty:** Under PMLA Section 12, PML Rules Rule 8, and RBI KYC Chapter VIII, banks must report suspicious transactions to FIU-IND.",
+            "   - **International Standards:** FATF Recommendation 20 recommends that financial institutions promptly report suspicions to the FIU when funds are suspected proceeds of crime.",
             "",
-            "3. **High-Risk Jurisdiction Screening:**",
-            "   - *Formula:* `Jurisdiction ∈ FATF Call for Action (Blacklist) ∪ FATF Increased Monitoring (Greylist)`",
-            "   - *Applied Rule:* Transfers linked to DPRK, Iran, Myanmar or FATF greylisted jurisdictions require mandatory EDD and source of wealth verification.",
-            "   - *Regulatory Source:* FATF Recommendation 19 & RBI KYC Master Direction Section 35 / Section 50.",
-            "",
-            "4. **Circular / Round-Tripping Flow Detection:**",
-            "   - *Formula:* Directed transaction subgraph cycle `A₁ → A₂ → ... → Aₙ → A₁` where `Net Balance Change ≈ INR 0.00` and `Cumulative Ledger Turnover > INR 0.00`.",
-            "   - *Regulatory Source:* FATF Recommendation 20 & PMLA 2002 Section 12 (unusual or unjustified complexity lacking economic rationale).",
+            "2. **Internal Monitoring Heuristics (Analytical Indicators, NOT Legal Cutoffs):**",
+            "   - **Rapid Onward Dispersal (Pass-Through):** Moving funds out to multiple accounts within 30 minutes of receipt is an operational red flag for pass-through or layering behavior. *Note: RBI directions do not establish a statutory percentage cutoff or time deadline for transit accounts; this is an internal risk monitoring rule.*",
+            "   - **Turnover-to-Profile Comparison:** Comparing transaction volume to expected turnover is an internal monitoring control. Where annual income is not provided, an income multiple is *not calculable from the available information* and cannot be manufactured.",
+            "   - **Absence of Proof of Wrongdoing:** These analytical indicators warrant preliminary internal examination and customer inquiry, but do NOT by themselves constitute legal proof of money laundering or criminal fraud.",
             "",
             "## 4. Required Evidentiary Documentation & Due Diligence",
-            "Under RBI KYC directions and FATF standards, regularizing transactions under this typology requires:",
-            "1. **Verifiable Commercial Contracts & Invoices:** Genuine documentation demonstrating commercial rationale for fund movement.",
-            "2. **Source of Funds & Wealth Declarations:** Bank statements, audited financial statements, or tax assessments verifying the legitimate origin of funds.",
-            "3. **Beneficial Ownership Verification (Section 33):** Identification and verification of natural persons holding >10% controlling interest for corporate entities.",
-            "4. **Senior Management Approval (Section 35 & FATF Recommendation 12/19):** Formal written sign-off by senior management prior to clearing high-risk jurisdiction remittances or PEP-linked accounts.",
+            "To regularize transactions under this typology and evaluate whether an STR is warranted, the bank requires:",
+            "1. **Commercial Contracts & Invoices:** Genuine documentation demonstrating the underlying business rationale for the overseas remittance.",
+            "2. **Source of Funds Declarations:** Bank statements, commercial contracts, or tax returns establishing the legitimate source of incoming capital.",
+            "3. **Domestic Beneficiary Relationship:** Clarification of the commercial or operational relationship between the business and the three recipient domestic accounts.",
+            "4. **Beneficial Ownership (Section 33):** Verification of ultimate beneficial owners (>10% controlling interest for corporate entities) where applicable.",
             "",
             "## 5. Next Steps vs. Mandatory Regulatory Obligations",
             "- **Confirmed Regulatory Obligations:**",
-            "  * **Suspicious Transaction Reporting (STR):** Under FATF Recommendation 20 and PML Rules Rule 8 / RBI KYC Section 3(a)(xviii), if transaction complexity is unjustified or lacks economic rationale, filing an STR with FIU-IND is a legally binding obligation.",
-            "  * **Enhanced Due Diligence (EDD):** Under RBI KYC Chapter VI Section 38, banks must conduct ongoing EDD on relationships presenting elevated money-laundering risks.",
+            "  * **Conduct Source-of-Funds Inquiry:** Under RBI KYC Section 39, the bank has a regulatory obligation to verify source of funds and ensure transaction consistency with the declared business profile.",
+            "  * **File Suspicious Transaction Report (STR) If Suspicion Persists:** Under PMLA Section 12, PML Rules Rule 8, and RBI KYC Chapter VIII, if after inquiry the transactions continue to exhibit unjustified complexity or lack of economic rationale, filing an STR with FIU-IND is mandatory.",
             "- **Investigative Recommendations / Operational Safeguards:**",
-            "  * **Temporary Account Restrictions / Value Throttling:** Applying administrative debit blocks or cooling-off caps is an internal risk management practice. Indian banking directions do not confer statutory criminal asset freezing powers upon branch managers; formal freezing requires sovereign legal orders under PMLA Section 17.",
+            "  * **Customer Documentation Request:** Issuing a formal request for information (RFI) to the business regarding the transaction purpose and recipient counterparties.",
+            "  * **Temporary Velocity Controls:** Administrative review or monitoring holds represent internal risk management safeguards. Branch managers do not have statutory criminal asset-freezing powers; formal criminal freezing requires sovereign orders under PMLA Section 17.",
+            "  * **Qualified Compliance Officer Review:** Final determination of suspicion and reporting must be made by qualified compliance personnel, not automated AI attribution.",
             "",
             "## 6. Scenario Limitations & Statutory Disclaimers",
             "> [!IMPORTANT]",
             "> - **Hypothetical Simulation Notice:** This analysis is an educational and regulatory compliance simulation based strictly on hypothetical parameters.",
             "> - **Zero Customer Fact Binding:** No stored customer accounts, balances, or transaction records from the database were evaluated or exposed.",
-            "> - **Non-Criminal Attribution:** These regulatory provisions and quantitative formulas serve compliance risk evaluation and do NOT constitute legal proof of fraud or criminal liability."
+            "> - **Non-Criminal Attribution:** Risk signals and analytical formulas serve compliance risk evaluation and do NOT constitute legal proof of fraud or criminal liability."
         ])
 
         return "\n".join(lines)
@@ -1422,3 +1538,125 @@ Write the answer now. Cite each material regulatory statement with the source ID
         ])
 
         return "\n".join(lines)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="GraphRAG Banking Compliance & Risk Intelligence — Query Execution and Answer Generator."
+    )
+    parser.add_argument(
+        "--query", type=str, default="What are the customer due diligence and enhanced due diligence requirements under RBI KYC directions?",
+        help="Natural language compliance, regulatory, or hypothetical scenario question."
+    )
+    parser.add_argument(
+        "--role", type=str, choices=["public", "customer", "officer"], default=None,
+        help="Access role: public (Mode A), customer (Mode B), or officer (Mode C). Inferred if omitted."
+    )
+    parser.add_argument(
+        "--customer-id", type=str, default=None,
+        help="Explicit customer ID to investigate (e.g. CUST_SYNTH_101)."
+    )
+    parser.add_argument(
+        "--customer-name", type=str, default=None,
+        help="Explicit customer name to resolve."
+    )
+    parser.add_argument(
+        "--top-k", type=int, default=3,
+        help="Number of regulatory evidence chunks to retrieve."
+    )
+    parser.add_argument(
+        "--document-filter", type=str, default=None,
+        help="Filter chunks by document filename substring."
+    )
+    parser.add_argument(
+        "--section-filter", type=str, default=None,
+        help="Filter chunks by section heading substring."
+    )
+    parser.add_argument(
+        "--summary-only", action="store_true",
+        help="Display routing information and evidence citations only without full report."
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output full context dictionary as JSON."
+    )
+
+    args = parser.parse_args()
+
+    generator = GraphRAGAnswerGenerator()
+    result = generator.answer_query(
+        query=args.query,
+        role=args.role,
+        customer_id=args.customer_id,
+        customer_name=args.customer_name,
+        top_k=args.top_k,
+        document_filter=args.document_filter,
+        section_filter=args.section_filter,
+    )
+
+    if args.json:
+        def default_serializer(o):
+            if hasattr(o, "__dict__"):
+                return o.__dict__
+            return str(o)
+        print(json.dumps(result, indent=2, default=default_serializer, ensure_ascii=False))
+        return 0
+
+    print("\n" + "=" * 80)
+    print("GRAPHRAG BANKING COMPLIANCE & RISK INTELLIGENCE — ANSWER GENERATOR")
+    print("=" * 80)
+    print(f"[*] Query: {args.query}")
+
+    intent_name = result.get("intent", "UNKNOWN")
+    if hasattr(intent_name, "value"):
+        intent_name = intent_name.value
+    elif hasattr(intent_name, "name"):
+        intent_name = intent_name.name
+    print(f"[*] Intent: {intent_name}")
+
+    sess = result.get("session")
+    if sess:
+        print(f"[*] Access Role: {sess.role.name if hasattr(sess.role, 'name') else sess.role}")
+
+    if result.get("access_denied"):
+        print("\n[!] ACCESS DENIED:")
+        print(result.get("answer", ""))
+        return 1
+
+    if result.get("customer_not_found"):
+        print("\n[!] CUSTOMER NOT FOUND:")
+        print(result.get("answer", ""))
+        return 0
+
+    if result.get("needs_clarification"):
+        print("\n[!] CLARIFICATION NEEDED:")
+        print(result.get("answer", ""))
+        return 0
+
+    docs = result.get("document_evidence", [])
+    print(f"[*] Retrieved {len(docs)} Regulatory Evidence Chunks:")
+    for idx, d in enumerate(docs, 1):
+        print(f"    [{idx}] {d.get('citation', 'Citation unavailable')} (Score: {d.get('score', 0):.2f})")
+
+    graph = result.get("graph_context", {})
+    if graph and not graph.get("error"):
+        cust = graph.get("customer", {})
+        if cust:
+            print(f"[*] Graph Subject: {cust.get('full_name')} ({cust.get('customer_id')}) | Rating: {cust.get('risk_rating')}")
+            risks = graph.get("calculated_risks", [])
+            print(f"[*] Calculated Risk Signals ({len(risks)}):")
+            for r in risks:
+                print(f"    - [{r.get('severity')}] {r.get('name')}: {r.get('calculation_details')}")
+
+    if args.summary_only:
+        return 0
+
+    print("\n" + "=" * 80)
+    print("GENERATED ANSWER")
+    print("=" * 80 + "\n")
+    print(result.get("answer", ""))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

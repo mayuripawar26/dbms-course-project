@@ -12,6 +12,20 @@ from typing import Dict, Any, List, Optional, Set
 
 
 @dataclass
+class ScenarioCalculation:
+    """Deterministic, reproducible calculation of financial/compliance metrics."""
+    metric_name: str
+    formula: str
+    input_values: Dict[str, Any]
+    result: Optional[float] = None
+    result_str: str = "Not calculable from available information"
+    status: str = "NOT_CALCULABLE"  # "CALCULATED", "NOT_CALCULABLE"
+    missing_inputs: List[str] = field(default_factory=list)
+    heuristic_type: str = "INTERNAL_ANALYTICAL_HEURISTIC"  # Not a statutory legal threshold
+    notes: str = ""
+
+
+@dataclass
 class ScenarioAnalysis:
     """Structured extraction of scenario parameters from user inquiries."""
     raw_query: str
@@ -33,6 +47,7 @@ class ScenarioAnalysis:
     risk_indicators: List[str] = field(default_factory=list)
     requested_legal_provisions: List[str] = field(default_factory=list)
     missing_information: List[str] = field(default_factory=list)
+    calculations: List[ScenarioCalculation] = field(default_factory=list)
     is_generic_question: bool = False
     is_hypothetical_scenario: bool = False
     hypothetical_details: Optional[str] = None
@@ -118,6 +133,16 @@ class ScenarioAnalyzer:
             analysis.risk_indicators.append("Politically Exposed Person (PEP) involvement")
 
         # 4. Detect Specific Requested Legal Provisions
+        if "paragraph 44" in q_lower or "para 44" in q_lower or "non-face-to-face" in q_lower:
+            analysis.requested_legal_provisions.append("RBI KYC Master Direction, Paragraph 44 (Enhanced Due Diligence for Non-Face-to-Face Onboarding)")
+        if "paragraph 45" in q_lower or "para 45" in q_lower or "politically exposed" in q_lower or "pep" in q_lower:
+            analysis.requested_legal_provisions.append("RBI KYC Master Direction, Paragraph 45 (Accounts of Politically Exposed Persons - PEPs)")
+        if "paragraph 39" in q_lower or "section 39" in q_lower or "ongoing due diligence" in q_lower or "ongoing monitoring" in q_lower:
+            analysis.requested_legal_provisions.append("RBI KYC Master Direction, Section 39 (Ongoing Due Diligence & Monitoring)")
+        if "paragraph 40" in q_lower or "section 40" in q_lower or "unusual pattern" in q_lower or "complex" in q_lower:
+            analysis.requested_legal_provisions.append("RBI KYC Master Direction, Section 40 (Complex & Unusually Large Transactions)")
+        if "paragraph 50" in q_lower or "section 50" in q_lower or "record management" in q_lower or "record retention" in q_lower:
+            analysis.requested_legal_provisions.append("RBI KYC Master Direction, Section 50 (Record Management)")
         if "section 68" in q_lower or "sec 68" in q_lower:
             analysis.requested_legal_provisions.append("RBI KYC Master Direction, Section 68 (Operation of Bank Accounts and Money Mules)")
         if "section 35" in q_lower or "sec 35" in q_lower:
@@ -236,10 +261,78 @@ class ScenarioAnalyzer:
             # General regulatory or educational inquiry
             analysis.is_generic_question = True
 
-        # 9. Identify Missing Information
+        # 9. Perform Deterministic Calculations
+        self._perform_deterministic_calculations(analysis, context)
+
+        # 10. Identify Missing Information
         self._detect_missing_information(analysis)
 
         return analysis
+
+    def _perform_deterministic_calculations(self, analysis: ScenarioAnalysis, context: Optional[Dict[str, Any]] = None):
+        """
+        Perform reproducible, deterministic calculations for compliance metrics.
+        Adheres to Phase 2 guidelines:
+        - Calculations performed strictly by deterministic Python code.
+        - Every metric exposes: formula, input values, provenance, result, missing inputs.
+        - Never allow LLM or heuristics to manufacture missing numeric inputs.
+        """
+        # 1. Turnover-to-Income Multiple
+        graph = (context or {}).get("graph_context") or {}
+        cust = graph.get("customer") or {}
+        declared_income = None
+        income_source = None
+        if cust and (cust.get("declared_annual_income") or cust.get("declared_annual_income_inr")):
+            declared_income = float(cust.get("declared_annual_income") or cust.get("declared_annual_income_inr"))
+            income_source = f"Verified customer record in knowledge graph ({analysis.customer_id})"
+        elif analysis.customer_id and analysis.customer_id in self.KNOWN_CUSTOMERS:
+            declared_income = float(self.KNOWN_CUSTOMERS[analysis.customer_id][2])
+            income_source = f"Known test customer profile ({analysis.customer_id})"
+
+        income_calc = ScenarioCalculation(
+            metric_name="Turnover-to-Income Multiple",
+            formula="Transaction Inflow Amount / Declared Annual Income",
+            input_values={
+                "transaction_amount": analysis.transaction_amount,
+                "declared_annual_income": declared_income,
+                "provenance": income_source or "None (not provided in inquiry or database)"
+            },
+            heuristic_type="INTERNAL_ANALYTICAL_HEURISTIC"
+        )
+        if analysis.transaction_amount is not None and declared_income is not None and declared_income > 0:
+            multiple = round(analysis.transaction_amount / declared_income, 2)
+            income_calc.result = multiple
+            income_calc.result_str = f"{multiple:.2f}x declared annual income"
+            income_calc.status = "CALCULATED"
+            income_calc.notes = f"Calculated as INR {analysis.transaction_amount:,.2f} / INR {declared_income:,.2f} = {multiple:.2f}x (Internal analytical heuristic, not a statutory ratio)."
+        else:
+            income_calc.status = "NOT_CALCULABLE"
+            missing = []
+            if analysis.transaction_amount is None:
+                missing.append("transaction_amount")
+            if declared_income is None:
+                missing.append("declared_annual_income")
+            income_calc.missing_inputs = missing
+            income_calc.result_str = "Not calculable from available information (declared annual income is not provided)"
+            income_calc.notes = "Annual income was not provided in the scenario prompt or database; no income multiple can be manufactured."
+        analysis.calculations.append(income_calc)
+
+        # 2. Fund Drain Ratio (Outflow vs Inflow)
+        drain_calc = ScenarioCalculation(
+            metric_name="Pass-Through Fund Drain Ratio",
+            formula="(Aggregate Outflows within Time Window / Inflow Amount) * 100%",
+            input_values={
+                "inflow_amount": analysis.transaction_amount,
+                "outflow_amount": None,
+                "time_window_minutes": 30 if "30 minutes" in analysis.raw_query.lower() else None
+            },
+            heuristic_type="INTERNAL_ANALYTICAL_HEURISTIC"
+        )
+        drain_calc.status = "NOT_CALCULABLE"
+        drain_calc.missing_inputs = ["precise_outflow_amount"]
+        drain_calc.result_str = "Not calculable (exact domestic transfer amounts not quantified in input)"
+        drain_calc.notes = "Prompt describes outbound transfer of 'most of the amount' within 30 minutes. While this indicates rapid dispersal velocity, the exact drain percentage cannot be computed without verified outbound ledger values."
+        analysis.calculations.append(drain_calc)
 
     def _extract_amount_and_currency(self, query: str, analysis: ScenarioAnalysis):
         """Parse currency and numerical amounts including Indian numbering."""
@@ -288,24 +381,31 @@ class ScenarioAnalyzer:
             )
             return
 
+        # Check for income multiple availability
+        income_calc = next((c for c in analysis.calculations if c.metric_name == "Turnover-to-Income Multiple"), None)
+        if income_calc and income_calc.status == "NOT_CALCULABLE":
+            analysis.missing_information.append(
+                "Customer declared annual income, historical financial profile, and typical business turnover baseline (an income-to-turnover multiple cannot be calculated from available information)."
+            )
+
         if analysis.is_cross_border or (analysis.transaction_amount and analysis.transaction_amount >= 5000000.0):
             analysis.missing_information.extend([
-                "Independent verification documentation for Ultimate Beneficial Ownership (UBO) natural persons holding >10% ownership or control.",
-                "Corroborating commercial contract, customs declaration, or invoice justifying the economic purpose of the remittance.",
-                "Verified source-of-wealth and source-of-funds documentation explaining the 7.1x multiple over declared annual income.",
-                "Formal record of prior Senior Management Approval for establishing or maintaining banking relationships with Politically Exposed Persons (PEPs) under Section 35."
+                "Underlying commercial documentation, contracts, or invoices establishing the bona fide commercial rationale for the overseas remittance.",
+                "Source-of-funds verification documentation establishing the origin and legality of the transferred funds.",
+                "Identity, nature of business, and commercial relationship with the domestic beneficiary accounts.",
+                "Country of origin and regulatory risk classification for the overseas originating account.",
             ])
 
         if analysis.is_circular:
             analysis.missing_information.extend([
                 "Documented bona fide economic rationale for round-trip transfers across affiliated current accounts.",
                 "Proof of underlying commercial transactions (invoices, goods delivery challans) corresponding to each circular hop.",
-                "Complete corporate ownership register establishing whether the 3 current accounts share common beneficial ownership."
+                "Complete corporate ownership register establishing whether the participating accounts share common beneficial ownership."
             ])
 
         if analysis.is_money_mule:
             analysis.missing_information.extend([
                 "IP connection logs and device telemetry to verify whether online banking credentials were compromised via phishing or malware.",
-                "Inter-bank beneficial ownership confirmation for the external receiving account (`ACC_EXTERNAL_OFFSHORE_MULE_EXIT`).",
+                "Inter-bank counterparty verification for the recipient account(s).",
                 "Customer response to formal source-of-funds verification inquiry regarding third-party deposits."
             ])

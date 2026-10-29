@@ -1,0 +1,805 @@
+{
+  "benchmark_suite": "Banking Compliance & GraphRAG Retrieval Evaluation Suite",
+  "num_evaluated_queries": 15,
+  "macro_metrics": {
+    "Mean_Precision@1": 1.0,
+    "Mean_Precision@3": 0.4103,
+    "Mean_Precision@5": 0.2769,
+    "Mean_Recall@1": 0.65,
+    "Mean_Recall@3": 0.7,
+    "Mean_Recall@5": 0.7538,
+    "MRR": 1.0,
+    "Mean_nDCG@3": 0.7966,
+    "Mean_nDCG@5": 0.804
+  },
+  "results": [
+    {
+      "id": "TC01_CDD",
+      "category": "Customer Due Diligence (CDD)",
+      "query": "What customer identification and Customer Due Diligence (CDD) procedures apply when opening bank accounts?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.4,
+        "Recall@1": 0.5,
+        "Recall@3": 0.5,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 0.5419,
+        "nDCG@5": 0.7753
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p20_0021_s2",
+          "document": "kyc.pdf",
+          "page": 20,
+          "section": "17. Without prejudice to the generality of the aspect that Customer Acceptance Policy",
+          "score": 50.66
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p30_0031",
+          "document": "kyc.pdf",
+          "page": 30,
+          "section": "Chapter VI \u2013 Customer Due Diligence (CDD) Procedure",
+          "score": 48.14
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p29_0030",
+          "document": "kyc.pdf",
+          "page": 29,
+          "section": "Chapter VI \u2013 Customer Due Diligence (CDD) Procedure",
+          "score": 44.44
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p25_0026",
+          "document": "kyc.pdf",
+          "page": 25,
+          "section": "Chapter VI \u2013 Customer Due Diligence (CDD) Procedure",
+          "score": 43.41
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p23_0024",
+          "document": "kyc.pdf",
+          "page": 23,
+          "section": "Chapter V \u2013 Customer Identification Procedure (CIP)",
+          "score": 40.24
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC02_EDD",
+      "category": "Enhanced Due Diligence (EDD)",
+      "query": "Which transactions and customer categories require Enhanced Due Diligence (EDD) under RBI directions?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.6667,
+        "Precision@5": 0.4,
+        "Recall@1": 0.25,
+        "Recall@3": 0.5,
+        "Recall@5": 0.5,
+        "MRR": 1.0,
+        "nDCG@3": 0.7654,
+        "nDCG@5": 0.7044
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p45_0046_s44_intro",
+          "document": "kyc.pdf",
+          "page": 45,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding",
+          "score": 35.95
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p46_0047_s44_measures",
+          "document": "kyc.pdf",
+          "page": 46,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding (Measures)",
+          "score": 24.27
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p24_0025",
+          "document": "kyc.pdf",
+          "page": 24,
+          "section": "Chapter V \u2013 Customer Identification Procedure (CIP)",
+          "score": 24.0
+        },
+        {
+          "rank": 4,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p95_0150_s2",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 95,
+          "section": "2. \nCasinos should implement",
+          "score": 22.44
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p40_0041_s1",
+          "document": "kyc.pdf",
+          "page": 40,
+          "section": "39. The bank shall undertake ongoing due diligence of customers to ensure that their",
+          "score": 20.93
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC03_PARA44_NF2F",
+      "category": "Paragraph 44 Non-Face-to-Face Onboarding",
+      "query": "What EDD measures apply to non-face-to-face customer onboarding under paragraph 44?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 0.9468,
+        "nDCG@5": 0.9468
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p46_0047_s44_measures",
+          "document": "kyc.pdf",
+          "page": 46,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding (Measures)",
+          "score": 130.44
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p45_0046_s44_intro",
+          "document": "kyc.pdf",
+          "page": 45,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding",
+          "score": 112.64
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p71_0109",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 71,
+          "section": "Recommendation 7 requires countries to implement targeted financial sanctions21 to comply",
+          "score": 27.92
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p24_0025",
+          "document": "kyc.pdf",
+          "page": 24,
+          "section": "Chapter V \u2013 Customer Identification Procedure (CIP)",
+          "score": 27.68
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p43_0044",
+          "document": "kyc.pdf",
+          "page": 43,
+          "section": "42. Updation / Periodic Updation of KYC",
+          "score": 25.52
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC04_PARA45_PEP",
+      "category": "Paragraph 45 PEP Requirements",
+      "query": "What due diligence and monitoring measures apply to politically exposed persons under paragraph 45?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 1.0
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p47_0048_s45_measures",
+          "document": "kyc.pdf",
+          "page": 47,
+          "section": "45. Accounts of Politically Exposed Persons (PEPs) (Due Diligence & Monitoring Measures)",
+          "score": 107.81
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p46_0047_s45_intro",
+          "document": "kyc.pdf",
+          "page": 46,
+          "section": "45. Accounts of Politically Exposed Persons (PEPs)",
+          "score": 65.86
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p17_0022_s1",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 17,
+          "section": "12. \nPolitically exposed persons *",
+          "score": 40.38
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p38_0039",
+          "document": "kyc.pdf",
+          "page": 38,
+          "section": "35. For opening an account of a trust, the bank shall obtain the",
+          "score": 25.05
+        },
+        {
+          "rank": 5,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p6_0007",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 6,
+          "section": "General / Preamble",
+          "score": 24.85
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC05_MONEY_MULE",
+      "category": "Money Mule Accounts",
+      "query": "What instructions govern the operation of bank accounts and money mules under Section 68 of RBI directions?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 1.0
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p64_0068_s2",
+          "document": "kyc.pdf",
+          "page": 64,
+          "section": "68. Operation of Bank Accounts and Money Mules",
+          "score": 87.92
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p4_0005_s2",
+          "document": "kyc.pdf",
+          "page": 4,
+          "section": "3. These directions shall be applicable to Commercial Banks",
+          "score": 14.15
+        },
+        {
+          "rank": 3,
+          "chunk_id": "0anreport201718077745ec9a874db38c991f580ed14242_p217_0246",
+          "document": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+          "page": 217,
+          "section": "Section 9(1) and Section 8 (1)(b) of the RBI Act,",
+          "score": 13.43
+        },
+        {
+          "rank": 4,
+          "chunk_id": "cyber_security_p39_0075",
+          "document": "Cyber security.pdf",
+          "page": 39,
+          "section": "139. The bank shall share regulatory instructions (including circu",
+          "score": 13.05
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0anreport201718077745ec9a874db38c991f580ed14242_p234_0278",
+          "document": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+          "page": 234,
+          "section": "B. P. Kanungo, Chairman",
+          "score": 12.35
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC06_BENEFICIAL_OWNERSHIP",
+      "category": "Beneficial Ownership",
+      "query": "What rules and threshold criteria determine identification of beneficial owner for companies and legal persons under paragraph 38?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 0.3333,
+        "Recall@3": 0.3333,
+        "Recall@5": 0.3333,
+        "MRR": 1.0,
+        "nDCG@3": 0.4693,
+        "nDCG@5": 0.4693
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p5_0006",
+          "document": "kyc.pdf",
+          "page": 5,
+          "section": "Chapter I \u2013 Preliminary",
+          "score": 52.55
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p37_0038_s2",
+          "document": "kyc.pdf",
+          "page": 37,
+          "section": "33. For opening an account of a company, the bank shall obtain certified copies of",
+          "score": 49.25
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p97_0153",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 97,
+          "section": "Recommendation 16 has the objective of preventing terrorists, perpetrators of money",
+          "score": 28.66
+        },
+        {
+          "rank": 4,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p98_0155",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 98,
+          "section": "Recommendation 16 has the objective of preventing terrorists, perpetrators of money",
+          "score": 25.83
+        },
+        {
+          "rank": 5,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p69_0103",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 69,
+          "section": "Recommendation 7 requires countries to implement targeted financial sanctions21 to comply",
+          "score": 25.04
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC07_SUSPICIOUS_MONITORING",
+      "category": "Suspicious Transaction Monitoring",
+      "query": "What transaction monitoring and customer profiling mechanisms are required for banks to detect suspicious transactions?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 0.3333,
+        "Recall@3": 0.3333,
+        "Recall@5": 0.3333,
+        "MRR": 1.0,
+        "nDCG@3": 0.2323,
+        "nDCG@5": 0.2323
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p20_0025_s2",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 20: Reporting of Suspicious Transactions",
+          "score": 80.32
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p10_0011",
+          "document": "kyc.pdf",
+          "page": 10,
+          "section": "Chapter I, Section 3(a)(xviii): Suspicious Transaction (PML Rules)",
+          "score": 59.19
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p40_0041_s1",
+          "document": "kyc.pdf",
+          "page": 40,
+          "section": "39. The bank shall undertake ongoing due diligence of customers to ensure that their",
+          "score": 52.94
+        },
+        {
+          "rank": 4,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p93_0147_s2",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 93,
+          "section": "2. \nThe reference to terrorist financing in Recommendation 20 refers to",
+          "score": 49.39
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p39_0040_s2",
+          "document": "kyc.pdf",
+          "page": 39,
+          "section": "38. For opening an account of a Legal Person who is not a natural person, the bank",
+          "score": 45.31
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC08_SUSPICIOUS_REPORTING",
+      "category": "Suspicious Transaction Reporting",
+      "query": "What are the regulatory requirements for reporting suspicious transactions to FIU-IND under Chapter VIII?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 1.0,
+        "Precision@5": 0.8,
+        "Recall@1": 0.2,
+        "Recall@3": 0.6,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 0.9231
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p54_0057_s1",
+          "document": "kyc.pdf",
+          "page": 54,
+          "section": "52. The bank shall furnish to the Director, Financial Intelligence Unit-India (FIU-",
+          "score": 111.66
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p54_0057_s3",
+          "document": "kyc.pdf",
+          "page": 54,
+          "section": "54. When furnishing information to the Director, FIU-IND, a delay of each day in",
+          "score": 105.42
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p55_0058",
+          "document": "kyc.pdf",
+          "page": 55,
+          "section": "Chapter VIII \u2013 Reporting Requirements to Financial Intelligence Unit \u2013 India",
+          "score": 104.62
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p18_0019_s4",
+          "document": "kyc.pdf",
+          "page": 18,
+          "section": "14. Designated Director",
+          "score": 99.79
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p54_0057_s2",
+          "document": "kyc.pdf",
+          "page": 54,
+          "section": "53. The bank shall take note of the reporting formats and comprehensive reporting",
+          "score": 98.88
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC09_FATF_REC19",
+      "category": "FATF Recommendation 19",
+      "query": "What counter-measures and enhanced due diligence are required for high-risk countries under FATF Recommendation 19?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 1.0
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p20_0025_s1",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 94.26
+        },
+        {
+          "rank": 2,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p92_0145",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 92,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 69.92
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p71_0109",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 71,
+          "section": "Recommendation 7 requires countries to implement targeted financial sanctions21 to comply",
+          "score": 62.16
+        },
+        {
+          "rank": 4,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p6_0008",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 6,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 58.0
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p58_0061_s4",
+          "document": "kyc.pdf",
+          "page": 58,
+          "section": "61. Jurisdictions that do not or insufficiently apply the FATF Recommendations",
+          "score": 48.06
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC10_GENERAL_REGULATORY",
+      "category": "General Regulatory Questions",
+      "query": "What is customer liability for unauthorized electronic banking transactions under RBI directions?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 1.0
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "0anreport201718077745ec9a874db38c991f580ed14242_p139_0162",
+          "document": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+          "page": 139,
+          "section": "5.\u2002 External Financing",
+          "score": 25.51
+        },
+        {
+          "rank": 2,
+          "chunk_id": "0anreport201718077745ec9a874db38c991f580ed14242_p12_0018",
+          "document": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+          "page": 12,
+          "section": "B. P. Kanungo",
+          "score": 15.08
+        },
+        {
+          "rank": 3,
+          "chunk_id": "demonitization_p44_0092",
+          "document": "Demonitization.pdf",
+          "page": 44,
+          "section": "V. Digital Modes of Payments",
+          "score": 13.46
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p42_0043",
+          "document": "kyc.pdf",
+          "page": 42,
+          "section": "42. Updation / Periodic Updation of KYC",
+          "score": 12.72
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0anreport201718077745ec9a874db38c991f580ed14242_p175_0202",
+          "document": "0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf",
+          "page": 175,
+          "section": "2017. The core function of the department is to",
+          "score": 12.65
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "TC11_CUSTOMER_SCENARIO",
+      "category": "Customer-Specific Transaction Scenarios",
+      "query": "An INR 85,00,000 remittance from a high-risk jurisdiction for Apex Global Consultancy (CUST_SYNTH_104) compared with declared profile",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 0.3333,
+        "Recall@3": 0.3333,
+        "Recall@5": 0.3333,
+        "MRR": 1.0,
+        "nDCG@3": 0.7872,
+        "nDCG@5": 0.7872
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p20_0025_s1",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 63.08
+        },
+        {
+          "rank": 2,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p92_0145",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 92,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 47.6
+        },
+        {
+          "rank": 3,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p6_0008",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 6,
+          "section": "Recommendation 19: Higher-Risk Countries",
+          "score": 45.88
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p58_0061_s4",
+          "document": "kyc.pdf",
+          "page": 58,
+          "section": "61. Jurisdictions that do not or insufficiently apply the FATF Recommendations",
+          "score": 37.05
+        },
+        {
+          "rank": 5,
+          "chunk_id": "kyc_p58_0061_s3",
+          "document": "kyc.pdf",
+          "page": 58,
+          "section": "60. The bank shall undertake countermeasures when called upon so to do by any",
+          "score": 36.96
+        }
+      ],
+      "status": "PASS",
+      "graph_verified": true
+    },
+    {
+      "id": "TC12_MULTI_HOP",
+      "category": "Multi-Hop Graph & Document Evidence",
+      "query": "Circular fund flows between linked current accounts for Vikas Trading Syndicate (CUST_SYNTH_106)",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 0.5,
+        "Recall@3": 0.5,
+        "Recall@5": 0.5,
+        "MRR": 1.0,
+        "nDCG@3": 0.6131,
+        "nDCG@5": 0.6131
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p20_0025_s2",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 20,
+          "section": "Recommendation 20: Reporting of Suspicious Transactions",
+          "score": 72.54
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p10_0011",
+          "document": "kyc.pdf",
+          "page": 10,
+          "section": "Chapter I, Section 3(a)(xviii): Suspicious Transaction (PML Rules)",
+          "score": 67.33
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p40_0041_s1",
+          "document": "kyc.pdf",
+          "page": 40,
+          "section": "39. The bank shall undertake ongoing due diligence of customers to ensure that their",
+          "score": 59.78
+        },
+        {
+          "rank": 4,
+          "chunk_id": "fatf-recommendations_last_updated_june_2026_p93_0147_s2",
+          "document": "fatf-recommendations last updated june 2026.pdf",
+          "page": 93,
+          "section": "2. \nThe reference to terrorist financing in Recommendation 20 refers to",
+          "score": 45.26
+        },
+        {
+          "rank": 5,
+          "chunk_id": "operational_guidelines_p15_0033",
+          "document": "Operational guidelines.pdf",
+          "page": 15,
+          "section": "2.  Primary Market Activities",
+          "score": 15.45
+        }
+      ],
+      "status": "PASS",
+      "graph_verified": true,
+      "circular_cycle_detected": true
+    },
+    {
+      "id": "TC13_AMBIGUOUS_CUSTOMER",
+      "category": "Ambiguous Customer Requests",
+      "query": "Show me account transactions and compliance flags for customer Sharma",
+      "metrics": {},
+      "retrieved": [],
+      "status": "PASS",
+      "behavior_verified": true
+    },
+    {
+      "id": "TC14_INSUFFICIENT_EVIDENCE",
+      "category": "Queries with Insufficient Evidence",
+      "query": "What are the mandatory capital and customer verification requirements for crypto-asset service providers under EU MiCA regulation?",
+      "metrics": {},
+      "retrieved": [],
+      "status": "PASS",
+      "behavior_verified": true
+    },
+    {
+      "id": "TC15_PARAPHRASED_QUERY",
+      "category": "Paraphrased Questions (Different Phrasing)",
+      "query": "What extra security checks and verification must a bank perform when a person registers an account remotely over the internet?",
+      "metrics": {
+        "Precision@1": 1,
+        "Precision@3": 0.3333,
+        "Precision@5": 0.2,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "nDCG@3": 1.0,
+        "nDCG@5": 1.0
+      },
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": "kyc_p46_0047_s44_measures",
+          "document": "kyc.pdf",
+          "page": 46,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding (Measures)",
+          "score": 33.86
+        },
+        {
+          "rank": 2,
+          "chunk_id": "kyc_p45_0046_s44_intro",
+          "document": "kyc.pdf",
+          "page": 45,
+          "section": "44. Enhanced Due Diligence (EDD) for Non-Face-to-Face Customer Onboarding",
+          "score": 21.63
+        },
+        {
+          "rank": 3,
+          "chunk_id": "kyc_p43_0044",
+          "document": "kyc.pdf",
+          "page": 43,
+          "section": "42. Updation / Periodic Updation of KYC",
+          "score": 17.28
+        },
+        {
+          "rank": 4,
+          "chunk_id": "kyc_p26_0027",
+          "document": "kyc.pdf",
+          "page": 26,
+          "section": "Chapter VI \u2013 Customer Due Diligence (CDD) Procedure",
+          "score": 16.47
+        },
+        {
+          "rank": 5,
+          "chunk_id": "operational_guidelines_p13_0028",
+          "document": "Operational guidelines.pdf",
+          "page": 13,
+          "section": "2.  Primary Market Activities",
+          "score": 14.16
+        }
+      ],
+      "status": "PASS"
+    }
+  ]
+}

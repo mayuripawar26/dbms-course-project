@@ -117,9 +117,10 @@ def render_sidebar(retriever: GraphRetriever):
                 "🌐 Mode A: Public Assistant",
                 "👤 Mode B: Customer Portal",
                 "🛡️ Mode C: Compliance Officer",
+                "🧪 Mode D: Hypothetical Simulation",
             ],
             index=0,
-            help="Select access role: Public (open access), Customer (authenticated tenant), or Officer (full audit)."
+            help="Select access role: Public (open access), Customer (authenticated tenant), Officer (full audit), or Simulation (hypothetical transactions)."
         )
 
         st.divider()
@@ -171,10 +172,10 @@ def render_public_mode(retriever: GraphRetriever, top_k: int, doc_filter: str):
     suggested_chips = [
         "What is UPI fraud and what precautions should customers take?",
         "What is a money mule under RBI guidelines?",
-        "How does phishing lead to unauthorized bank transfers?",
+        "What enhanced due diligence measures apply to non-face-to-face customer onboarding under paragraph 44?",
+        "What due diligence, senior-management approval, and monitoring measures apply to PEPs under paragraph 45?",
         "What is customer liability for unauthorized electronic banking transactions?",
         "What are the KYC requirements for opening a bank account in India?",
-        "How does RBI differentiate between small accounts and regular savings accounts?",
     ]
 
     cols = st.columns(3)
@@ -209,6 +210,8 @@ def render_public_mode(retriever: GraphRetriever, top_k: int, doc_filter: str):
         tab_ans, tab_docs = st.tabs(["💡 Verified Advisory", "📚 Regulatory Passages & Citations"])
 
         with tab_ans:
+            if context.get("is_hypothetical_scenario"):
+                st.info("🧪 **Hypothetical Compliance Scenario Simulation**: Independent of stored customer facts. No private customer records evaluated or exposed.")
             st.markdown(context.get("answer", ""))
 
         with tab_docs:
@@ -544,6 +547,118 @@ def render_officer_mode(retriever: GraphRetriever, top_k: int, doc_filter: str):
             st.code(prompt, language="markdown")
 
 
+def render_simulation_mode(retriever: GraphRetriever, top_k: int, doc_filter: str):
+    """Mode D: Hypothetical Compliance Scenario Simulation (quarantined from actual customer database records)."""
+    st.markdown('<span class="badge-public">MODE D: HYPOTHETICAL AML SCENARIO SIMULATION</span>', unsafe_allow_html=True)
+    st.markdown("### 🧪 Hypothetical Scenario & Typology Simulator")
+    st.write(
+        "Evaluate hypothetical financial transactions, complex AML typologies, and emerging risk patterns "
+        "against indexed RBI KYC Directions, PMLA rules, and FATF recommendations. "
+        "**Guaranteed Zero Database Contamination**: Simulated facts remain strictly isolated from customer graph records."
+    )
+
+    st.markdown("**Select Benchmark Simulation Typology:**")
+    sim_chips = [
+        "A hypothetical small retail business receives INR 850000 from an overseas account and transfers most of the amount to three unrelated domestic accounts within 30 minutes. The source of funds is unclear. Identify potential AML risk indicators, explain what additional evidence is needed, retrieve applicable RBI KYC and PMLA-related evidence from the indexed knowledge base, and assess whether further investigation or consideration of suspicious transaction reporting may be appropriate. Clearly separate hypothetical facts from actual database records. Do not invent transactions, customers, citations, or legal obligations.",
+        "A hypothetical customer conducts multiple cash deposits of INR 49,000 across five branches on the same day to avoid PAN reporting thresholds. Analyze structuring indicators, applicable RBI cash transaction limits, and CTR/STR reporting obligations.",
+        "A newly incorporated entity receives high-volume wire transfers from a high-risk jurisdiction and immediately routes them to shell entities with no commercial justification. Assess countermeasures under FATF Recommendation 19 and RBI KYC directions.",
+        "A corporate customer requests transactions involving virtual digital assets (VDAs) through an offshore crypto exchange. Analyze regulatory obligations under PMLA reporting entities and FATF guidance."
+    ]
+
+    cols = st.columns(2)
+    for i, chip in enumerate(sim_chips):
+        col = cols[i % 2]
+        title = chip[:75] + "..."
+        if col.button(f"Typology {i+1}: {title}", key=f"chip_sim_{i}", use_container_width=True):
+            st.session_state["sim_query"] = chip
+
+    current_val = st.session_state.get(
+        "sim_query",
+        sim_chips[0]
+    )
+
+    query_input = st.text_area(
+        "Hypothetical Scenario Description / Typology Details:",
+        value=current_val,
+        height=120,
+        key="sim_text_input"
+    )
+
+    if st.button("⚡ Run Typology Simulation", type="primary", use_container_width=True):
+        if not query_input.strip():
+            st.warning("Please enter a scenario description.")
+            return
+
+        with st.spinner("Analyzing typology, retrieving regulatory provisions, and synthesizing assessment..."):
+            session = UserSession.public_session()
+            context = retriever.execute_unified_query(
+                query=query_input,
+                session=session,
+                top_k=top_k,
+                document_filter=doc_filter,
+            )
+
+        st.info("🔒 **Sandbox Active**: Executed in unauthenticated sandbox. Customer database was not queried; no live customer records were accessed, altered, or revealed.")
+
+        tab_ans, tab_breakdown, tab_evidence, tab_prompt = st.tabs([
+            "📋 Compliance Assessment",
+            "🔍 Risk Signal Breakdown",
+            "📚 Statutory Authorities & Evidence",
+            "📝 Formatted Prompt Payload"
+        ])
+
+        with tab_ans:
+            st.markdown(context.get("answer", ""))
+
+        with tab_breakdown:
+            scenario = context.get("scenario_analysis")
+            st.subheader("Automated Typology & Scenario Extraction")
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Hypothetical Status", "SIMULATION" if context.get("is_hypothetical_scenario") else "Standard")
+            col2.metric("Intent Detected", str(context.get("intent", "UNKNOWN")))
+            col3.metric("Database Access", "ZERO (Isolated)")
+
+            if scenario:
+                if hasattr(scenario, "calculations") and scenario.calculations:
+                    st.markdown("**Deterministic Compliance Calculations:**")
+                    for calc in scenario.calculations:
+                        st.markdown(f"- **{calc.metric_name}:** `{calc.result_str}`")
+                        st.caption(f"Formula: `{calc.formula}` | Status: `{calc.status}` | Notes: {calc.notes}")
+
+                if hasattr(scenario, "missing_information") and scenario.missing_information:
+                    st.markdown("**Identified Evidence Gaps & Missing Information:**")
+                    for gap in scenario.missing_information:
+                        st.markdown(f"- ⚠️ {gap}")
+
+                if hasattr(scenario, "identified_patterns") and scenario.identified_patterns:
+                    st.markdown("**Detected Typology Patterns:**")
+                    for pat in scenario.identified_patterns:
+                        st.markdown(f"- 🚩 `{pat}`")
+                if hasattr(scenario, "key_facts") and scenario.key_facts:
+                    st.markdown("**Extracted Scenario Facts:**")
+                    for k, v in scenario.key_facts.items():
+                        st.markdown(f"- **{k}**: {v}")
+
+        with tab_evidence:
+            docs = context.get("document_evidence", [])
+            st.subheader(f"Retrieved Regulatory Evidence ({len(docs)} Chunks)")
+            for idx, chunk in enumerate(docs, 1):
+                citation = chunk.get("citation", "Citation unavailable")
+                score = chunk.get("score", 0.0)
+                auth = chunk.get("authority_level", "INFORMATIONAL")
+                doc_type = chunk.get("document_type", "Banking Regulation")
+
+                with st.expander(f"[{idx}] {citation} (Score: {score:.2f})", expanded=True):
+                    st.markdown(f"<span class='badge-binding'>{auth}</span> &nbsp; **{doc_type}**", unsafe_allow_html=True)
+                    st.markdown(f"> {chunk.get('text', '')}")
+                    st.caption(f"Score Metric: {chunk.get('score_explanation')}")
+
+        with tab_prompt:
+            st.subheader("Configured System Prompt & Evidence Payload")
+            prompt = retriever.format_llm_prompt(context)
+            st.code(prompt, language="markdown")
+
+
 def main():
     retriever = get_retriever()
 
@@ -558,7 +673,10 @@ def main():
         render_customer_mode(retriever, top_k, doc_filter)
     elif mode == "🛡️ Mode C: Compliance Officer":
         render_officer_mode(retriever, top_k, doc_filter)
+    elif mode == "🧪 Mode D: Hypothetical Simulation":
+        render_simulation_mode(retriever, top_k, doc_filter)
 
 
 if __name__ == "__main__":
     main()
+

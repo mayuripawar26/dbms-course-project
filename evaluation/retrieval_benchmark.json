@@ -1,0 +1,207 @@
+{
+  "benchmark_name": "Banking Compliance & GraphRAG Retrieval Evaluation Suite",
+  "version": "2.0.0",
+  "description": "Standardized evaluation dataset across 15 regulatory, fraud, and graph compliance categories verified against actual indexed PDF chunks.",
+  "num_categories": 15,
+  "test_cases": [
+    {
+      "id": "TC01_CDD",
+      "category": "Customer Due Diligence (CDD)",
+      "query": "What customer identification and Customer Due Diligence (CDD) procedures apply when opening bank accounts?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [20, 25, 26],
+      "relevant_chunk_ids": ["kyc_p20_0021", "kyc_p25_0026"],
+      "graded_relevance": {
+        "kyc_p20_0021": 3,
+        "kyc_p25_0026": 3,
+        "kyc_p16_0017": 2
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC02_EDD",
+      "category": "Enhanced Due Diligence (EDD)",
+      "query": "Which transactions and customer categories require Enhanced Due Diligence (EDD) under RBI directions?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [45, 46, 47],
+      "relevant_chunk_ids": ["kyc_p45_0046_s44_intro", "kyc_p46_0047_s44_measures", "kyc_p47_0048_s45_measures", "kyc_p45_0046_s43"],
+      "graded_relevance": {
+        "kyc_p45_0046_s44_intro": 3,
+        "kyc_p46_0047_s44_measures": 3,
+        "kyc_p47_0048_s45_measures": 3,
+        "kyc_p45_0046_s43": 2
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC03_PARA44_NF2F",
+      "category": "Paragraph 44 Non-Face-to-Face Onboarding",
+      "query": "What EDD measures apply to non-face-to-face customer onboarding under paragraph 44?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [46],
+      "relevant_chunk_ids": ["kyc_p46_0047_s44_measures"],
+      "graded_relevance": {
+        "kyc_p46_0047_s44_measures": 3,
+        "kyc_p45_0046_s44_intro": 2,
+        "kyc_p45_0046_s43": 1
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC04_PARA45_PEP",
+      "category": "Paragraph 45 PEP Requirements",
+      "query": "What due diligence and monitoring measures apply to politically exposed persons under paragraph 45?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [47],
+      "relevant_chunk_ids": ["kyc_p47_0048_s45_measures"],
+      "graded_relevance": {
+        "kyc_p47_0048_s45_measures": 3,
+        "kyc_p46_0047_s45_intro": 2
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC05_MONEY_MULE",
+      "category": "Money Mule Accounts",
+      "query": "What instructions govern the operation of bank accounts and money mules under Section 68 of RBI directions?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [64],
+      "relevant_chunk_ids": ["kyc_p64_0068"],
+      "graded_relevance": {
+        "kyc_p64_0068": 3
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC06_BENEFICIAL_OWNERSHIP",
+      "category": "Beneficial Ownership",
+      "query": "What rules and threshold criteria determine identification of beneficial owner for companies and legal persons under paragraph 38?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [5, 6, 39, 40],
+      "relevant_chunk_ids": ["kyc_p39_0040_s2", "kyc_p5_0006", "kyc_p6_0007"],
+      "graded_relevance": {
+        "kyc_p39_0040_s2": 3,
+        "kyc_p5_0006": 3,
+        "kyc_p6_0007": 3
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC07_SUSPICIOUS_MONITORING",
+      "category": "Suspicious Transaction Monitoring",
+      "query": "What transaction monitoring and customer profiling mechanisms are required for banks to detect suspicious transactions?",
+      "expected_documents": ["kyc.pdf", "fatf-recommendations last updated june 2026.pdf"],
+      "expected_pages": [16, 42, 64, 20],
+      "relevant_chunk_ids": ["kyc_p16_0017", "kyc_p64_0068", "fatf-recommendations_last_updated_june_2026_p20_0025"],
+      "graded_relevance": {
+        "kyc_p64_0068": 3,
+        "kyc_p16_0017": 3,
+        "fatf-recommendations_last_updated_june_2026_p20_0025": 2
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC08_SUSPICIOUS_REPORTING",
+      "category": "Suspicious Transaction Reporting",
+      "query": "What are the regulatory requirements for reporting suspicious transactions to FIU-IND under Chapter VIII?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [54, 55, 64, 65],
+      "relevant_chunk_ids": ["kyc_p54_0057_s1", "kyc_p54_0057_s2", "kyc_p54_0057_s3", "kyc_p55_0058", "kyc_p64_0068"],
+      "graded_relevance": {
+        "kyc_p54_0057_s1": 3,
+        "kyc_p54_0057_s2": 3,
+        "kyc_p54_0057_s3": 3,
+        "kyc_p55_0058": 3,
+        "kyc_p64_0068": 2
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC09_FATF_REC19",
+      "category": "FATF Recommendation 19",
+      "query": "What counter-measures and enhanced due diligence are required for high-risk countries under FATF Recommendation 19?",
+      "expected_documents": ["fatf-recommendations last updated june 2026.pdf"],
+      "expected_pages": [20],
+      "relevant_chunk_ids": ["fatf-recommendations_last_updated_june_2026_p20_0025"],
+      "graded_relevance": {
+        "fatf-recommendations_last_updated_june_2026_p20_0025": 3
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC10_GENERAL_REGULATORY",
+      "category": "General Regulatory Questions",
+      "query": "What is customer liability for unauthorized electronic banking transactions under RBI directions?",
+      "expected_documents": ["0ANREPORT201718077745EC9A874DB38C991F580ED14242.pdf"],
+      "expected_pages": [139],
+      "relevant_chunk_ids": ["0anreport201718077745ec9a874db38c991f580ed14242_p139_0162"],
+      "graded_relevance": {
+        "0anreport201718077745ec9a874db38c991f580ed14242_p139_0162": 3
+      },
+      "requires_graph": false
+    },
+    {
+      "id": "TC11_CUSTOMER_SCENARIO",
+      "category": "Customer-Specific Transaction Scenarios",
+      "query": "An INR 85,00,000 remittance from a high-risk jurisdiction for Apex Global Consultancy (CUST_SYNTH_104) compared with declared profile",
+      "expected_documents": ["kyc.pdf", "fatf-recommendations last updated june 2026.pdf"],
+      "expected_pages": [20, 46, 47],
+      "relevant_chunk_ids": ["fatf-recommendations_last_updated_june_2026_p20_0025", "kyc_p46_0047_s44_measures", "kyc_p47_0048_s45_measures"],
+      "graded_relevance": {
+        "fatf-recommendations_last_updated_june_2026_p20_0025": 3,
+        "kyc_p46_0047_s44_measures": 2
+      },
+      "requires_graph": true,
+      "target_customer_id": "CUST_SYNTH_104"
+    },
+    {
+      "id": "TC12_MULTI_HOP",
+      "category": "Multi-Hop Graph & Document Evidence",
+      "query": "Circular fund flows between linked current accounts for Vikas Trading Syndicate (CUST_SYNTH_106)",
+      "expected_documents": ["kyc.pdf", "fatf-recommendations last updated june 2026.pdf"],
+      "expected_pages": [20, 64],
+      "relevant_chunk_ids": ["fatf-recommendations_last_updated_june_2026_p20_0025", "kyc_p64_0068"],
+      "graded_relevance": {
+        "fatf-recommendations_last_updated_june_2026_p20_0025": 3,
+        "kyc_p64_0068": 3
+      },
+      "requires_graph": true,
+      "target_customer_id": "CUST_SYNTH_106"
+    },
+    {
+      "id": "TC13_AMBIGUOUS_CUSTOMER",
+      "category": "Ambiguous Customer Requests",
+      "query": "Show me account transactions and compliance flags for customer Sharma",
+      "expected_documents": [],
+      "expected_pages": [],
+      "relevant_chunk_ids": [],
+      "graded_relevance": {},
+      "requires_graph": true,
+      "expected_behavior": "NEEDS_CLARIFICATION"
+    },
+    {
+      "id": "TC14_INSUFFICIENT_EVIDENCE",
+      "category": "Queries with Insufficient Evidence",
+      "query": "What are the mandatory capital and customer verification requirements for crypto-asset service providers under EU MiCA regulation?",
+      "expected_documents": [],
+      "expected_pages": [],
+      "relevant_chunk_ids": [],
+      "graded_relevance": {},
+      "requires_graph": false,
+      "expected_behavior": "REGULATION_ABSENT_SCOPE_LIMITATION"
+    },
+    {
+      "id": "TC15_PARAPHRASED_QUERY",
+      "category": "Paraphrased Questions (Different Phrasing)",
+      "query": "What extra security checks and verification must a bank perform when a person registers an account remotely over the internet?",
+      "expected_documents": ["kyc.pdf"],
+      "expected_pages": [46],
+      "relevant_chunk_ids": ["kyc_p46_0047_s44_measures"],
+      "graded_relevance": {
+        "kyc_p46_0047_s44_measures": 3,
+        "kyc_p45_0046_s44_intro": 2
+      },
+      "requires_graph": false
+    }
+  ]
+}
